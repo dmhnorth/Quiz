@@ -1,4 +1,4 @@
-package Assets;
+package QuizServer.Assets;
 
 import java.io.Serializable;
 
@@ -11,32 +11,39 @@ public class Quiz implements Serializable{
     private String highScoreHolder;
     private boolean quizLock;
 
-
-
-
-    public Quiz(Question[] questions, String quizName){
-        //set a quizId here
-        //load the current highScore from persistent data-store
-        //load the current highScoreHolder from persistent data-store
-
-        this.quizName = quizName;
-        this.questions = questions;
+    public void setQuizName(String quizName){
     }
 
     public String getQuizName(){
         return quizName;
     }
 
+    public void setQuizId(int id){
+        this.quizId = id;
+    }
+
     public int getQuizId(){
         return quizId;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
     }
 
     public int getHighScore(){
         return highScore;
     }
 
+    public void setHighScoreHolder(String highScoreHolder){
+        this.highScoreHolder = highScoreHolder;
+    }
+
     public String getHighScoreHolder(){
         return highScoreHolder;
+    }
+
+    public void setQuestions(Question[] questions){
+        this.questions = questions;
     }
 
     public Question[] getQuestions(){

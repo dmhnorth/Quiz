@@ -1,4 +1,4 @@
-package Assets;
+package QuizServer.Assets;
 
 /**
  * Created by Dave on 12/03/2014.
