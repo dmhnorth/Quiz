@@ -7,6 +7,8 @@ import QuizServer.Assets.Question;
  * This class is used to create the on screen terminal interaction
  * that a user requires to create a quiz.
  *
+ * It then uses a QuizFactory to ensure the creation of a quiz is done correctly.
+ *
  * It also builds the Quiz Assets required to create a
  * Quiz on the server side (a QuestionSet, an AnswerSet)
  */
@@ -26,10 +28,10 @@ public interface QuizBuilder {
      * The user inputs a question and answer that
      * is added to the question and answer set via the createAQuestion method
      */
-    public void createQuestion();
+    public void createQuestionAndAnswer();
 
     /**
-     * Used to package a question and add it to the QuestionSet
+     * Used by create QuestionAndAnswer() to package a question and add it to the QuestionSet
      */
     public Question packageQuestion(String[] ansChoices, int[] correctAnswer);
 
@@ -41,7 +43,7 @@ public interface QuizBuilder {
 
     /**
      *
-     * @return the int array of correct questions
+     * @return the Array of correct answers the user generated
      */
     public int[] returnCorrectAnswers();
 }
