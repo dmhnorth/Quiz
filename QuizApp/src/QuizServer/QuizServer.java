@@ -15,9 +15,10 @@ public interface QuizServer {
 
 
     /**
-     * Calls the QuizBuilder to initiate the building of a quiz
+     * Calls the QuizBuilder to initiate the building of a quiz for a user
+     * @return the quiz the user has created
      */
-    public userMakeAQuiz();
+    public Quiz userMakeAQuiz();
 
 
     /**
@@ -31,15 +32,7 @@ public interface QuizServer {
      */
     public int createQuizAndReturnId(String[] questions, int[] answers);
 
-    /**
-     * Used to actually create a quiz in the given factory
-     */
-    public Quiz createQuiz();
 
-    /**
-     * Used to create a question
-     */
-    public Question createQuestion(String[] ansChoices, int[] correctAnswer);
 
     /**
      * For adding a quiz to the QuizContainer

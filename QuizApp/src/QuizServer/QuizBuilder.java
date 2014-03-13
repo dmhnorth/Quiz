@@ -23,10 +23,15 @@ public interface QuizBuilder {
     public void createQuizName();
 
     /**
-     * The user creates a question and answer that
-     * is added to the question and answer set
+     * The user inputs a question and answer that
+     * is added to the question and answer set via the createAQuestion method
      */
-    public void createAQuestion();
+    public void createQuestion();
+
+    /**
+     * Used to package a question and add it to the QuestionSet
+     */
+    public Question packageQuestion(String[] ansChoices, int[] correctAnswer);
 
     /**
      *
