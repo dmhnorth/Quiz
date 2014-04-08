@@ -1,8 +1,10 @@
 package SetupClient;
 
 /**
- * Used for users to connect to a server and create a quiz
- * It will require a userName, a name for the quiz, and questions
+ * For users who connect to a QuizServer and enable users
+ * to carry out the operations associated with the setting up
+ * and managing of quizzes within the QuizServer
+ *
  */
-public interface SetupClient {
+public interface SetupClient{   //needs to implement QuizServer methods
 }

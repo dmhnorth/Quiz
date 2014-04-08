@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66abc648-2dbc-48c8-9010-b79165c29b3f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizModelImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizBuilder.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizContainer.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClientLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizFactory.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServer.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClient.java" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncher.java" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncher.java" />
     </list>
     <ignored path="Quiz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,48 +72,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MathServer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workspace/RMIServerSide/src/MathServer.java">
+      <file leaf-file-name="SetupClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuizServer.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20891365" vertical-offset="0" max-vertical-offset="718">
-              <caret line="10" column="90" selection-start-line="10" selection-start-column="90" selection-end-line="10" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MathClient.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workspace/RMIClientSide/src/MathClient.java">
+      <file leaf-file-name="QuizServer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Quiz.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-              <folding>
-                <element signature="method#setQuizName#0;class#Quiz#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,9 +95,21 @@
       <file leaf-file-name="QuizController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1050">
-              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1050">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Quiz.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.52517986" vertical-offset="160" max-vertical-offset="855">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding>
+                <element signature="method#setQuizName#0;class#Quiz#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,6 +122,36 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SetupClientLauncher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerClientLauncher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClientLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -192,11 +209,9 @@
         <option value="$PROJECT_DIR$/Quiz/src/Assets/Question.java" />
         <option value="$PROJECT_DIR$/Quiz/src/SetupClient/SetupClientLauncher.java" />
         <option value="$PROJECT_DIR$/Quiz/src/SetupClient/SetupClient.java" />
-        <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClient.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizContainer.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizFactoryImpl.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServerImpl.java" />
-        <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncher.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/Assets/Quiz.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizBuilder.java" />
         <option value="$PROJECT_DIR$/ObserverExample/src/EventSource.java" />
@@ -211,11 +226,15 @@
         <option value="$PROJECT_DIR$/../../../workspace/RMIClientSide/src/MathClient.java" />
         <option value="$PROJECT_DIR$/../../../workspace/RMIServerSide/src/MathServer.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizFactory.java" />
-        <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java" />
-        <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizModel.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizModelImpl.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServer.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncher.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClientLauncher.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClient.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClient.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java" />
       </list>
     </option>
   </component>
@@ -356,6 +375,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlayerClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -757,22 +780,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="825">
-          <caret line="30" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1050">
-          <caret line="26" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Question.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="330">
@@ -971,14 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="210">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ObserverExample/src/org/wikipedia/obs/EventSource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
@@ -1013,14 +1012,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15090543" vertical-offset="0" max-vertical-offset="497">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24144869" vertical-offset="0" max-vertical-offset="497">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1115,24 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1050">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="method#setQuizName#0;class#Quiz#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
@@ -1152,11 +1125,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1050">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20891365" vertical-offset="0" max-vertical-offset="718">
-          <caret line="10" column="90" selection-start-line="10" selection-start-column="90" selection-end-line="10" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClientLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QuizApp/src/PlayerClient/PlayerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52517986" vertical-offset="160" max-vertical-offset="855">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="method#setQuizName#0;class#Quiz#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

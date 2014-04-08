@@ -56,10 +56,6 @@ public class Quiz implements Serializable{
         return highScoreHolder;
     }
 
-    public void setQuestions(Question[] questions){
-        this.questions = questions;
-    }
-
     public Question[] getQuestions(){
         return questions;
     }
