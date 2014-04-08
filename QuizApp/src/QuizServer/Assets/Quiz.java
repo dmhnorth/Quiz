@@ -21,19 +21,12 @@ public class Quiz implements Serializable{
 
         this.highScore = 0;
         this.highScoreHolder = "No one yet!";
-        this.quizLock = true;
+        this.quizLock = false;
 
-    }
-
-    public void setQuizName(String quizName){
     }
 
     public String getQuizName(){
         return quizName;
-    }
-
-    public void setQuizId(int id){
-        this.quizId = id;
     }
 
     public int getQuizId(){
