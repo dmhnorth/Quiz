@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ObserverExample/ObserverExample.iml" filepath="$PROJECT_DIR$/ObserverExample/ObserverExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QuizApp/Quiz.iml" filepath="$PROJECT_DIR$/QuizApp/Quiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../workspace/RMIClientSide/RMIClientSide.iml" filepath="$PROJECT_DIR$/../../../workspace/RMIClientSide/RMIClientSide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../workspace/RMIServerSide/RMIServerSide.iml" filepath="$PROJECT_DIR$/../../../workspace/RMIServerSide/RMIServerSide.iml" />
+    </modules>
+  </component>
+</project>
+

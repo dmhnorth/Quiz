@@ -7,9 +7,23 @@ public class Quiz implements Serializable{
     private String quizName;
     private int quizId;
     private Question[] questions;
+    private int[] answers;
     private int highScore;
     private String highScoreHolder;
     private boolean quizLock;
+
+
+    public Quiz(String quizName, Question[] questions, int[] answers, int generatedId){
+        this.quizName = quizName;
+        this.questions = questions;
+        this.answers = answers;
+        this.quizId = generatedId;
+
+        this.highScore = 0;
+        this.highScoreHolder = "No one yet!";
+        this.quizLock = true;
+
+    }
 
     public void setQuizName(String quizName){
     }
