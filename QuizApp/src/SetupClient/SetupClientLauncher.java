@@ -1,8 +1,8 @@
 package SetupClient;
 
 /**
- * This is used for launching a SetupClient
- * and connecting them to a QuizServer
+ * This is used for connecting a SetupClientController
+ * to a Quiz Server
  */
 public interface SetupClientLauncher {
 }

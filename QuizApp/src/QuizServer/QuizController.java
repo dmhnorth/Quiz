@@ -4,18 +4,16 @@ package QuizServer;
 import QuizServer.Assets.Question;
 
 /**
- * This class is used to create the on screen terminal interaction
- * that a user requires to create a quiz.
  *
- * It manipulates the QuizModel by taking inputs from a user.
+ * It manipulates the QuizServerModel by taking inputs from a user.
  *
- * It then uses a QuizFactory to ensure the creation of a quiz is done correctly.
+ * It uses a QuizAssetFactory to ensure the creation of a quiz and questions is done correctly.
  *
  * It also builds the Quiz Assets required to create a
  * Quiz on the server side (a QuestionSet, an AnswerSet)
 
  *
- * It should be constructed with a QuizModel, QuizFactory and a QuizView.
+ * It should be constructed with a QuizServerModel, QuizAssetFactory and a QuizView.
  *
  * Variables to consider, a QuestionSet, AnswerSet
  */

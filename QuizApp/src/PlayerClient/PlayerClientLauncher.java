@@ -1,8 +1,8 @@
 package PlayerClient;
 
 /**
- * This is used for launching a PlayerClient
- * and connecting them to a QuizServer
+ * This is used connecting a PlayerClientController
+ * to a Quiz Server
  */
 public interface PlayerClientLauncher {
 }
