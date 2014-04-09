@@ -19,9 +19,9 @@ public class Quiz implements Serializable{
         this.answers = answers;
         this.quizId = generatedId;
 
-        this.highScore = 0;
-        this.highScoreHolder = "No one yet!";
-        this.quizLock = false;
+        setHighScore(0);
+        setHighScoreHolder("No one yet!");
+        unlockQuiz();
 
     }
 

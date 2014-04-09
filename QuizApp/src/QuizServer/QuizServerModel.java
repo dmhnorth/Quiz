@@ -8,12 +8,22 @@ package QuizServer;
  */
 public interface QuizServerModel {
 
-    /**
-     * Generates a new id number for the quiz
-     * @return id number generated from persistent data
-     */
-    public int generateId();
 
+
+    /**
+     * nested class used for generating ids unique to this QuizServerModel
+     *
+     * requires a static initial variable to exist
+     */
+    public interface idGenerator{
+
+        /**
+         * Generates a new id number unique each time
+         * @return id number generated from persistent data
+         */
+        public int generateNewId();
+
+    };
 
 
 

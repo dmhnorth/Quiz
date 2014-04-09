@@ -1,33 +1,41 @@
 package QuizServer;
 
+import java.rmi.RemoteException;
+
 /**
  *
- * Launches a Server
- *
- * Sets up the QuizController, QuizAssetFactory and loads QuizServerModel that are to be used
- * for the session.
- *
- * Used to take interactions from the User form either the SetupClientController or the PlayerClientController
- *
- * and push them to the QuizController to
- * carry out it's respective tasks.
- *
- *
+ * Has a main and Launches a Server
  *
  *
  */
-public interface QuizServerLauncher {
+public interface QuizServerLauncher{
+
 
     /**
-     * to create a quiz and then calls the method to store it in the QuizServerModel,
-     * finally returning a brand new quiz id
      *
-     * @return the new quiz id int
+     * first looks up the Remote service, telling us if it can't find the server
+     *
+     * instantiates a QuizServerModel (First by trying to load an existing one)
+     *
+     * instantiates a QuizServerController and links it to the Model
+     *
+     * instantiates a QuizAssetFactory
+     *
+     * binds the QuizServerController to the registry for a client to connect
+     *
+     *
      */
-    public int createQuizAndReturnId();
+    public void launch() throws RemoteException;
 
     /**
-     * For adding a quiz to a QuizServerModel
+     * checks if there is a Quiz Model present on this server, if so, it loads and returns it
+     * if not, it
+     *
+     * @return QuizServerModel
+     * @return null if no model exists
      */
-    public void addQuizToDataStore(QuizServerModel qm);
+    public void tryLoadQuizServerModel(QuizServerModel qsm);
 }
+
+
+

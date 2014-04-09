@@ -1,5 +1,6 @@
 package PlayerClient;
 
+import QuizServer.Assets.Question;
 import QuizServer.Assets.Quiz;
 
 /**
@@ -15,18 +16,18 @@ public interface PlayerClientController { //needs to implement QuizServerControl
 
 
     /**
-     * Launches the user interface of the
+     * Launches the user interface of the PlayerClientController
      */
-    public void launch();
+    public void start();
 
     /**
      * retrieves the quizzes on the server,
-     * their ids and current Highscore and current HighScoreHolder
+     * prints their ids and current Highscore and current HighScoreHolder
      */
     public void printListOfQuizzesOnServer();
 
     /**
-     * retrieves a quiz on the server and allows user to play
+     * retrieves a quiz on the server with the given id and allows user to play
      * @param id the id number of the quiz user wants to play
      */
     public void playQuiz(int id);
@@ -36,6 +37,7 @@ public interface PlayerClientController { //needs to implement QuizServerControl
      * quiz id, score, and high score holder
      */
     public void submitScore(int quizId, int score, String playerName);
+
 
 
 }
