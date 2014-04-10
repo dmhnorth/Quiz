@@ -24,19 +24,19 @@ public class SetupClientViewImpl implements SetupClientView {
     }
 
     public void nameOfAuthor() {
-        System.out.println("Firstly, what is your name?\n");
+        System.out.println("Firstly, what is your name?");
     }
 
     public void nameOfQuiz() {
-        System.out.println("So what would you like to call your quiz?\n");
+        System.out.println("So what would you like to call your quiz?");
     }
 
     public void createAQuestion() {
-        System.out.println("Lets create a question!\nFirst, we'll need a Question, then three optional answers, and a number indicating the correct answer!\nPlease type the question you would like to ask:");
+        System.out.println("Lets create a question!\nWe need a Question, three optional answers, and a number indicating the correct answer!\nPlease type the question you would like to ask:");
     }
 
     public void createAnAnswer() {
-        System.out.println("Enter an answer option:\n");
+        System.out.println("Enter an answer option:");
 
     }
 
@@ -45,13 +45,14 @@ public class SetupClientViewImpl implements SetupClientView {
     }
 
     public void isThisQuestionCorrect() {
-        System.out.println("Is this correct?\n(1)Yes\n(2)No\n");
+        System.out.println("Is the question alright?\n(1)Yes\n(2)No");
     }
 
     public void printQuestion(Question qn) {
         System.out.println("For the question: " + "'" + qn.getQuestion() + "'");
 
-        for(int x = 0;x< qn.getAnswersChoices().length;x++) {
+        System.out.println("You gave the options:");
+        for(int x = 0;x < qn.getAnswersChoices().length;x++) {
             System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
             }
     }
@@ -75,6 +76,11 @@ public class SetupClientViewImpl implements SetupClientView {
 
     public void howManyQuestions() {
         System.out.println("How many questions would you like to create for this quiz?");
+    }
+
+    @Override
+    public void questionsHaveBeenSet() {
+        System.out.println("The Questions have been set.");
     }
 
     public void printQuizDetails(Quiz quiz) {

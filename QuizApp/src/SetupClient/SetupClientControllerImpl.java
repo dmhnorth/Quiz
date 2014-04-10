@@ -46,7 +46,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
             switch (choice) {
                 case 1:
-//                    System.out.println("Choice to create quiz:");
+                    System.out.println("Choice to create quiz:");
                     createAQuiz();
                     break;
                 case 2:
@@ -56,10 +56,12 @@ public class SetupClientControllerImpl implements SetupClientController {
                 default:
                     view.tryAgain();
                     chooseTask();
+                    break;
                 }
         } catch (Exception e) {
-            view.inputError();
-            chooseTask();
+            System.out.println("We've exited the menu/finished the program.");
+//            view.inputError();
+//            chooseTask();
         }
     }
 
@@ -77,12 +79,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 
         quizAuthor = nameOfAuthor();
-
-
         quizName = nameOfQuiz();
-
-        view.createQuestions();
-
         questions = createAQuestionSet();
 
         view.printQuizDetails(quiz);
@@ -120,7 +117,7 @@ public class SetupClientControllerImpl implements SetupClientController {
             quizName = sc.nextLine();
         } catch (Exception e) {
             view.inputError();
-            nameOfAuthor();
+            nameOfQuiz();
         }
         view.thatsDone();
         return quizName;
@@ -130,59 +127,74 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         Question result = null;
         Question tempQn = null;
-        String question = null;
+
+
+
 
         String[] answersChoices = new String[3];
         int correctAns = 0;
 
 
         view.createAQuestion();
+        String question = sc.nextLine();
+
+        System.out.println("you entered: " + question);
         view.thatsDone();
 
 
-        view.createAnAnswer();
-        question = sc.nextLine();
+
+        for(int x = 0; x < answersChoices.length; x++) {
+
+            view.createAnAnswer();
+            answersChoices[x] = sc.nextLine();
+        }
+        view.thatsDone();
+
 
         view.createACorrectAnswer();
-        correctAns = sc.nextInt();
+        correctAns = Integer.parseInt(sc.nextLine());
 
+        tempQn = new Question(question, answersChoices, correctAns);
 
-        view.isThisQuestionCorrect();
-
+//check if User happy with the question
         view.printQuestion(tempQn);
         view.printQuestionAnswer(tempQn);
 
-        int choice = sc.nextInt();
-        switch (choice){
+        view.isThisQuestionCorrect();
+        switch (Integer.parseInt(sc.nextLine())){
             case 1:
-                result.setQuestion(tempQn.getQuestion());
-                result.setAnswersChoices(tempQn.getAnswersChoices());
-                result.setCorrectAns(tempQn.getCorrectAns());
-                break;
+                result = new Question(question, answersChoices, correctAns);
+                System.out.println("Question has been set");
+                return result;
 
             case 2:
                 view.tryAgain();
                 result = createAQuestion();
-                break;
+                System.out.println("No? alright let's do it again...");
+                return result;
 
             default:
-                view.inputError();
-                result = tempQn;
-
+                System.out.println("Alright, I'll assume that was correct.");
+                result = new Question(question, answersChoices, correctAns);
+                return result;
         }
-        view.thatsDone();
-        return result;
+
     }
 
     public Question[] createAQuestionSet() {
         Question[] result;
 
-
+        view.createQuestions();
         view.howManyQuestions();
-        result = new Question[sc.nextInt()];
-        
 
-        return new Question[0];
+        result = new Question[Integer.parseInt(sc.nextLine())];
+
+        for(int x = 0;x < result.length; x++){
+            result[x] = createAQuestion();
+        }
+
+        view.questionsHaveBeenSet();
+        return result;
     }
 
     public void printActiveQuizzes() {

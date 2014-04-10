@@ -98,4 +98,9 @@ public interface SetupClientView {
      * Asks for the number of questions a user would like for this quiz
      */
     void howManyQuestions();
+
+    /**
+     * states that all the questions have been set
+     */
+    void questionsHaveBeenSet();
 }
