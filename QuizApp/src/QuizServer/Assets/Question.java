@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 public class Question implements Serializable {
 
+
+
     private String question;
     private String[] answersChoices;
     private int correctAns;
@@ -17,12 +19,25 @@ public class Question implements Serializable {
         this.correctAns = correctAns;
     }
 
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
     public String getQuestion() {
         return question;
     }
 
+    public void setAnswersChoices(String[] answersChoices) {
+        this.answersChoices = answersChoices;
+    }
+
     public String[] getAnswersChoices() {
         return answersChoices;
+    }
+
+    public void setCorrectAns(int correctAns) {
+        this.correctAns = correctAns;
     }
 
     public int getCorrectAns() {

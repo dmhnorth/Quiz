@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Quiz implements Serializable{
 
+    private String quizAuthor;
     private String quizName;
     private int quizId;
     private Question[] questions;
@@ -13,7 +14,8 @@ public class Quiz implements Serializable{
     private boolean quizLock;
 
 
-    public Quiz(String quizName, Question[] questions, int[] answers, int generatedId){
+    public Quiz(String quizAuthor, String quizName, Question[] questions, int[] answers, int generatedId){
+        this.quizAuthor = quizAuthor;
         this.quizName = quizName;
         this.questions = questions;
         this.answers = answers;

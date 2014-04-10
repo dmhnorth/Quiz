@@ -33,25 +33,6 @@ public interface QuizServerController {
     public int createQuizAndReturnId();
 
 
-
-    /**
-     * The user declares their quiz's name
-     */
-    public void setQuizName();
-
-    /**
-     * The user inputs a question and answer that
-     * is added to the question and answer set via the createAQuestion method
-     */
-    public void createQuestionAndAnswer();
-
-    /**
-     * Used by createQuestionAndAnswer() to package a question
-     * and add it to the QuestionSet
-     * @return Question
-     */
-    public Question packQuestion(String[] ansChoices, int[] correctAnswer);
-
 // Model interactions
 
     /**

@@ -1,5 +1,8 @@
 package SetupClient;
 
+import QuizServer.Assets.Question;
+import QuizServer.Assets.Quiz;
+
 public class SetupClientViewImpl implements SetupClientView {
 
     public void displayWelcomeMessage() {
@@ -12,5 +15,53 @@ public class SetupClientViewImpl implements SetupClientView {
 
     public void inputError() {
         System.out.println("Sorry, I didn't understand that, please try again...");
+    }
+
+
+    public void createAQuiz() {
+        System.out.println("Let's create a quiz.\nWe will need to create a few things\nA Quiz name, some Questions, and you'll also need to let us know the correct answers!");
+
+    }
+
+    public void nameOfAuthor() {
+        System.out.println("Firstly, what is your name?\n");
+    }
+
+    public void nameOfQuiz() {
+        System.out.println("So what would you like to call your quiz?\n");
+    }
+
+    public void createAQuestion() {
+        System.out.println("Lets create a question!\nFirst, we'll need a Question, then three optional answers, and a number indicating the correct answer!\nPlease type the question you would like to ask:");
+    }
+
+    public void createAnAnswer() {
+        System.out.println("Enter an answer option:\n");
+
+    }
+
+    public void createACorrectAnswer() {
+        System.out.println("Now enter the selection number of the correct answer");
+    }
+
+    public void isThisQuestionCorrect() {
+        System.out.println("Is this correct?\n");
+    }
+
+    public void printQuestion(Question qn) {
+        System.out.println("For the question: " + "'" + qn.getQuestion() + "'");
+
+        for(int x = 0;x< qn.getAnswersChoices().length;x++) {
+            System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
+            }
+    };
+
+    public void printQuestionAnswer(Question qn) {
+        System.out.println("The correct answer is: " + qn.getCorrectAns());
+    }
+
+
+    public void printQuizDetails(Quiz quiz) {
+
     }
 }

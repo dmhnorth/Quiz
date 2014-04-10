@@ -1,5 +1,7 @@
 package SetupClient;
 
+import QuizServer.Assets.Question;
+
 /**
  * For users who connect to a Quiz Server and enable users
  * to carry out the operations associated with the setting up
@@ -12,20 +14,39 @@ public interface SetupClientController {   //needs to use QuizServerController m
     /**
      * Starts the setup client program
      */
-    public void start();
+    void start();
 
     /**
      * A user chooses what task they would like to carry out next
      */
-    public void chooseTask();
+    void chooseTask();
 
     /**
      * Used to run the user through creating a quiz
      */
-    public void createAQuiz();
+    void createAQuiz();
+
+    /**
+     * Get input for a quiz author name
+     * @return String
+     */
+    String nameOfAuthor();
+
+    /**
+     * Get input for a quiz name
+     * @return String
+     */
+    String nameOfQuiz();
+
+    /**
+     * Used to create a single question
+     * @return Question created
+     */
+    Question createAQuestion();
+
 
     /**
      * PrettyPrint the quizzes on the current server the SetupClientController is connected to
      */
-    public void printActiveQuizzes();
+    void printActiveQuizzes();
 }

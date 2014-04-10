@@ -13,8 +13,7 @@ import java.rmi.registry.Registry;
 public class SetupClientLauncherImpl implements SetupClientLauncher {
 
 
-    private static final String SERVER = "//127.0.0.1:1098/quiz";
-    private QuizServerController qServerController;
+    private QuizServerController quizServerController;
 
     public static void main(String[] args) {
 
@@ -29,13 +28,12 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
             System.setSecurityManager(new RMISecurityManager());
             Registry registry = LocateRegistry.getRegistry(1098);
 
-            QuizServerController qServerController = (QuizServerController) registry.lookup("qServerController");
-
-
+            quizServerController = (QuizServerController) registry.lookup("quizServerController");
 
         } catch (Exception e) {
-            System.out.println("Could not connect to 'QuizServerController'. Exception: " + e);
+            System.out.println("Could not connect to a 'quizServerController' object on the server side. Exception: " + e);
         }
+
 
         //MOVE THIS LOT INTO THE TRY BLOCK ABOVE.
         //Starts the SetupClientController once the launcher has found the link
@@ -43,7 +41,7 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
         try {
             SetupClientView setupClientView = new SetupClientViewImpl();
 
-            SetupClientController setupClientController = new SetupClientControllerImpl(qServerController, setupClientView);
+            SetupClientController setupClientController = new SetupClientControllerImpl(quizServerController, setupClientView);
 
             setupClientController.start();
 
