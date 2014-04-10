@@ -103,4 +103,9 @@ public interface SetupClientView {
      * states that all the questions have been set
      */
     void questionsHaveBeenSet();
+
+    /**
+     * Notifying a question has been set
+     */
+    void questionHasBeenSet();
 }

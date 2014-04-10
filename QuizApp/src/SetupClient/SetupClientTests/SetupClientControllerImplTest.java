@@ -20,7 +20,7 @@ public class SetupClientControllerImplTest {
 
     QuizServerController quizServerController;
 
-    Scanner sc;
+    Scanner sc = new Scanner(System.in);
 
 
     @Before
@@ -28,7 +28,7 @@ public class SetupClientControllerImplTest {
         quizServerController = new QuizServerControllerImpl();
         setupClientView = new SetupClientViewImpl();
         setupClientController = new SetupClientControllerImpl(quizServerController, setupClientView);
-        sc  = new Scanner(System.in);
+
 
 
         String question = "what is the correct answer?";

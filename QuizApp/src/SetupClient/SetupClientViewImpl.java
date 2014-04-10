@@ -78,7 +78,10 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("How many questions would you like to create for this quiz?");
     }
 
-    @Override
+    public void questionHasBeenSet() {
+        System.out.println("Question has been set.");
+    }
+
     public void questionsHaveBeenSet() {
         System.out.println("The Questions have been set.");
     }

@@ -126,60 +126,85 @@ public class SetupClientControllerImpl implements SetupClientController {
     public Question createAQuestion(){
 
         Question result = null;
-        Question tempQn = null;
-
-
-
 
         String[] answersChoices = new String[3];
-        int correctAns = 0;
+        int correctAns;
+
+//create the question asked
+        String question = question();
 
 
-        view.createAQuestion();
-        String question = sc.nextLine();
-
-        System.out.println("you entered: " + question);
         view.thatsDone();
 
-
-
+//create the answer options
         for(int x = 0; x < answersChoices.length; x++) {
-
+            System.out.print((x + 1) + ": ");
             view.createAnAnswer();
             answersChoices[x] = sc.nextLine();
         }
         view.thatsDone();
 
 
-        view.createACorrectAnswer();
-        correctAns = Integer.parseInt(sc.nextLine());
+//Choose a correct answer
+        correctAns = correctAns();
 
-        tempQn = new Question(question, answersChoices, correctAns);
+        result = new Question(question, answersChoices, correctAns);
+
 
 //check if User happy with the question
-        view.printQuestion(tempQn);
-        view.printQuestionAnswer(tempQn);
+        view.printQuestion(result);
+        view.printQuestionAnswer(result);
 
         view.isThisQuestionCorrect();
         switch (Integer.parseInt(sc.nextLine())){
             case 1:
                 result = new Question(question, answersChoices, correctAns);
-                System.out.println("Question has been set");
+                view.questionHasBeenSet();
                 return result;
 
             case 2:
                 view.tryAgain();
                 result = createAQuestion();
-                System.out.println("No? alright let's do it again...");
                 return result;
 
             default:
-                System.out.println("Alright, I'll assume that was correct.");
+                view.questionHasBeenSet();
                 result = new Question(question, answersChoices, correctAns);
                 return result;
         }
 
+  }
+
+    private String question() {
+
+        view.createAQuestion();
+        String question = sc.nextLine();
+
+        if (question.equals(null) || question.equals("")) {
+            return question();
+        } else {
+            System.out.println("you entered: " + question);
+            return question;
+        }
     }
+
+    private int correctAns() {
+
+        int result;
+
+        view.createACorrectAnswer();
+        try {
+            result = Integer.parseInt(sc.nextLine());
+            if (!(result > 0 && result < 4)) {
+                return correctAns();
+            }
+        } catch (Exception e) {
+            return correctAns();
+        }
+        return result;
+    }
+
+
 
     public Question[] createAQuestionSet() {
         Question[] result;
