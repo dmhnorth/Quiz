@@ -46,11 +46,11 @@ public class SetupClientControllerImpl implements SetupClientController {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Choice to create quiz:");
+                    System.out.println("Choice to create quiz and get an ID back: ");
                     createAQuiz();
                     break;
                 case 2:
-                    System.out.println("Choice to print Quizzes:");
+                    System.out.println("Choice to print Quizzes on this server: ");
                     printActiveQuizzes();
                     break;
                 default:
@@ -67,7 +67,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 
     //TODO separate all the methods in here into separate ones and add the retry section to them!
-    public void createAQuiz() {
+    public int createAQuiz() {
         Quiz quiz = null;
         String quizAuthor;
         String quizName;
@@ -77,18 +77,38 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         view.createAQuiz();
 
-
         quizAuthor = nameOfAuthor();
         quizName = nameOfQuiz();
         questions = createAQuestionSet();
+        answers = generateAnswerArray(questions);
+        quizId = 1; //sController.generateIdUniqueOnThisModel();
 
+        quiz = new Quiz(quizAuthor, quizName, questions, answers, quizId);
+
+        view.doYouWantToPublishThisQuiz();
         view.printQuizDetails(quiz);
+        view.isThisCorrect();
 
+        switch (Integer.parseInt(sc.nextLine())) {
+            case 1:
+                view.uploadingQuiz(quiz);
+                return sController.addQuizAndReturnId(quiz);
+            case 2:
 
-
-
+            default:
+        }
+        return quizId;
     }
 
+    private int[] generateAnswerArray(Question[] questions) {
+
+        int[] result = new int[questions.length];
+        for(int x = 0; x < questions.length; x++){
+            result[x] = questions[x].getCorrectAns();
+        }
+//        System.out.println("Question array generated.");
+        return result;
+    }
 
 
     //createAQuiz user input methods
@@ -127,26 +147,20 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         Question result = null;
 
-        String[] answersChoices = new String[3];
-        int correctAns;
+
 
 //create the question asked
         String question = question();
-
-
         view.thatsDone();
 
 //create the answer options
-        for(int x = 0; x < answersChoices.length; x++) {
-            System.out.print((x + 1) + ": ");
-            view.createAnAnswer();
-            answersChoices[x] = sc.nextLine();
-        }
+        String[] answersChoices = answersChoices();
+
+
         view.thatsDone();
 
-
 //Choose a correct answer
-        correctAns = correctAns();
+        int correctAns = correctAns();
 
         result = new Question(question, answersChoices, correctAns);
 
@@ -155,7 +169,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         view.printQuestion(result);
         view.printQuestionAnswer(result);
 
-        view.isThisQuestionCorrect();
+        view.isThisCorrect();
         switch (Integer.parseInt(sc.nextLine())){
             case 1:
                 result = new Question(question, answersChoices, correctAns);
@@ -174,6 +188,19 @@ public class SetupClientControllerImpl implements SetupClientController {
         }
 
   }
+
+
+
+// Methods for creating a question
+    private String[] answersChoices() {
+        String[] answersChoices = new String[3];
+        for(int x = 0; x < answersChoices.length; x++) {
+            System.out.print((x + 1) + ": ");
+            view.createAnAnswer();
+            answersChoices[x] = sc.nextLine();
+        }
+        return answersChoices;
+    }
 
     private String question() {
 

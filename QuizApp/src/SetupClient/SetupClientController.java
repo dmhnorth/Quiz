@@ -24,7 +24,7 @@ public interface SetupClientController {   //needs to use QuizServerController m
     /**
      * Used to run the user through creating a quiz
      */
-    void createAQuiz();
+    int createAQuiz();
 
     /**
      * Get input for a quiz author name

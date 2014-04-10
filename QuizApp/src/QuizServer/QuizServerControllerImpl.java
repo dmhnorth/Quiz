@@ -1,11 +1,12 @@
 package QuizServer;
 
-import QuizServer.Assets.Question;
+import QuizServer.Assets.Quiz;
 
 public class QuizServerControllerImpl implements QuizServerController {
 
     @Override
-    public int createQuizAndReturnId() {
+    public int addQuizAndReturnId(Quiz quiz) {
+        //TODO
         return 0;
     }
 
@@ -15,7 +16,8 @@ public class QuizServerControllerImpl implements QuizServerController {
     }
 
     @Override
-    public int[] returnCorrectAnswers() {
-        return new int[0];
+    public int generateIdUniqueOnThisModel() {
+        //TODO
+        return 555;
     }
 }

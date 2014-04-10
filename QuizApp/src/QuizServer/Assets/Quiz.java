@@ -12,8 +12,6 @@ public class Quiz implements Serializable{
     private int highScore;
     private String highScoreHolder;
     private boolean quizLock;
-
-
     public Quiz(String quizAuthor, String quizName, Question[] questions, int[] answers, int generatedId){
         this.quizAuthor = quizAuthor;
         this.quizName = quizName;
@@ -25,6 +23,11 @@ public class Quiz implements Serializable{
         setHighScoreHolder("No one yet!");
         unlockQuiz();
 
+    }
+
+
+    public String getQuizAuthor() {
+        return quizAuthor;
     }
 
     public String getQuizName(){

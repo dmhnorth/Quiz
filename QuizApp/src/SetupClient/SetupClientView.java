@@ -56,22 +56,22 @@ public interface SetupClientView {
     void createACorrectAnswer();
 
     /**
-     * Asks user if the question is correct
+     * Asks user if something is correct and gives them a yes or no option
      */
-    void isThisQuestionCorrect();
+    void isThisCorrect();
 
     /**
      * Prints out a question and it's answer
      */
     void printQuestion(Question qn);
 
+
+
+
     /**
      * Prints out the correct answer integer
      */
     void printQuestionAnswer(Question qn);
-
-
-
 
     /**
      * print a summary of the details within a give quiz
@@ -108,4 +108,14 @@ public interface SetupClientView {
      * Notifying a question has been set
      */
     void questionHasBeenSet();
+
+    /**
+     * ask User if they want to publish the quiz they have made
+     */
+    void doYouWantToPublishThisQuiz();
+
+    /**
+     * Notification user decided to upload the quiz to the server
+     */
+    void uploadingQuiz();
 }

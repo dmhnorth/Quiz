@@ -44,8 +44,8 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Now enter the selection number of the correct answer");
     }
 
-    public void isThisQuestionCorrect() {
-        System.out.println("Is the question alright?\n(1)Yes\n(2)No");
+    public void isThisCorrect() {
+        System.out.println("Is this alright?\n(1)Yes\n(2)No");
     }
 
     public void printQuestion(Question qn) {
@@ -86,7 +86,29 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("The Questions have been set.");
     }
 
-    public void printQuizDetails(Quiz quiz) {
+    public void doYouWantToPublishThisQuiz() {
+        System.out.println("Do you wish to upload this quiz?");
+    }
 
+    @Override
+    public void uploadingQuiz(Quiz quiz) {
+        System.out.println("You decided to upload the quiz: " + quiz.getQuizName());
+    }
+
+    public void printQuizDetails(Quiz quiz) {
+        System.out.println("The quiz details for " + "'" + quiz.getQuizName()+ "'");
+        System.out.println("\nQuiz ID: " + quiz.getQuizId());
+        System.out.println("Quiz Author: " + quiz.getQuizAuthor());
+        System.out.println("\nQuiz Questions: ");
+        printQuestionsAndAnswers(quiz);
+    }
+
+
+    private void printQuestionsAndAnswers(Quiz quiz) {
+        for(int x = 0;x < quiz.getQuestions().length;x++) {
+            printQuestion((quiz.getQuestions()[x]));
+            printQuestionAnswer((quiz.getQuestions()[x]));
+            System.out.printf("\n");
+        }
     }
 }

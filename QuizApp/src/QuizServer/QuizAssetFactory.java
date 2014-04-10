@@ -27,15 +27,15 @@ public interface QuizAssetFactory {
      */
     public Quiz createQuiz(String quizName, Question[] questions, int[] answers, int generatedId) throws InvalidArgumentException;
 
-    /**
-     * verifies the size of the int
-     * verifies that all the parameters are legal and then returns a question
-     *
-     * @param answersChoices
-     * @param correctAns
-     *
-     * @return a valid Question
-     */
-    public Question createQuestion(String[] answersChoices, int[] correctAns) throws InvalidArgumentException;
+//    /**
+//     * verifies the size of the int
+//     * verifies that all the parameters are legal and then returns a question
+//     *
+//     * @param answersChoices
+//     * @param correctAns
+//     *
+//     * @return a valid Question
+//     */
+//    public Question createQuestion(String[] answersChoices, int[] correctAns) throws InvalidArgumentException;
 
 }

@@ -1,12 +1,8 @@
 package SetupClient;
 
-import QuizServer.QuizAssetFactory;
 import QuizServer.QuizServerController;
 
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
 import java.rmi.RMISecurityManager;
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
