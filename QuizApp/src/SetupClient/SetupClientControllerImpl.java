@@ -81,23 +81,36 @@ public class SetupClientControllerImpl implements SetupClientController {
         quizName = nameOfQuiz();
         questions = createAQuestionSet();
         answers = generateAnswerArray(questions);
-        quizId = 1; //sController.generateIdUniqueOnThisModel();
+        quizId = 1; //TODO implement this instead sController.generateIdUniqueOnThisModel();
 
         quiz = new Quiz(quizAuthor, quizName, questions, answers, quizId);
 
-        view.doYouWantToPublishThisQuiz();
         view.printQuizDetails(quiz);
+        view.doYouWantToPublishThisQuiz();
         view.isThisCorrect();
 
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
                 view.uploadingQuiz(quiz);
-                return sController.addQuizAndReturnId(quiz);
+                int newQuizId = sController.addQuizAndReturnId(quiz);   //TODO This doesnt work!!!!
+                System.out.println("You've created a quiz with the id: " + newQuizId);
+                return newQuizId;
             case 2:
-
+                view.editAQuiz(quiz);
+                return editAQuiz(quiz).getQuizId();
             default:
+                view.editAQuiz(quiz);
+                return editAQuiz(quiz).getQuizId();
         }
-        return quizId;
+    }
+
+    private Quiz editAQuiz(Quiz quiz) {
+
+        //TODO
+
+        Quiz result = quiz;
+        System.out.println("Sorry, edit quiz is not yet available.");
+        return result;
     }
 
     private int[] generateAnswerArray(Question[] questions) {
@@ -195,7 +208,7 @@ public class SetupClientControllerImpl implements SetupClientController {
     private String[] answersChoices() {
         String[] answersChoices = new String[3];
         for(int x = 0; x < answersChoices.length; x++) {
-            System.out.print((x + 1) + ": ");
+            System.out.print((x + 1) + ") ");
             view.createAnAnswer();
             answersChoices[x] = sc.nextLine();
         }

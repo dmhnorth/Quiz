@@ -31,7 +31,7 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
         }
 
 
-        //MOVE THIS LOT INTO THE TRY BLOCK ABOVE.
+        //MOVE THIS LOT INTO THE TRY BLOCK ABOVE ONCE FINISHED
         //Starts the SetupClientController once the launcher has found the link
 
         try {

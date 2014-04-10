@@ -90,9 +90,12 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Do you wish to upload this quiz?");
     }
 
-    @Override
     public void uploadingQuiz(Quiz quiz) {
         System.out.println("You decided to upload the quiz: " + quiz.getQuizName());
+    }
+
+    public void editAQuiz(Quiz quiz) {
+        System.out.println("You are about to edit the quiz: " + quiz.getQuizName());
     }
 
     public void printQuizDetails(Quiz quiz) {

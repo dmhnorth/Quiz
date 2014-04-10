@@ -116,6 +116,13 @@ public interface SetupClientView {
 
     /**
      * Notification user decided to upload the quiz to the server
+     * @param quiz
      */
-    void uploadingQuiz();
+    void uploadingQuiz(Quiz quiz);
+
+    /**
+     * Tells a user they are about to edit a quiz
+     * @param quiz
+     */
+    void editAQuiz(Quiz quiz);
 }

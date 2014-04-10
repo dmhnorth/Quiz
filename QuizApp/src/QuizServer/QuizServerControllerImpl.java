@@ -4,6 +4,9 @@ import QuizServer.Assets.Quiz;
 
 public class QuizServerControllerImpl implements QuizServerController {
 
+
+
+
     @Override
     public int addQuizAndReturnId(Quiz quiz) {
         //TODO
