@@ -54,7 +54,7 @@ public class SetupClientControllerImpl implements SetupClientController {
                     printActiveQuizzes();
                     break;
                 default:
-                    System.out.println("You haven't chosen anything\nTry again!\n");
+                    view.tryAgain();
                     chooseTask();
                 }
         } catch (Exception e) {
@@ -81,8 +81,9 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         quizName = nameOfQuiz();
 
-        view.createAQuestion();
+        view.createQuestions();
 
+        questions = createAQuestionSet();
 
         view.printQuizDetails(quiz);
 
@@ -90,6 +91,8 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 
     }
+
+
 
     //createAQuiz user input methods
 
@@ -104,6 +107,7 @@ public class SetupClientControllerImpl implements SetupClientController {
             view.inputError();
             nameOfAuthor();
         }
+        view.thatsDone();
         return quizAuthor;
     }
 
@@ -118,6 +122,7 @@ public class SetupClientControllerImpl implements SetupClientController {
             view.inputError();
             nameOfAuthor();
         }
+        view.thatsDone();
         return quizName;
     }
 
@@ -132,31 +137,52 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 
         view.createAQuestion();
-
+        view.thatsDone();
 
 
         view.createAnAnswer();
-
+        question = sc.nextLine();
 
         view.createACorrectAnswer();
+        correctAns = sc.nextInt();
+
 
         view.isThisQuestionCorrect();
+
         view.printQuestion(tempQn);
         view.printQuestionAnswer(tempQn);
 
         int choice = sc.nextInt();
-
         switch (choice){
             case 1:
                 result.setQuestion(tempQn.getQuestion());
                 result.setAnswersChoices(tempQn.getAnswersChoices());
                 result.setCorrectAns(tempQn.getCorrectAns());
+                break;
 
             case 2:
-                System.out.println("Okay, lets try again...\n");
+                view.tryAgain();
                 result = createAQuestion();
+                break;
+
+            default:
+                view.inputError();
+                result = tempQn;
+
         }
+        view.thatsDone();
         return result;
+    }
+
+    public Question[] createAQuestionSet() {
+        Question[] result;
+
+
+        view.howManyQuestions();
+        result = new Question[sc.nextInt()];
+        
+
+        return new Question[0];
     }
 
     public void printActiveQuizzes() {

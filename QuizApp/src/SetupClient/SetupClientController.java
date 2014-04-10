@@ -44,6 +44,10 @@ public interface SetupClientController {   //needs to use QuizServerController m
      */
     Question createAQuestion();
 
+    /**
+     * Used to create a set of Questions for the Quiz
+     */
+    Question[] createAQuestionSet();
 
     /**
      * PrettyPrint the quizzes on the current server the SetupClientController is connected to

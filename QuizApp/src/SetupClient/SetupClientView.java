@@ -78,4 +78,24 @@ public interface SetupClientView {
      * @param quiz
      */
     void printQuizDetails(Quiz quiz);
+
+    /**
+     * tells a User to try again
+     */
+    void tryAgain();
+
+    /**
+     * Clarifies when something has been processed
+     */
+    void thatsDone();
+
+    /**
+     * Asks the user to create some questions
+     */
+    void createQuestions();
+
+    /**
+     * Asks for the number of questions a user would like for this quiz
+     */
+    void howManyQuestions();
 }

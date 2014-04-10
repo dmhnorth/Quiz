@@ -45,7 +45,7 @@ public class SetupClientViewImpl implements SetupClientView {
     }
 
     public void isThisQuestionCorrect() {
-        System.out.println("Is this correct?\n");
+        System.out.println("Is this correct?\n(1)Yes\n(2)No\n");
     }
 
     public void printQuestion(Question qn) {
@@ -54,12 +54,28 @@ public class SetupClientViewImpl implements SetupClientView {
         for(int x = 0;x< qn.getAnswersChoices().length;x++) {
             System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
             }
-    };
+    }
 
     public void printQuestionAnswer(Question qn) {
         System.out.println("The correct answer is: " + qn.getCorrectAns());
     }
 
+
+    public void tryAgain() {
+        System.out.println("Okay...let's try that again...");
+    }
+
+    public void thatsDone() {
+        System.out.println("Done. On to the next thing...");
+    }
+
+    public void createQuestions() {
+        System.out.println("Let's create a set of questions and correct answers");
+    }
+
+    public void howManyQuestions() {
+        System.out.println("How many questions would you like to create for this quiz?");
+    }
 
     public void printQuizDetails(Quiz quiz) {
 

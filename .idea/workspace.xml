@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66abc648-2dbc-48c8-9010-b79165c29b3f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServerControllerImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientTests/SetupClientControllerImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Question.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Question.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Quiz.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServerController.java" afterPath="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientController.java" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientControllerImpl.java" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientControllerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncherImpl.java" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncherImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientView.java" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientViewImpl.java" afterPath="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientViewImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Quiz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,8 +71,8 @@
             <file leaf-file-name="SetupClientView.java" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientView.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="1305">
-                    <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+                  <state vertical-scroll-proportion="0.0" vertical-offset="601" max-vertical-offset="1605">
+                    <caret line="97" column="71" selection-start-line="97" selection-start-column="71" selection-end-line="97" selection-end-column="71" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -90,8 +83,8 @@
             <file leaf-file-name="SetupClientViewImpl.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientViewImpl.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.6976744" vertical-offset="105" max-vertical-offset="1095">
-                    <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
+                  <state vertical-scroll-proportion="0.9682875" vertical-offset="224" max-vertical-offset="1335">
+                    <caret line="76" column="86" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
                     <folding>
                       <element signature="imports" expanded="true" />
                       <element signature="e#514#515#0" expanded="true" />
@@ -103,9 +96,17 @@
                       <element signature="e#1428#1429#0" expanded="true" />
                       <element signature="e#1518#1519#0" expanded="true" />
                       <element signature="e#1561#1562#0" expanded="true" />
-                      <element signature="e#1617#1618#0" expanded="true" />
-                      <element signature="e#1955#1956#0" expanded="true" />
-                      <element signature="e#2037#2038#0" expanded="true" />
+                      <element signature="e#1632#1633#0" expanded="true" />
+                      <element signature="e#1969#1970#0" expanded="true" />
+                      <element signature="e#2051#2052#0" expanded="true" />
+                      <element signature="e#2082#2083#0" expanded="true" />
+                      <element signature="e#2150#2151#0" expanded="true" />
+                      <element signature="e#2181#2182#0" expanded="true" />
+                      <element signature="e#2248#2249#0" expanded="true" />
+                      <element signature="e#2285#2286#0" expanded="true" />
+                      <element signature="e#2374#2375#0" expanded="true" />
+                      <element signature="e#2412#2413#0" expanded="true" />
+                      <element signature="e#2508#2509#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -182,8 +183,8 @@
       <file leaf-file-name="SetupClientController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="870">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="930">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -192,8 +193,8 @@
       <file leaf-file-name="SetupClientControllerImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientControllerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73324215" vertical-offset="1864" max-vertical-offset="2595">
-              <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.876881" vertical-offset="2089" max-vertical-offset="2985">
+              <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -300,11 +301,11 @@
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServerController.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/QuizServerControllerImpl.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientTests/SetupClientControllerImplTest.java" />
-        <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientController.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientLauncherImpl.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Question.java" />
+        <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientController.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientView.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientViewImpl.java" />
-        <option value="$PROJECT_DIR$/QuizApp/src/QuizServer/Assets/Question.java" />
         <option value="$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientControllerImpl.java" />
       </list>
     </option>
@@ -1271,14 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="870">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientTests/SetupClientControllerImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="49" max-vertical-offset="930">
@@ -1314,10 +1307,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="930">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="1305">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="601" max-vertical-offset="1605">
+          <caret line="97" column="71" selection-start-line="97" selection-start-column="71" selection-end-line="97" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1326,8 +1327,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientViewImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6976744" vertical-offset="105" max-vertical-offset="1095">
-          <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.9682875" vertical-offset="224" max-vertical-offset="1335">
+          <caret line="76" column="86" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#514#515#0" expanded="true" />
@@ -1339,9 +1340,17 @@
             <element signature="e#1428#1429#0" expanded="true" />
             <element signature="e#1518#1519#0" expanded="true" />
             <element signature="e#1561#1562#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-            <element signature="e#1955#1956#0" expanded="true" />
-            <element signature="e#2037#2038#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+            <element signature="e#1969#1970#0" expanded="true" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2082#2083#0" expanded="true" />
+            <element signature="e#2150#2151#0" expanded="true" />
+            <element signature="e#2181#2182#0" expanded="true" />
+            <element signature="e#2248#2249#0" expanded="true" />
+            <element signature="e#2285#2286#0" expanded="true" />
+            <element signature="e#2374#2375#0" expanded="true" />
+            <element signature="e#2412#2413#0" expanded="true" />
+            <element signature="e#2508#2509#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1363,8 +1372,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/QuizApp/src/SetupClient/SetupClientControllerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73324215" vertical-offset="1864" max-vertical-offset="2595">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.876881" vertical-offset="2089" max-vertical-offset="2985">
+          <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
