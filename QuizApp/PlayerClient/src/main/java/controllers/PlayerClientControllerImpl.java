@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Quiz;
 import views.PlayerClientView;
 
 import java.util.Scanner;
@@ -69,8 +70,37 @@ public class PlayerClientControllerImpl implements PlayerClientController {
 
     public void playQuiz(int id) {
 
-    }
-    public void submitScore(int quizId, int score, String playerName) {
+        Quiz quiz = retrieveQuiz(id);
+        String playerName = getUserName();
+        int score = 0;
 
+        //This is the current work in progress.
+
+        submitScore(quiz.getQuizId(), score, playerName);
+
+    }
+
+    private Quiz retrieveQuiz(int id) {
+        return quizServerController.getQuizViaId(id);
+    }
+
+    private String getUserName() {
+
+        String userName;
+
+        view.enterAUserName();
+        userName = sc.nextLine();
+
+        if(userName.equals("") || userName.equals(null)){
+            getUserName();
+        }
+        return userName;
+    }
+
+
+    public void submitScore(int quizId, int score, String playerName) {
+        System.out.println("Submitting score to server.");
+        quizServerController.submitScore(quizId, score, playerName);
+        System.out.println("Score has been submitted.");
     }
 }

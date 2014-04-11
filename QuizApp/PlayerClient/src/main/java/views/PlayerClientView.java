@@ -21,4 +21,6 @@ public interface PlayerClientView {
     void inputError();
 
     void checkOutRankings(QuizServerController quizServerController);
+
+    void enterAUserName();
 }

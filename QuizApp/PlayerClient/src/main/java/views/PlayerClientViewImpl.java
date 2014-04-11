@@ -52,12 +52,20 @@ public class PlayerClientViewImpl implements PlayerClientView {
 
     @Override
     public void checkOutRankings(QuizServerController quizServerController) {
+
         Map<Integer,Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();
+
+        System.out.println("Here are the High Scores on the quizzes on this Server: ");
 
         for(Quiz quiz: quizzes.values()) {
             System.out.println(quiz.getQuizId() + ": " + quiz.getQuizName() + ": " + quiz.getHighScoreHolder() + ": " + quiz.getHighScore());
         }
+    }
+
+    @Override
+    public void enterAUserName() {
+        System.out.println("Please enter a User Name: ");
     }
 
 
