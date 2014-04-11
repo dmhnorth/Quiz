@@ -49,7 +49,7 @@ public class SetupClientControllerImpl implements SetupClientController {
                     chooseTask();
                     break;
                 case 2:
-                    printActiveQuizzes(quizServerController);
+                    view.printActiveQuizzes(quizServerController);
                     chooseTask();
                     break;
                 case 3:
@@ -61,14 +61,10 @@ public class SetupClientControllerImpl implements SetupClientController {
                     break;
             }
         } catch (Exception e) {
-            System.out.println("We've exited the menu/finished the program due to exception in chooseTask.");
-//            view.inputError();
-//            chooseTask();
+            view.tryAgain();
+            view.inputError();
+            chooseTask();
         }
-    }
-
-    private void printActiveQuizzes(QuizServerController quizServerController) {
-        view.printActiveQuizzes(quizServerController);
     }
 
 

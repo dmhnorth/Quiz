@@ -40,6 +40,18 @@ public class PlayerClientLauncherImpl implements PlayerClientLauncher {
 
             PlayerClientController playerClientController = new PlayerClientControllerImpl(quizServerController, playerClientView);
 
+            playerClientController.start();
+
+            if(quizServerController != null) {
+                assert registry != null;
+                registry.unbind("quizServerController");
+                System.out.println("NOTE:the quizServerController object has been unbound.");
+            } else {
+                System.out.println("(NOTE:There was no Server to unbind)");
+            }
+
+        } catch (Exception e){
+            System.out.println("Something went wrong starting the SetupClient...");
 
         }
     }

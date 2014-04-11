@@ -110,7 +110,6 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Thanks for using the quiz setup client.");
     }
 
-    //TODO this will have to be recreated using a treemap structure
     public void printActiveQuizzes(QuizServerController quizServerController) {
         System.out.println("\nThe active quizzes on the server are: ");
 

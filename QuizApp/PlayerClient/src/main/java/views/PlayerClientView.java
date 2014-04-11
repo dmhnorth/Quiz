@@ -1,14 +1,22 @@
 package views;
 
-import QuizServer.Assets.Question;
+
+import controllers.QuizServerController;
 
 public interface PlayerClientView {
 
-    /**
-     *
-     * prints a set of question in order
-     */
-    public Question[] returnQuestionSet();
 
+    void displayWelcomeMessage();
 
+    void thanksForUsingTheQuizSetupClient();
+
+    void displayUserOptions();
+
+    void tryAgain();
+
+    void printActiveQuizzes(QuizServerController quizServerController);
+
+    void whatQuizWouldYouLikeToPlay();
+
+    void inputError();
 }
