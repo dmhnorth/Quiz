@@ -1,6 +1,7 @@
 package SetupClient;
 
 import QuizServer.Assets.Question;
+import QuizServer.Assets.Quiz;
 
 /**
  * For users who connect to a Quiz Server and enable users
@@ -24,7 +25,7 @@ public interface SetupClientController {   //needs to use QuizServerController m
     /**
      * Used to run the user through creating a quiz
      */
-    int createAQuiz();
+    Quiz createAQuiz();
 
     /**
      * Get input for a quiz author name
@@ -49,8 +50,4 @@ public interface SetupClientController {   //needs to use QuizServerController m
      */
     Question[] createAQuestionSet();
 
-    /**
-     * PrettyPrint the quizzes on the current server the SetupClientController is connected to
-     */
-    void printActiveQuizzes();
 }

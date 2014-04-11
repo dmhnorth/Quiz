@@ -46,4 +46,14 @@ public interface QuizServerController {
      */
     public int generateIdUniqueOnThisModel();
 
+    /**
+     * Print the quizzes on this Server and their lock status
+     */
+    void printActiveQuizzes();
+
+    /**
+     * Retrieves the quizzes currently available on the server as List
+     * @return
+     */
+    Quiz[] getModelQuizzes();
 }

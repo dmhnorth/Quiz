@@ -8,14 +8,14 @@ import java.util.Scanner;
 
 public class SetupClientControllerImpl implements SetupClientController {
 
-    private final QuizServerController sController;
+    private final QuizServerController quizServerController;
     private final SetupClientView view;
 
     public Scanner sc;
 
-    public SetupClientControllerImpl(QuizServerController qServerController, SetupClientView setupClientView) {
+    public SetupClientControllerImpl(QuizServerController quizServerController, SetupClientView setupClientView) {
 
-        this.sController = qServerController;
+        this.quizServerController = quizServerController;
         this.view = setupClientView;
 
         sc = new Scanner(System.in);
@@ -26,15 +26,9 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         view.displayWelcomeMessage();
         chooseTask();
+        view.thanksForUsingTheQuizSetupClient();
+        //TODO make sure the program disconnects from the server
 
-
-
-
-
-
-
-
-        //TODO the main bulk of the program that the user interacts with
 
     }
 
@@ -46,28 +40,37 @@ public class SetupClientControllerImpl implements SetupClientController {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Choice to create quiz and get an ID back: ");
-                    createAQuiz();
+                    Quiz quiz = createAQuiz();
+//                   TODO quizServerController.addQuizAndReturnId(quiz);
+                    System.out.println("You've created and uploaded the quiz with the id: " + quiz.getQuizId() + "\nWhat Now?");
+                    chooseTask();
                     break;
                 case 2:
-                    System.out.println("Choice to print Quizzes on this server: ");
-                    printActiveQuizzes();
+                    printActiveQuizzes(quizServerController);
+                    chooseTask();
+                    break;
+                case 3:
+                    //Do nothing and exit
                     break;
                 default:
                     view.tryAgain();
                     chooseTask();
                     break;
-                }
+            }
         } catch (Exception e) {
-            System.out.println("We've exited the menu/finished the program.");
+            System.out.println("We've exited the menu/finished the program due to exception in chooseTask.");
 //            view.inputError();
 //            chooseTask();
         }
     }
 
+    private void printActiveQuizzes(QuizServerController quizServerController) {
+        view.printActiveQuizzes(quizServerController);
+    }
+
 
     //TODO separate all the methods in here into separate ones and add the retry section to them!
-    public int createAQuiz() {
+    public Quiz createAQuiz() {
         Quiz quiz = null;
         String quizAuthor;
         String quizName;
@@ -75,13 +78,13 @@ public class SetupClientControllerImpl implements SetupClientController {
         int answers[];
         int quizId;
 
-        view.createAQuiz();
 
+        view.createAQuiz();
         quizAuthor = nameOfAuthor();
         quizName = nameOfQuiz();
         questions = createAQuestionSet();
         answers = generateAnswerArray(questions);
-        quizId = 1; //TODO implement this instead sController.generateIdUniqueOnThisModel();
+        quizId = 1; //TODO implement this instead quizServerController.generateIdUniqueOnThisModel();
 
         quiz = new Quiz(quizAuthor, quizName, questions, answers, quizId);
 
@@ -89,26 +92,24 @@ public class SetupClientControllerImpl implements SetupClientController {
         view.doYouWantToPublishThisQuiz();
         view.isThisCorrect();
 
+
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
                 view.uploadingQuiz(quiz);
-                int newQuizId = sController.addQuizAndReturnId(quiz);   //TODO This doesnt work!!!!
-                System.out.println("You've created a quiz with the id: " + newQuizId);
-                return newQuizId;
-            case 2:
-                view.editAQuiz(quiz);
-                return editAQuiz(quiz).getQuizId();
+                view.quizCreatedWithId(quiz);
+                return quiz;
             default:
                 view.editAQuiz(quiz);
-                return editAQuiz(quiz).getQuizId();
+                editAQuiz(quiz);
+                view.quizCreatedWithId(quiz);
+                return quiz;
         }
     }
 
     private Quiz editAQuiz(Quiz quiz) {
-
-        //TODO
-
-        Quiz result = quiz;
+        //TODO Add editing methods
+        Quiz result = new Quiz(quiz.getQuizAuthor(), quiz.getQuizName(), quiz.getQuestions(), quiz.getAnswers(), quiz.getQuizId());
+        view.printQuizDetails(quiz);
         System.out.println("Sorry, edit quiz is not yet available.");
         return result;
     }
@@ -116,7 +117,7 @@ public class SetupClientControllerImpl implements SetupClientController {
     private int[] generateAnswerArray(Question[] questions) {
 
         int[] result = new int[questions.length];
-        for(int x = 0; x < questions.length; x++){
+        for (int x = 0; x < questions.length; x++) {
             result[x] = questions[x].getCorrectAns();
         }
 //        System.out.println("Question array generated.");
@@ -156,10 +157,9 @@ public class SetupClientControllerImpl implements SetupClientController {
         return quizName;
     }
 
-    public Question createAQuestion(){
+    public Question createAQuestion() {
 
         Question result = null;
-
 
 
 //create the question asked
@@ -183,7 +183,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         view.printQuestionAnswer(result);
 
         view.isThisCorrect();
-        switch (Integer.parseInt(sc.nextLine())){
+        switch (Integer.parseInt(sc.nextLine())) {
             case 1:
                 result = new Question(question, answersChoices, correctAns);
                 view.questionHasBeenSet();
@@ -200,14 +200,13 @@ public class SetupClientControllerImpl implements SetupClientController {
                 return result;
         }
 
-  }
+    }
 
 
-
-// Methods for creating a question
+    // Methods for creating a question
     private String[] answersChoices() {
         String[] answersChoices = new String[3];
-        for(int x = 0; x < answersChoices.length; x++) {
+        for (int x = 0; x < answersChoices.length; x++) {
             System.out.print((x + 1) + ") ");
             view.createAnAnswer();
             answersChoices[x] = sc.nextLine();
@@ -245,7 +244,6 @@ public class SetupClientControllerImpl implements SetupClientController {
     }
 
 
-
     public Question[] createAQuestionSet() {
         Question[] result;
 
@@ -254,7 +252,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         result = new Question[Integer.parseInt(sc.nextLine())];
 
-        for(int x = 0;x < result.length; x++){
+        for (int x = 0; x < result.length; x++) {
             result[x] = createAQuestion();
         }
 
@@ -262,9 +260,6 @@ public class SetupClientControllerImpl implements SetupClientController {
         return result;
     }
 
-    public void printActiveQuizzes() {
-        //TODO prettyPrint the quizzes on the server
-    }
 
 
 }

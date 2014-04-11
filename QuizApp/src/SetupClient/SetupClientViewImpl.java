@@ -2,6 +2,7 @@ package SetupClient;
 
 import QuizServer.Assets.Question;
 import QuizServer.Assets.Quiz;
+import QuizServer.QuizServerController;
 
 public class SetupClientViewImpl implements SetupClientView {
 
@@ -96,6 +97,25 @@ public class SetupClientViewImpl implements SetupClientView {
 
     public void editAQuiz(Quiz quiz) {
         System.out.println("You are about to edit the quiz: " + quiz.getQuizName());
+    }
+
+
+    public void quizCreatedWithId(Quiz quiz) {
+        System.out.println("You've created a quiz with the id: " + quiz.getQuizId());
+    }
+
+    @Override
+    public void thanksForUsingTheQuizSetupClient() {
+        System.out.println("Thanks for using the quiz setup client.");
+    }
+
+    //TODO this will have to be recreated using a treemap structure
+    public void printActiveQuizzes(QuizServerController quizServerController) {
+        System.out.println("\nThe active quizzes on the server are: ");
+
+        for(Quiz quiz : quizServerController.getModelQuizzes()){
+            System.out.println("Quiz ID: " + quiz.getQuizId() + ": " +  quiz.getQuizName());
+        }
     }
 
     public void printQuizDetails(Quiz quiz) {

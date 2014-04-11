@@ -20,9 +20,10 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
 
     public void launch() {
 
+        Registry registry = null;
         try {
             System.setSecurityManager(new RMISecurityManager());
-            Registry registry = LocateRegistry.getRegistry(1098);
+            registry = LocateRegistry.getRegistry(1098);
 
             quizServerController = (QuizServerController) registry.lookup("quizServerController");
 
@@ -40,6 +41,14 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
             SetupClientController setupClientController = new SetupClientControllerImpl(quizServerController, setupClientView);
 
             setupClientController.start();
+
+            if(quizServerController != null) {
+                assert registry != null;
+                registry.unbind("quizServerController");
+                System.out.println("NOTE:the quizServerController object has been unbound.");
+            } else {
+                System.out.println("(NOTE:There was no Server to unbind)");
+            }
 
         } catch (Exception e){
             System.out.println("Something went wrong starting the SetupClient...");

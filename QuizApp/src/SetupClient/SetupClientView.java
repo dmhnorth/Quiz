@@ -2,6 +2,7 @@ package SetupClient;
 
 import QuizServer.Assets.Question;
 import QuizServer.Assets.Quiz;
+import QuizServer.QuizServerController;
 
 /**
  * For displaying the terminal printouts the user requires to enter data.
@@ -125,4 +126,21 @@ public interface SetupClientView {
      * @param quiz
      */
     void editAQuiz(Quiz quiz);
+
+    /**
+     * Tell a user they have created a quiz and give them the id on the terminal
+     * @param quiz
+     */
+    void quizCreatedWithId(Quiz quiz);
+
+    /**
+     * Exit message on client
+     */
+    void thanksForUsingTheQuizSetupClient();
+
+    /**
+     * Fetchs and prints on terminal the quizzes on the server we are currently connected to
+     * @param quizServerController
+     */
+    void printActiveQuizzes(QuizServerController quizServerController);
 }

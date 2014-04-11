@@ -15,12 +15,17 @@ public class QuizServerControllerImpl implements QuizServerController {
 
     @Override
     public void addQuizToDataStore(QuizServerModel qm) {
-
+        //TODO
     }
 
     @Override
     public int generateIdUniqueOnThisModel() {
         //TODO
         return 555;
+    }
+
+    @Override
+    public void printActiveQuizzes() {
+
     }
 }

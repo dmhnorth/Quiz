@@ -69,4 +69,8 @@ public class Quiz implements Serializable{
     public  void unlockQuiz(){
         this.quizLock = false;
     }
+
+    public int[] getAnswers() {
+        return answers;
+    }
 }
