@@ -3,6 +3,8 @@ package controllers;
 import models.Quiz;
 import models.QuizServerModel;
 
+import java.util.TreeMap;
+
 
 /**
  *
@@ -56,5 +58,5 @@ public interface QuizServerController {
      * Retrieves the quizzes currently available on the server as List
      * @return
      */
-    Quiz[] getModelQuizzes();
+    TreeMap<Integer, Quiz> getModelQuizzes();
 }

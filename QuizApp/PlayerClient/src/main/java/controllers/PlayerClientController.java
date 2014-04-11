@@ -18,12 +18,6 @@ public interface PlayerClientController { //needs to implement QuizServerControl
     public void start();
 
     /**
-     * retrieves the quizzes on the server,
-     * prints their ids and current Highscore and current HighScoreHolder
-     */
-    public void printListActiveQuizzes();
-
-    /**
      * retrieves a quiz on the server with the given id and allows user to play
      * @param id the id number of the quiz user wants to play
      *

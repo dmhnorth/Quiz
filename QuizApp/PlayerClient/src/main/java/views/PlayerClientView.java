@@ -19,4 +19,6 @@ public interface PlayerClientView {
     void whatQuizWouldYouLikeToPlay();
 
     void inputError();
+
+    void checkOutRankings(QuizServerController quizServerController);
 }

@@ -45,7 +45,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     chooseTask();
                     break;
                 case 3:
-
+                    view.checkOutRankings(quizServerController);
                     chooseTask();
                     break;
                 case 4:
@@ -64,9 +64,9 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         }
     }
 
-    public void printListActiveQuizzes() {
 
-    }
+
+
     public void playQuiz(int id) {
 
     }

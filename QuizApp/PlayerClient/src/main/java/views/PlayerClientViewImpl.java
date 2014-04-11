@@ -3,8 +3,11 @@ package views;
 import controllers.QuizServerController;
 import models.Quiz;
 
+import java.util.Map;
+
 public class PlayerClientViewImpl implements PlayerClientView {
 
+    @Override
     public void displayWelcomeMessage() {
         System.out.println("Welcome to the Quiz Player Client.\nWhat would you like to do?");
     }
@@ -28,8 +31,11 @@ public class PlayerClientViewImpl implements PlayerClientView {
     public void printActiveQuizzes(QuizServerController quizServerController) {
         System.out.println("\nThe active quizzes on the server are: ");
 
-        for(Quiz quiz : quizServerController.getModelQuizzes()){
-            System.out.println("Quiz ID: " + quiz.getQuizId() + ": " +  quiz.getQuizName());
+        Map<Integer,Quiz> quizzes;
+        quizzes = quizServerController.getModelQuizzes();
+
+        for(Quiz quiz : quizzes.values()) {
+            System.out.println("Quiz ID: " + quiz.getQuizId() + ": " + quiz.getQuizName());
         }
     }
 
@@ -41,6 +47,17 @@ public class PlayerClientViewImpl implements PlayerClientView {
     @Override
     public void inputError() {
         System.out.println("Sorry, I didn't understand that, please try again...");
+    }
+
+
+    @Override
+    public void checkOutRankings(QuizServerController quizServerController) {
+        Map<Integer,Quiz> quizzes;
+        quizzes = quizServerController.getModelQuizzes();
+
+        for(Quiz quiz: quizzes.values()) {
+            System.out.println(quiz.getQuizId() + ": " + quiz.getQuizName() + ": " + quiz.getHighScoreHolder() + ": " + quiz.getHighScore());
+        }
     }
 
 

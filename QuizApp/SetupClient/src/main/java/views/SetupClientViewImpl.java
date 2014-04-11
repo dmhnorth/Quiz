@@ -5,6 +5,8 @@ import controllers.QuizServerController;
 import models.Question;
 import models.Quiz;
 
+import java.util.Map;
+
 public class SetupClientViewImpl implements SetupClientView {
 
     public void displayWelcomeMessage() {
@@ -113,7 +115,10 @@ public class SetupClientViewImpl implements SetupClientView {
     public void printActiveQuizzes(QuizServerController quizServerController) {
         System.out.println("\nThe active quizzes on the server are: ");
 
-        for(Quiz quiz : quizServerController.getModelQuizzes()){
+        Map<Integer,Quiz> quizzes;
+        quizzes = quizServerController.getModelQuizzes();
+
+        for(Quiz quiz: quizzes.values()){
             System.out.println("Quiz ID: " + quiz.getQuizId() + ": " +  quiz.getQuizName());
         }
     }
