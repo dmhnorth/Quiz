@@ -1,6 +1,6 @@
-import QuizServer.Assets.Question;
-import QuizServer.Assets.Quiz;
 import com.sun.javaws.exceptions.InvalidArgumentException;
+import models.Question;
+import models.Quiz;
 
 /**
  * Used to facilitate the legal creation of assets

@@ -1,5 +1,4 @@
-import QuizServer.Assets.Question;
-import QuizServer.Assets.Quiz;
+package controllers;
 
 /**
  * For users who connect to a QuizServerLauncher to enable them
@@ -14,7 +13,7 @@ public interface PlayerClientController { //needs to implement QuizServerControl
 
 
     /**
-     * Launches the user interface of the PlayerClientController
+     * Launches the user interface of the controllers.PlayerClientController
      */
     public void start();
 
@@ -22,11 +21,12 @@ public interface PlayerClientController { //needs to implement QuizServerControl
      * retrieves the quizzes on the server,
      * prints their ids and current Highscore and current HighScoreHolder
      */
-    public void printListOfQuizzesOnServer();
+    public void printListActiveQuizzes();
 
     /**
      * retrieves a quiz on the server with the given id and allows user to play
      * @param id the id number of the quiz user wants to play
+     *
      */
     public void playQuiz(int id);
 

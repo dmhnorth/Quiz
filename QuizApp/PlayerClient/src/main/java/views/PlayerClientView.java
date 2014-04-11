@@ -1,3 +1,5 @@
+package views;
+
 import QuizServer.Assets.Question;
 
 public interface PlayerClientView {
