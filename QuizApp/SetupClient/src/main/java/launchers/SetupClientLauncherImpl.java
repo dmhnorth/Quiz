@@ -1,5 +1,6 @@
 package launchers;
 
+import controllers.QuizServerController;
 import controllers.SetupClientController;
 import controllers.SetupClientControllerImpl;
 import views.SetupClientView;
@@ -8,6 +9,7 @@ import views.SetupClientViewImpl;
 import java.rmi.RMISecurityManager;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
 
 public class SetupClientLauncherImpl implements SetupClientLauncher {
 

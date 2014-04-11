@@ -1,7 +1,9 @@
 package views;
 
-import QuizServer.Assets.Question;
-import QuizServer.Assets.Quiz;
+
+import controllers.QuizServerController;
+import models.Question;
+import models.Quiz;
 
 public class SetupClientViewImpl implements SetupClientView {
 
