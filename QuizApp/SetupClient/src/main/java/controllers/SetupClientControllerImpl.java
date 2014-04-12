@@ -74,7 +74,6 @@ public class SetupClientControllerImpl implements SetupClientController {
         String quizAuthor;
         String quizName;
         Question[] questions;
-        int answers[];
         int quizId;
 
 
@@ -82,10 +81,9 @@ public class SetupClientControllerImpl implements SetupClientController {
         quizAuthor = nameOfAuthor();
         quizName = nameOfQuiz();
         questions = createAQuestionSet();
-        answers = generateAnswerArray(questions);
         quizId = 1000; //TODO implement this instead quizServerController.generateIdUniqueOnThisModel();
 
-        quiz = new QuizImpl(quizAuthor, quizName, questions, answers, quizId);
+        quiz = new QuizImpl(quizAuthor, quizName, questions, quizId);
 
         view.printQuizDetails(quiz);
         view.doYouWantToPublishThisQuiz();
@@ -107,25 +105,14 @@ public class SetupClientControllerImpl implements SetupClientController {
 
     private Quiz editAQuiz(Quiz quiz) {
         //TODO Add editing methods
-        Quiz result = new QuizImpl(quiz.getQuizAuthor(), quiz.getQuizName(), quiz.getQuestions(), quiz.getAnswers(), quiz.getQuizId());
+        Quiz result = new QuizImpl(quiz.getQuizAuthor(), quiz.getQuizName(), quiz.getQuestions(), quiz.getQuizId());
         view.printQuizDetails(quiz);
         System.out.println("Sorry, edit quiz is not yet available.");
         return result;
     }
 
-    private int[] generateAnswerArray(Question[] questions) {
-
-        int[] result = new int[questions.length];
-        for (int x = 0; x < questions.length; x++) {
-            result[x] = questions[x].getCorrectAns();
-        }
-//        System.out.println("Question array generated.");
-        return result;
-    }
-
 
     //createAQuiz user input methods
-
     public String nameOfAuthor() {
 
         view.nameOfAuthor();
@@ -167,15 +154,11 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 //create the answer options
         String[] answersChoices = answersChoices();
-
-
         view.thatsDone();
 
 //Choose a correct answer
         int correctAns = correctAns();
-
         result = new QuestionImpl(question, answersChoices, correctAns);
-
 
 //check if User happy with the question
         view.printQuestion(result);

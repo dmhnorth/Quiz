@@ -8,16 +8,14 @@ public class QuizImpl implements Serializable, Quiz{
     private String quizName;
     private int quizId;
     private Question[] questions;
-    private int[] answers;
     private int highScore;
     private String highScoreHolder;
     private boolean quizLock;
 
-    public QuizImpl(String quizAuthor, String quizName, Question[] questions, int[] answers, int generatedId){
+    public QuizImpl(String quizAuthor, String quizName, Question[] questions, int generatedId){
         this.quizAuthor = quizAuthor;
         this.quizName = quizName;
         this.questions = questions;
-        this.answers = answers;
         this.quizId = generatedId;
 
         setHighScore(0);
@@ -79,11 +77,6 @@ public class QuizImpl implements Serializable, Quiz{
     @Override
     public  void unlockQuiz(){
         this.quizLock = false;
-    }
-
-    @Override
-    public int[] getAnswers() {
-        return answers;
     }
 
     @Override

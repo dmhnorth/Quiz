@@ -32,10 +32,10 @@ public class PlayerClientViewImpl implements PlayerClientView {
     public void printActiveQuizzes(QuizServerController quizServerController) {
         System.out.println("\nThe active quizzes on the server are: ");
 
-        Map<Integer,Quiz> quizzes;
+        Map<Integer, Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();
 
-        for(Quiz quiz : quizzes.values()) {
+        for (Quiz quiz : quizzes.values()) {
             System.out.println(quiz.quizDetailsToString());
         }
     }
@@ -54,12 +54,12 @@ public class PlayerClientViewImpl implements PlayerClientView {
     @Override
     public void checkOutRankings(QuizServerController quizServerController) {
 
-        Map<Integer,Quiz> quizzes;
+        Map<Integer, Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();
 
         System.out.println("Here are the High Scores on the quizzes on this Server: ");
 
-        for(Quiz quiz: quizzes.values()) {
+        for (Quiz quiz : quizzes.values()) {
             System.out.println(quiz.toString());
         }
     }
@@ -78,10 +78,23 @@ public class PlayerClientViewImpl implements PlayerClientView {
     public void printAQuestionAndChoices(Question qn) {
         System.out.println(qn.getQuestion());
 
-        for(int x = 0;x < qn.getAnswersChoices().length;x++) {
+        for (int x = 0; x < qn.getAnswersChoices().length; x++) {
             System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
         }
     }
 
+    @Override
+    public void userScore(Quiz quiz, int score, String playerName) {
+        System.out.println("You have finished the quiz: " + quiz.quizDetailsToString());
+        System.out.println("So, " + playerName + ". Your score was: " + score);
+    }
 
+    @Override
+    public void doYouHaveTheNewHighScore(Quiz quiz, int score, String playerName) {
+        if (quiz.getHighScore() == score && quiz.getHighScoreHolder().equals(playerName)) {
+            System.out.println("You have the new high score!\n" + quiz.getHighScoreHolder() + " is now a total loser!");
+        } else {
+            System.out.println("Dammit! " + quiz.getHighScoreHolder() + " still has the highest score with " + quiz.getHighScore() + ".\n" + "You were only " + (quiz.getHighScore() - score) + " point off!\nBetter luck next time. Idiot.");
+        }
+    }
 }

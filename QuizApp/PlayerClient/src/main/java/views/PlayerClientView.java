@@ -29,4 +29,8 @@ public interface PlayerClientView {
     void beginAQuiz(Quiz quiz);
 
     void printAQuestionAndChoices(Question q);
+
+    void userScore(Quiz quiz, int score, String playerName);
+
+    void doYouHaveTheNewHighScore(Quiz quiz, int score, String playerName);
 }

@@ -91,25 +91,14 @@ public class PlayerClientControllerImpl implements PlayerClientController {
 
 
             if(answer == userInput) {
-
+                score++;
             }
 
+            view.userScore(quiz, score, playerName);
+            submitScore(quiz.getQuizId(), score, playerName);
+            view.doYouHaveTheNewHighScore(quizServerController.getQuizViaId(id), score, playerName);
         }
-
-
-
-
-
-
-        //This is the current work in progress.
-
-        submitScore(quiz.getQuizId(), score, playerName);
-
     }
-
-//    private Quiz retrieveQuiz(int id) throws InvalidArgumentException {
-//        return quizServerController.getQuizViaId(id);
-//    }
 
     private String getUserName() {
 
@@ -123,7 +112,6 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         }
         return userName;
     }
-
 
     public void submitScore(int quizId, int score, String playerName) {
         System.out.println("Submitting score to server.");
