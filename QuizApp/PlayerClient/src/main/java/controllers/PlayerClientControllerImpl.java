@@ -53,12 +53,13 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     //Do nothing and exit
                     break;
                 default:
+                    System.err.println(choice + " is not an option.");
                     view.tryAgain();
                     chooseTask();
                     break;
             }
         } catch (Exception e) {
-            view.tryAgain();
+            System.err.println(">>Couldn't carry out 'case' option selected...<<");
             view.inputError();
             chooseTask();
 

@@ -51,13 +51,14 @@ public class SetupClientControllerImpl implements SetupClientController {
                     //Do nothing and exit
                     break;
                 default:
+                    System.err.println(choice + " is not an option.");
                     view.tryAgain();
                     chooseTask();
                     break;
             }
         } catch (Exception e) {
+            System.err.println(">>Couldn't carry out 'case' option selected...<<");
             view.tryAgain();
-            view.inputError();
             chooseTask();
         }
     }
