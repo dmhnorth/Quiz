@@ -6,7 +6,6 @@ import controllers.SetupClientControllerImpl;
 import views.SetupClientView;
 import views.SetupClientViewImpl;
 
-import java.rmi.RMISecurityManager;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -27,11 +26,8 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
 
         Registry registry = null;
         try {
-            System.setSecurityManager(new RMISecurityManager());
-            registry = LocateRegistry.getRegistry(1098);
-
+            registry = LocateRegistry.getRegistry(1099);
             quizServerController = (QuizServerController) registry.lookup("quizServerController");
-
         } catch (Exception e) {
             System.out.println("Could not connect to a 'quizServerController' object on the server side. Exception: " + e);
         }
@@ -42,7 +38,6 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
 
         try {
             SetupClientView setupClientView = new SetupClientViewImpl();
-
             SetupClientController setupClientController = new SetupClientControllerImpl(quizServerController, setupClientView);
 
             setupClientController.start();

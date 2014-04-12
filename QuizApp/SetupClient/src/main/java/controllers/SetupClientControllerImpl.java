@@ -17,12 +17,9 @@ public class SetupClientControllerImpl implements SetupClientController {
     public Scanner sc;
 
     public SetupClientControllerImpl(QuizServerController quizServerController, SetupClientView setupClientView) {
-
         this.quizServerController = quizServerController;
         this.view = setupClientView;
-
         sc = new Scanner(System.in);
-
     }
 
     public void start() {
@@ -30,8 +27,6 @@ public class SetupClientControllerImpl implements SetupClientController {
         view.displayWelcomeMessage();
         chooseTask();
         view.thanksForUsingTheQuizSetupClient();
-        //TODO make sure the program disconnects from the server
-
 
     }
 
@@ -44,7 +39,7 @@ public class SetupClientControllerImpl implements SetupClientController {
             switch (choice) {
                 case 1:
                     Quiz quiz = createAQuiz();
-//                   TODO quizServerController.addQuizAndReturnId(quiz);
+                    quizServerController.addQuizAndReturnId(quiz);
                     System.out.println("You've created and uploaded the quiz with the id: " + quiz.getQuizId() + "\nWhat Now?");
                     chooseTask();
                     break;

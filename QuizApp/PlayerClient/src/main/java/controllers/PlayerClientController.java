@@ -16,20 +16,4 @@ public interface PlayerClientController { //needs to implement QuizServerControl
      * Launches the user interface of the controllers.PlayerClientController
      */
     public void start();
-
-    /**
-     * retrieves a quiz on the server with the given id and allows user to play
-     * @param id the id number of the quiz user wants to play
-     *
-     */
-    public void playQuiz(int id);
-
-    /**
-     * For submitting a high score back to the server with a given
-     * quiz id, score, and high score holder
-     */
-    public void submitScore(int quizId, int score, String playerName);
-
-
-
 }

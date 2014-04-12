@@ -16,11 +16,10 @@ public class PlayerClientControllerImpl implements PlayerClientController {
     public PlayerClientControllerImpl(QuizServerController quizServerController, PlayerClientView playerClientView) {
         this.quizServerController = quizServerController;
         this.view = playerClientView;
-
         sc = new Scanner(System.in);
-
     }
 
+    @Override
     public void start() {
 
         view.displayWelcomeMessage();
@@ -66,10 +65,10 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         }
     }
 
-
-
-
-    public void playQuiz(int id) {
+    /*
+    Used to play a quiz
+     */
+    private void playQuiz(int id) {
 
         Quiz quiz = quizServerController.getQuizViaId(id);
 
@@ -113,7 +112,11 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         return userName;
     }
 
-    public void submitScore(int quizId, int score, String playerName) {
+    /*
+     * For submitting a high score back to the server with a given
+     * quiz id, score, and high score holder
+     */
+    private void submitScore(int quizId, int score, String playerName) {
         System.out.println("Submitting score to server.");
         quizServerController.submitScore(quizId, score, playerName);
         System.out.println("Score has been submitted.");
