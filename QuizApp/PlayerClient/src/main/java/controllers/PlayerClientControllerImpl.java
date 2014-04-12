@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Question;
 import models.Quiz;
 import views.PlayerClientView;
 
@@ -70,9 +71,35 @@ public class PlayerClientControllerImpl implements PlayerClientController {
 
     public void playQuiz(int id) {
 
-        Quiz quiz = retrieveQuiz(id);
+        Quiz quiz = quizServerController.getQuizViaId(id);
+
         String playerName = getUserName();
         int score = 0;
+        int userInput;
+        view.beginAQuiz(quiz);
+
+
+
+        for(Question qn : quiz.getQuestions()) {
+            int questionNo = 0;
+            questionNo++;
+            System.out.println("Question number: " + questionNo);
+            view.printAQuestionAndChoices(qn);
+
+            int answer = qn.getCorrectAns();
+            userInput = Integer.parseInt(sc.nextLine());
+
+
+            if(answer == userInput) {
+
+            }
+
+        }
+
+
+
+
+
 
         //This is the current work in progress.
 
@@ -80,9 +107,9 @@ public class PlayerClientControllerImpl implements PlayerClientController {
 
     }
 
-    private Quiz retrieveQuiz(int id) {
-        return quizServerController.getQuizViaId(id);
-    }
+//    private Quiz retrieveQuiz(int id) throws InvalidArgumentException {
+//        return quizServerController.getQuizViaId(id);
+//    }
 
     private String getUserName() {
 

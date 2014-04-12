@@ -83,7 +83,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         quizName = nameOfQuiz();
         questions = createAQuestionSet();
         answers = generateAnswerArray(questions);
-        quizId = 1; //TODO implement this instead quizServerController.generateIdUniqueOnThisModel();
+        quizId = 1000; //TODO implement this instead quizServerController.generateIdUniqueOnThisModel();
 
         quiz = new QuizImpl(quizAuthor, quizName, questions, answers, quizId);
 

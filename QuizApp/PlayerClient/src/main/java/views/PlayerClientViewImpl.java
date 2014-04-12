@@ -1,6 +1,7 @@
 package views;
 
 import controllers.QuizServerController;
+import models.Question;
 import models.Quiz;
 
 import java.util.Map;
@@ -35,7 +36,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
         quizzes = quizServerController.getModelQuizzes();
 
         for(Quiz quiz : quizzes.values()) {
-            System.out.println("Quiz ID: " + quiz.getQuizId() + ": " + quiz.getQuizName());
+            System.out.println(quiz.quizDetailsToString());
         }
     }
 
@@ -59,13 +60,27 @@ public class PlayerClientViewImpl implements PlayerClientView {
         System.out.println("Here are the High Scores on the quizzes on this Server: ");
 
         for(Quiz quiz: quizzes.values()) {
-            System.out.println(quiz.getQuizId() + ": " + quiz.getQuizName() + ": " + quiz.getHighScoreHolder() + ": " + quiz.getHighScore());
+            System.out.println(quiz.toString());
         }
     }
 
     @Override
     public void enterAUserName() {
         System.out.println("Please enter a User Name: ");
+    }
+
+    @Override
+    public void beginAQuiz(Quiz quiz) {
+        System.out.println("You're about to play the quiz " + quiz.quizDetailsToString());
+    }
+
+    @Override
+    public void printAQuestionAndChoices(Question qn) {
+        System.out.println(qn.getQuestion());
+
+        for(int x = 0;x < qn.getAnswersChoices().length;x++) {
+            System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
+        }
     }
 
 

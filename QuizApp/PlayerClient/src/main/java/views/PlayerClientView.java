@@ -2,6 +2,8 @@ package views;
 
 
 import controllers.QuizServerController;
+import models.Question;
+import models.Quiz;
 
 public interface PlayerClientView {
 
@@ -23,4 +25,8 @@ public interface PlayerClientView {
     void checkOutRankings(QuizServerController quizServerController);
 
     void enterAUserName();
+
+    void beginAQuiz(Quiz quiz);
+
+    void printAQuestionAndChoices(Question q);
 }

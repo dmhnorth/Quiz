@@ -85,4 +85,9 @@ public class QuizImpl implements Serializable, Quiz{
     public int[] getAnswers() {
         return answers;
     }
+
+    @Override
+    public String quizDetailsToString() {
+        return "Quiz ID: " + getQuizId() + "\nQuiz Name: " + getQuizName() + "\nHigh Score holder: " + getHighScoreHolder() + "\nScore: " + getHighScore();
+    }
 }
