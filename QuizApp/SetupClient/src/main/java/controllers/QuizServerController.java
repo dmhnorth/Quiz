@@ -14,7 +14,6 @@ import java.util.TreeMap;
  *
  * It also builds the Quiz Assets required to create a
  * Quiz on the server side (a QuestionSet, an AnswerSet)
-
  *
  * It should be constructed with a QuizServerModel, QuizAssetFactory.
  *
@@ -59,4 +58,19 @@ public interface QuizServerController {
      * @return
      */
     TreeMap<Integer, Quiz> getModelQuizzes();
+
+    /**
+     * Submits a score to the server at the end of a game
+     * @param quizId
+     * @param score
+     * @param playerName
+     */
+    void submitScore(int quizId, int score, String playerName);
+
+    /**
+     * Retrieves a quiz from the server with the given ID
+     * @param id
+     * @return
+     */
+    Quiz getQuizViaId(int id);
 }

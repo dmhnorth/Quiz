@@ -14,7 +14,6 @@ import java.util.TreeMap;
  *
  * It also builds the Quiz Assets required to create a
  * Quiz on the server side (a QuestionSet, an AnswerSet)
-
  *
  * It should be constructed with a QuizServerModel, QuizAssetFactory.
  *
