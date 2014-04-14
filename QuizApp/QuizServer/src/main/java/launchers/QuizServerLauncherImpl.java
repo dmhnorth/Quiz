@@ -15,7 +15,8 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
 
     private QuizServerController quizServerController;
-
+    DataManager dm = new DataManagerImpl();
+    QuizServerModel quizServerModel;
 
 
 
@@ -30,16 +31,19 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
     @Override
     public void launch() throws RemoteException {
 
+
+
         try {
 
-            DataManager dm = new DataManagerImpl();
+                if (dm.dataFileExists()){
+                    quizServerModel = dm.loadData();
+                } else {
+                    quizServerModel = new QuizServerModelImpl();
+                }
+                Runtime.getRuntime().addShutdownHook(saveOnExit());
 
-            QuizServerModel quizServerModel = new QuizServerModelImpl();
-            quizServerModel = dm.loadData();
+
             quizServerController = new QuizServerControllerImpl(quizServerModel);
-
-
-
 
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("quizServerController", quizServerController);
@@ -48,8 +52,29 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
         }catch (Exception e) {
             System.out.println("The Quiz Server failed: " + e);
         }
+        flush();
+    }
 
+
+    public void flush() {
+        dm.saveData(quizServerModel);
+    }
+
+    /**
+     * Saves the state of the QuizServerModel on exit
+     *
+     * @return a thread for the shutdown process to carry out
+     */
+    private Thread saveOnExit(){
+
+        Thread exit = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                flush();
+            }
+        });
+        return exit;
     }
 
 }
-

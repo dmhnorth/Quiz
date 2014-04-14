@@ -24,7 +24,7 @@ public interface DataManager {
      *
      * @return Object[]
      */
-    public abstract Object[] loadData();
+    public abstract QuizServerModel loadData();
 
     /**
      * takes the QuizServerModel and saves it out to a file.

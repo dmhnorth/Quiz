@@ -22,7 +22,7 @@ import java.io.*;
 
         @SuppressWarnings("unchecked")
         @Override
-        public Object[] loadData() {
+        public QuizServerModel loadData() {
             QuizServerModel quizServerModel = null;
             ObjectInputStream decode;
             try {
@@ -32,7 +32,7 @@ import java.io.*;
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            return new Object[]{quizServerModel};
+            return quizServerModel;
         }
 
         @Override
