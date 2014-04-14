@@ -1,3 +1,5 @@
+package launchers;
+
 import models.QuizServerModel;
 
 import java.rmi.RemoteException;
@@ -19,7 +21,7 @@ public interface QuizServerLauncher{
      *
      * instantiates a QuizServerController and links it to the Model
      *
-     * instantiates a QuizAssetFactory
+     * instantiates a QuizFactory
      *
      * binds the QuizServerController to the registry for a client to connect
      *

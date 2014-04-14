@@ -3,6 +3,7 @@ package controllers;
 import models.Quiz;
 import models.QuizServerModel;
 
+import java.rmi.Remote;
 import java.util.TreeMap;
 
 
@@ -10,18 +11,18 @@ import java.util.TreeMap;
  *
  * It manipulates the QuizServerModel by taking inputs from a user.
  *
- * It uses a QuizAssetFactory to ensure the creation of a quiz and questions is done correctly.
+ * It uses a QuizFactory to ensure the creation of a quiz and questions is done correctly.
  *
  * It also builds the Quiz Assets required to create a
  * Quiz on the server side (a QuestionSet, an AnswerSet)
  *
- * It should be constructed with a QuizServerModel, QuizAssetFactory.
+ * It should be constructed with a QuizServerModel, QuizFactory.
  *
  *
  *
  *
  */
-public interface QuizServerController {
+public interface QuizServerController extends Remote {
 
     /**
      *
