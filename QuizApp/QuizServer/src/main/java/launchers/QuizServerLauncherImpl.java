@@ -25,6 +25,9 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
     @Override
     public void launch() throws RemoteException {
+        //TODO this is where I am!!!
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager()); }
 
         try {
 
