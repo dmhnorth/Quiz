@@ -18,11 +18,15 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
     @Override
     public QuizServerModel tryLoadQuizServerModel() {
         QuizServerModel result;
-        result = new QuizServerModelImpl();
+
+
+
+
         //TODO create the loading or creating new of a Quizservermodel here, currently just returns a new one.
 
-
-
+//        else {
+//            result = new QuizServerModelImpl();
+//        }
         return this;
     }
 

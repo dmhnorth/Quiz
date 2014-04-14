@@ -20,7 +20,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
 
     @Override
     public void displayUserOptions() {
-        System.out.println("Please Select an option by entering a number\n1. View Quizzes available on this server\n2. Play a Quiz\n3. Check out high scores and holders for each quiz\n4. Close and Exit");
+        System.out.println("Please Select an option by entering a number\n1. View Quizzes available on this server\n2. Play a Quiz\n3. Check out high scores and high score holders for each quiz\n4. Close and Exit");
     }
 
     @Override

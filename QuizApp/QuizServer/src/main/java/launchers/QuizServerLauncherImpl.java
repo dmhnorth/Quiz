@@ -4,6 +4,8 @@ import controllers.QuizServerController;
 import controllers.QuizServerControllerImpl;
 import models.QuizServerModel;
 import models.QuizServerModelImpl;
+import utilities.DataManager;
+import utilities.DataManagerImpl;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -30,9 +32,10 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
         try {
 
+            DataManager dm = new DataManagerImpl();
 
             QuizServerModel quizServerModel = new QuizServerModelImpl();
-            quizServerModel = quizServerModel.tryLoadQuizServerModel();
+            quizServerModel = dm.loadData();
             quizServerController = new QuizServerControllerImpl(quizServerModel);
 
 

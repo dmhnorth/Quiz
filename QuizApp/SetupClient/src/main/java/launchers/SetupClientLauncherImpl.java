@@ -14,6 +14,7 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
 
 
     private QuizServerController quizServerController;
+    final String server = "quizServerController";
 
     public static void main(String[] args) {
 
