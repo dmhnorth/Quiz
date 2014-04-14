@@ -4,6 +4,7 @@ import models.Question;
 import models.Quiz;
 import views.PlayerClientView;
 
+import java.rmi.RemoteException;
 import java.util.Scanner;
 
 public class PlayerClientControllerImpl implements PlayerClientController {
@@ -59,7 +60,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option issue...<<" + e);
+            System.err.println(">>'case' option exception thrown...<<" + e);
             view.inputError();
             chooseTask();
 
@@ -69,7 +70,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
     /*
     Used to play a quiz
      */
-    private void playQuiz(int id) {
+    private void playQuiz(int id) throws RemoteException {
 
         Quiz quiz = quizServerController.getQuizViaId(id);
 
@@ -117,7 +118,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
      * For submitting a high score back to the server with a given
      * quiz id, score, and high score holder
      */
-    private void submitScore(int quizId, int score, String playerName) {
+    private void submitScore(int quizId, int score, String playerName) throws RemoteException {
         System.out.println("Submitting score to server.");
         quizServerController.submitScore(quizId, score, playerName);
         System.out.println("Score has been submitted.");

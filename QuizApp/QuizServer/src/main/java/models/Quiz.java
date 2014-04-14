@@ -23,5 +23,5 @@ public interface Quiz {
 
     void unlockQuiz();
 
-    int[] getAnswers();
+    String quizDetailsToString();
 }

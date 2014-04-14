@@ -7,6 +7,7 @@ import models.Quiz;
 import models.QuizImpl;
 import views.SetupClientView;
 
+import java.rmi.RemoteException;
 import java.util.Scanner;
 
 public class SetupClientControllerImpl implements SetupClientController {
@@ -58,7 +59,7 @@ public class SetupClientControllerImpl implements SetupClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option issue...<<" + e);
+            System.err.println(">>'case' option exception thrown...<<" + e);
             view.tryAgain();
             chooseTask();
         }
@@ -66,7 +67,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 
     //TODO separate all the methods in here into separate ones and add the retry section to them!
-    public Quiz createAQuiz() {
+    public Quiz createAQuiz() throws RemoteException {
         Quiz quiz = null;
         String quizAuthor;
         String quizName;

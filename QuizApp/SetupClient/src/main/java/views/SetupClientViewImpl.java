@@ -5,6 +5,7 @@ import controllers.QuizServerController;
 import models.Question;
 import models.Quiz;
 
+import java.rmi.RemoteException;
 import java.util.Map;
 
 public class SetupClientViewImpl implements SetupClientView {
@@ -112,7 +113,7 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Thanks for using the quiz setup client.");
     }
 
-    public void printActiveQuizzes(QuizServerController quizServerController) {
+    public void printActiveQuizzes(QuizServerController quizServerController) throws RemoteException {
         System.out.println("\nThe active quizzes on the server are: ");
 
         Map<Integer,Quiz> quizzes;

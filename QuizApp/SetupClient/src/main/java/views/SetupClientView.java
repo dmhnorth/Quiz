@@ -5,6 +5,8 @@ import controllers.QuizServerController;
 import models.Question;
 import models.Quiz;
 
+import java.rmi.RemoteException;
+
 /**
  * For displaying the terminal printouts the user requires to enter data.
  * Partly for cleaning up the contents of The controllers.SetupClientController.
@@ -143,5 +145,5 @@ public interface SetupClientView {
      * Fetchs and prints on terminal the quizzes on the server we are currently connected to
      * @param quizServerController
      */
-    void printActiveQuizzes(QuizServerController quizServerController);
+    void printActiveQuizzes(QuizServerController quizServerController) throws RemoteException;
 }

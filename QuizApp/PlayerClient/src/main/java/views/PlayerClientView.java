@@ -5,6 +5,8 @@ import controllers.QuizServerController;
 import models.Question;
 import models.Quiz;
 
+import java.rmi.RemoteException;
+
 public interface PlayerClientView {
 
 
@@ -16,13 +18,13 @@ public interface PlayerClientView {
 
     void tryAgain();
 
-    void printActiveQuizzes(QuizServerController quizServerController);
+    void printActiveQuizzes(QuizServerController quizServerController) throws RemoteException;
 
     void whatQuizWouldYouLikeToPlay();
 
     void inputError();
 
-    void checkOutRankings(QuizServerController quizServerController);
+    void checkOutRankings(QuizServerController quizServerController) throws RemoteException;
 
     void enterAUserName();
 

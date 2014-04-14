@@ -3,6 +3,8 @@ package controllers;
 
 import models.Question;
 
+import java.rmi.RemoteException;
+
 /**
  * For users who connect to a Quiz Server and enable users
  * to carry out the operations associated with the setting up
@@ -25,7 +27,7 @@ public interface SetupClientController {   //needs to use QuizServerController m
     /**
      * Used to run the user through creating a quiz
      */
-    models.Quiz createAQuiz();
+    models.Quiz createAQuiz() throws RemoteException;
 
     /**
      * Get input for a quiz author name

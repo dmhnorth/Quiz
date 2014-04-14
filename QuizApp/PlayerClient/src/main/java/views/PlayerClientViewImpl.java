@@ -4,6 +4,7 @@ import controllers.QuizServerController;
 import models.Question;
 import models.Quiz;
 
+import java.rmi.RemoteException;
 import java.util.Map;
 
 public class PlayerClientViewImpl implements PlayerClientView {
@@ -29,7 +30,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
     }
 
     @Override
-    public void printActiveQuizzes(QuizServerController quizServerController) {
+    public void printActiveQuizzes(QuizServerController quizServerController) throws RemoteException {
         System.out.println("\nThe active quizzes on the server are: ");
 
         Map<Integer, Quiz> quizzes;
@@ -53,7 +54,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
 
 
     @Override
-    public void checkOutRankings(QuizServerController quizServerController) {
+    public void checkOutRankings(QuizServerController quizServerController) throws RemoteException {
 
         Map<Integer, Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();

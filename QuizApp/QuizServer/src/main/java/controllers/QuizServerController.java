@@ -30,7 +30,7 @@ public interface QuizServerController extends Remote {
      * finally returning the new quiz id
      *
      * @return the new quiz id int
-     * @param quiz
+     * @param quiz the quiz you require an id for
      */
     public int addQuizAndReturnId(Quiz quiz) throws RemoteException;
 
@@ -44,22 +44,22 @@ public interface QuizServerController extends Remote {
 
     /**
      * Retrieves the quizzes currently available on the server as List
-     * @return
+     * @return the data structure of the quizzes
      */
     TreeMap<Integer, Quiz> getModelQuizzes() throws RemoteException;
 
     /**
      * Submits a score to the server at the end of a game
-     * @param quizId
-     * @param score
-     * @param playerName
+     * @param quizId the id of the quiz
+     * @param score the score the user achieved
+     * @param playerName the name given
      */
     void submitScore(int quizId, int score, String playerName) throws RemoteException;
 
     /**
      * Retrieves a quiz from the server with the given ID
-     * @param id
-     * @return
+     * @param id the id of the quiz requested
+     * @return a quiz with the given id
      */
     Quiz getQuizViaId(int id) throws RemoteException;
 }
