@@ -20,7 +20,6 @@ import java.io.*;
             return new File(FILENAME).exists();
         }
 
-        @SuppressWarnings("unchecked")
         @Override
         public QuizServerModel loadData() {
             QuizServerModel quizServerModel = null;

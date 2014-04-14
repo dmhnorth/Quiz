@@ -25,6 +25,7 @@ public interface QuizServerLauncher{
      */
     public void launch() throws RemoteException;
 
+    Thread saveOnExit();
 }
 
 
