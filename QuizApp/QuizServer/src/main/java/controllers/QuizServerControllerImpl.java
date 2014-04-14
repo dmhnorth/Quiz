@@ -3,13 +3,15 @@ package controllers;
 import models.Quiz;
 import models.QuizServerModel;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.TreeMap;
 
-public class QuizServerControllerImpl implements QuizServerController {
+public class QuizServerControllerImpl extends UnicastRemoteObject implements QuizServerController {
 
     QuizServerModel quizServerModel;
 
-    public QuizServerControllerImpl(QuizServerModel quizServerModel) {
+    public QuizServerControllerImpl(QuizServerModel quizServerModel) throws RemoteException {
         this.quizServerModel = quizServerModel;
     }
 
