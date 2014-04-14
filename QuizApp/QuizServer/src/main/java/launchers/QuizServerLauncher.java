@@ -25,7 +25,11 @@ public interface QuizServerLauncher{
      */
     public void launch() throws RemoteException;
 
-    Thread saveOnExit();
+    /**
+     * Saves the QuizServerModel data when the program shuts down
+     * @return
+     */
+    void flush();
 }
 
 

@@ -39,8 +39,9 @@ public class SetupClientControllerImpl implements SetupClientController {
             switch (choice) {
                 case 1:
                     Quiz quiz = createAQuiz();
-                    quizServerController.addQuizAndReturnId(quiz);
-                    System.out.println("You've created and uploaded the quiz with the id: " + quiz.getQuizId() + "\nWhat Now?");
+                    view.quizCreatedWithId(quiz);
+                    //TODO this is where the error is
+                    System.out.println("You've created and uploaded the quiz with the id: " + quizServerController.addQuizAndReturnId(quiz) + "\nWhat Now?");
                     chooseTask();
                     break;
                 case 2:
@@ -57,7 +58,7 @@ public class SetupClientControllerImpl implements SetupClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>Couldn't carry out 'case' option selected...<<" + e);
+            System.err.println(">>'case' option issue...<<" + e);
             view.tryAgain();
             chooseTask();
         }
@@ -89,7 +90,6 @@ public class SetupClientControllerImpl implements SetupClientController {
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
                 view.uploadingQuiz(quiz);
-                view.quizCreatedWithId(quiz);
                 return quiz;
             default:
                 view.editAQuiz(quiz);

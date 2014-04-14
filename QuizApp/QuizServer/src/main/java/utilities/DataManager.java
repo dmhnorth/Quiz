@@ -29,7 +29,7 @@ public interface DataManager {
     /**
      * takes the QuizServerModel and saves it out to a file.
      *
-     * @param quizServerModel
+     * @param quizServerModel a datastore for the quizzes
      *
      */
     public abstract void saveData(QuizServerModel quizServerModel);

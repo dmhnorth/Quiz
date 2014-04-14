@@ -14,22 +14,6 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
 
     }
 
-
-    @Override
-    public QuizServerModel tryLoadQuizServerModel() {
-        QuizServerModel result;
-
-
-
-
-        //TODO create the loading or creating new of a Quizservermodel here, currently just returns a new one.
-
-//        else {
-//            result = new QuizServerModelImpl();
-//        }
-        return this;
-    }
-
     @Override
     public TreeMap<Integer, Quiz> getQuizzes() {
         return quizzes;

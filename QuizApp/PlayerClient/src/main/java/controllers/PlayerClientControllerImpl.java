@@ -59,7 +59,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>Couldn't carry out 'case' option selected...<<" + e);
+            System.err.println(">>'case' option issue...<<" + e);
             view.inputError();
             chooseTask();
 

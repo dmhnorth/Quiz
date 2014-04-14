@@ -10,15 +10,6 @@ import java.util.TreeMap;
  */
 public interface QuizServerModel {
 
-    /**
-     * checks if there is a Quiz Model present on this server, if so, loads and returns it
-     * if not, it sends back a new one
-     *
-     * @return existing QuizServerModel OR a new one if no model exists
-     *
-     */
-    QuizServerModel tryLoadQuizServerModel();
-
     TreeMap<Integer, Quiz> getQuizzes();
 
     /**
@@ -28,16 +19,16 @@ public interface QuizServerModel {
 
     /**
      * Adds a quiz to the data structure and returns it's id
-     * @param quiz
-     * @return
+     * @param quiz quiz just made
+     * @return the id of the quiz
      */
     int addQuizToModel(Quiz quiz);
 
     /**
      * checks if the quiz results some one has just played beat that on the model
-     * @param quizId
-     * @param score
-     * @param playerName
+     * @param quizId is the id created
+     * @param score the score they achieved
+     * @param playerName the name they gave
      */
     void checkAndReplaceScore(int quizId, int score, String playerName);
 }

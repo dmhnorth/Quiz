@@ -21,7 +21,6 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
             QuizServerLauncher launcher = new QuizServerLauncherImpl();
             launcher.launch();
-            launcher.saveOnExit();
             }
 
     @Override
@@ -34,7 +33,7 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
                     System.out.println("Data was loaded from 'quizdata.txt' file.");
                 } else {
                     quizServerModel = new QuizServerModelImpl();
-                    System.out.println("New quizdata.txt has been created.");
+                    System.out.println("New quizdata.txt will be created.");
                 }
                 Runtime.getRuntime().addShutdownHook(saveOnExit());
 
@@ -49,7 +48,6 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
         }catch (Exception e) {
             System.out.println("The Quiz Server failed: " + e);
         }
-
     }
 
 
@@ -59,11 +57,13 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
      *
      * @return a thread for the shutdown process to carry out
      */
-    public Thread saveOnExit(){
+    private Thread saveOnExit(){
 
-        return new Thread(() -> {
-            dm.saveData(quizServerModel);
-        });
+        return new Thread(() -> flush());
+    }
+
+    public void flush() {
+        dm.saveData(quizServerModel);
     }
 
 }
