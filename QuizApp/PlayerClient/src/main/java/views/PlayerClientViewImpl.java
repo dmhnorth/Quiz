@@ -37,6 +37,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
 
         for (Quiz quiz : quizzes.values()) {
             System.out.println(quiz.quizDetailsToString());
+            System.out.println("Quiz currently locked: " + quiz.isQuizLocked());
         }
     }
 
@@ -60,7 +61,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
         System.out.println("Here are the High Scores on the quizzes on this Server: ");
 
         for (Quiz quiz : quizzes.values()) {
-            System.out.println(quiz.toString());
+            System.out.println(quiz.quizDetailsToString());
         }
     }
 

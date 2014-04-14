@@ -1,7 +1,5 @@
 package launchers;
 
-import models.QuizServerModel;
-
 import java.rmi.RemoteException;
 
 /**
@@ -21,22 +19,12 @@ public interface QuizServerLauncher{
      *
      * instantiates a QuizServerController and links it to the Model
      *
-     * instantiates a QuizFactory
-     *
      * binds the QuizServerController to the registry for a client to connect
      *
      *
      */
     public void launch() throws RemoteException;
 
-    /**
-     * checks if there is a Quiz Model present on this server, if so, it loads and returns it
-     * if not, it
-     *
-     * @return QuizServerModel
-     * @return null if no model exists
-     */
-    public void tryLoadQuizServerModel(QuizServerModel qsm);
 }
 
 

@@ -77,7 +77,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         quizAuthor = nameOfAuthor();
         quizName = nameOfQuiz();
         questions = createAQuestionSet();
-        quizId = 1000; //TODO implement this instead quizServerController.generateIdUniqueOnThisModel();
+        quizId = quizServerController.generateIdUniqueOnThisModel();
 
         quiz = new QuizImpl(quizAuthor, quizName, questions, quizId);
 
