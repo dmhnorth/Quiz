@@ -57,7 +57,7 @@ public class SetupClientControllerImpl implements SetupClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>Couldn't carry out 'case' option selected...<<");
+            System.err.println(">>Couldn't carry out 'case' option selected...<<" + e);
             view.tryAgain();
             chooseTask();
         }

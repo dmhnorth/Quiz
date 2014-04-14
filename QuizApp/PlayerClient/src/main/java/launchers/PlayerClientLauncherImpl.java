@@ -24,31 +24,28 @@ public class PlayerClientLauncherImpl implements PlayerClientLauncher {
         try {
             registry = LocateRegistry.getRegistry(1099);
             quizServerController = (QuizServerController) registry.lookup("quizServerController");
-        } catch (Exception e) {
-            System.out.println("Could not connect to a 'quizServerController' object on the server side. Exeception: " + e);
-        }
 
+//CONNECTION AND SETUP
+            try {
+                PlayerClientView playerClientView = new PlayerClientViewImpl();
+                PlayerClientController playerClientController = new PlayerClientControllerImpl(quizServerController, playerClientView);
+                playerClientController.start();
 
-        //MOVE THIS LOT INTO THE TRY BLOCK ABOVE ONCE FINISHED
-        //Starts the controllers.controllers.PlayerClientController once the launcher has found the link
+                if(quizServerController != null) {
+                    assert registry != null;
+                    registry.unbind("quizServerController");
+                    System.out.println("NOTE:the quizServerController object has been unbound.");
+                } else {
+                    System.out.println("(NOTE:There was no Server to unbind)");
+                }
 
+            } catch (Exception e){
+                System.out.println("Something went wrong starting the SetupClient...");
 
-        try {
-            PlayerClientView playerClientView = new PlayerClientViewImpl();
-            PlayerClientController playerClientController = new PlayerClientControllerImpl(quizServerController, playerClientView);
-            playerClientController.start();
-
-            if(quizServerController != null) {
-                assert registry != null;
-                registry.unbind("quizServerController");
-                System.out.println("NOTE:the quizServerController object has been unbound.");
-            } else {
-                System.out.println("(NOTE:There was no Server to unbind)");
             }
 
-        } catch (Exception e){
-            System.out.println("Something went wrong starting the SetupClient...");
-
+        } catch (Exception e) {
+            System.out.println("Could not connect to a 'quizServerController' object on the server side. Exception: " + e);
         }
     }
 }

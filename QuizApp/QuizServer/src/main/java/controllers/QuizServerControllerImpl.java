@@ -17,28 +17,28 @@ public class QuizServerControllerImpl extends UnicastRemoteObject implements Qui
 
 
     @Override
-    public int addQuizAndReturnId(Quiz quiz) {
+    public int addQuizAndReturnId(Quiz quiz) throws RemoteException {
         quizServerModel.addQuizToModel(quiz);
         return quiz.getQuizId();
     }
 
     @Override
-    public int generateIdUniqueOnThisModel() {
+    public int generateIdUniqueOnThisModel() throws RemoteException {
         return quizServerModel.generateId();
     }
 
     @Override
-    public TreeMap<Integer, Quiz> getModelQuizzes() {
+    public TreeMap<Integer, Quiz> getModelQuizzes() throws RemoteException {
         return quizServerModel.getQuizzes();
     }
 
     @Override
-    public void submitScore(int quizId, int score, String playerName) {
+    public void submitScore(int quizId, int score, String playerName) throws RemoteException {
         quizServerModel.checkAndReplaceScore(quizId, score, playerName);
     }
 
     @Override
-    public Quiz getQuizViaId(int id) {
+    public Quiz getQuizViaId(int id) throws RemoteException {
         return quizServerModel.getQuizzes().get(id);
     }
 
