@@ -7,9 +7,9 @@ import models.QuizServerModelImpl;
 import utilities.DataManager;
 import utilities.DataManagerImpl;
 
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 
 public class QuizServerLauncherImpl implements QuizServerLauncher {
 
@@ -50,13 +50,18 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
             QuizServerController quizServerController = new QuizServerControllerImpl(quizServerModel);
 
-            Registry registry = LocateRegistry.createRegistry(1099);
-            registry.rebind("quizServerController", quizServerController);
 
+            LocateRegistry.createRegistry(1099);
+            Naming.rebind("quizServerController", quizServerController);
 
             System.out.println("Quiz Server is ready");
+
+            System.out.println("Quizzes on this server: ");
+            quizServerModel.testPrintContainer();
+
         }catch (Exception e) {
-            System.out.println("The Quiz Server failed: " + e);
+            System.out.println("The Quiz Server failed: " + e + " StackTrace: ");
+            e.printStackTrace();
         }
     }
 

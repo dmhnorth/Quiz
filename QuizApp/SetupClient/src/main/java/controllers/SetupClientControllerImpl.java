@@ -28,7 +28,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         view.displayWelcomeMessage();
         chooseTask();
         view.thanksForUsingTheQuizSetupClient();
-
+        System.exit(0);
     }
 
     public void chooseTask() {

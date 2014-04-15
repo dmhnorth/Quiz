@@ -26,6 +26,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         view.displayWelcomeMessage();
         chooseTask();
         view.thanksForUsingTheQuizSetupClient();
+        System.exit(0);
 
     }
 
@@ -41,6 +42,13 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     chooseTask();
                     break;
                 case 2:
+
+                    if(quizServerController.getModelQuizzes().isEmpty()){
+                        System.out.println("No quizzes on Server.");
+                        chooseTask();
+                        break;
+                    }
+
                     view.whatQuizWouldYouLikeToPlay();
                     int id = Integer.parseInt(sc.nextLine());
                     playQuiz(id);

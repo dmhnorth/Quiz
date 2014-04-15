@@ -28,11 +28,11 @@ public interface PlayerClientView {
 
     void enterAUserName();
 
-    void beginAQuiz(Quiz quiz);
+    void beginAQuiz(Quiz quiz) throws RemoteException;
 
-    void printAQuestionAndChoices(Question q);
+    void printAQuestionAndChoices(Question q) throws RemoteException;
 
-    void userScore(Quiz quiz, int score, String playerName);
+    void userScore(Quiz quiz, int score, String playerName) throws RemoteException;
 
-    void doYouHaveTheNewHighScore(Quiz quiz, int score, String playerName);
+    void doYouHaveTheNewHighScore(Quiz quiz, int score, String playerName) throws RemoteException;
 }

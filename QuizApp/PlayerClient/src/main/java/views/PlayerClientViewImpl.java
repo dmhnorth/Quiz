@@ -72,12 +72,12 @@ public class PlayerClientViewImpl implements PlayerClientView {
     }
 
     @Override
-    public void beginAQuiz(Quiz quiz) {
+    public void beginAQuiz(Quiz quiz) throws RemoteException {
         System.out.println("You're about to play the quiz " + quiz.quizDetailsToString());
     }
 
     @Override
-    public void printAQuestionAndChoices(Question qn) {
+    public void printAQuestionAndChoices(Question qn) throws RemoteException {
         System.out.println(qn.getQuestion());
 
         for (int x = 0; x < qn.getAnswersChoices().length; x++) {
@@ -86,13 +86,13 @@ public class PlayerClientViewImpl implements PlayerClientView {
     }
 
     @Override
-    public void userScore(Quiz quiz, int score, String playerName) {
+    public void userScore(Quiz quiz, int score, String playerName) throws RemoteException {
         System.out.println("You have finished the quiz: " + quiz.quizDetailsToString());
         System.out.println("So, " + playerName + ". Your score was: " + score);
     }
 
     @Override
-    public void doYouHaveTheNewHighScore(Quiz quiz, int score, String playerName) {
+    public void doYouHaveTheNewHighScore(Quiz quiz, int score, String playerName) throws RemoteException {
         if (quiz.getHighScore() == score && quiz.getHighScoreHolder().equals(playerName)) {
             System.out.println("You have the new high score!\n" + quiz.getHighScoreHolder() + " is now a total loser!");
         } else {

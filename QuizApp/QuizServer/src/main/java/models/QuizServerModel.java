@@ -32,4 +32,6 @@ public interface QuizServerModel {
      * @param playerName the name they gave
      */
     void checkAndReplaceScore(int quizId, int score, String playerName) throws RemoteException;
+
+    void testPrintContainer() throws RemoteException;
 }

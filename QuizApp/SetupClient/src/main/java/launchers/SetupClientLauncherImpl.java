@@ -35,6 +35,7 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
                 SetupClientController setupClientController = new SetupClientControllerImpl(quizServerController, setupClientView);
 
                 setupClientController.start();
+
             } catch (Exception e) {
                 System.out.println("Something went wrong starting the SetupClient...");
             }

@@ -9,6 +9,7 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
 
     private static int counter = 0;
 
+    //TODO this is reiinitialising everytime i start the program
     private TreeMap<Integer, Quiz> quizzes = new TreeMap<>();
 
 
@@ -29,7 +30,6 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
     @Override
     public int addQuizToModel(Quiz quiz) throws RemoteException {
 
-
         System.out.println("before trying to add " + quiz.getQuizId());
         quizzes.put(quiz.getQuizId(), quiz);
         System.out.println("after adding " + quiz.getQuizId());
@@ -49,7 +49,13 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
         }
     }
 
-    private void testPrintContainer() throws RemoteException {
+    @Override
+    public void testPrintContainer() throws RemoteException {
+
+        if(quizzes.isEmpty()) {
+            System.out.printf("The QuizServerModel is empty on this server");
+        }
+
         for (Quiz q: quizzes.values()) {
             System.out.println(q.quizDetailsToString());
         }
