@@ -45,11 +45,11 @@ public interface SetupClientController {   //needs to use QuizServerController m
      * Used to create a single question
      * @return Question created
      */
-    Question createAQuestion();
+    Question createAQuestion() throws RemoteException;
 
     /**
      * Used to create a set of Questions for the Quiz
      */
-    Question[] createAQuestionSet();
+    Question[] createAQuestionSet() throws RemoteException;
 
 }

@@ -53,7 +53,7 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Is this alright?\n(1)Yes\n(2)No");
     }
 
-    public void printQuestion(Question qn) {
+    public void printQuestion(Question qn) throws RemoteException {
         System.out.println("For the question: " + "'" + qn.getQuestion() + "'");
 
         System.out.println("You gave the options:");
@@ -62,7 +62,7 @@ public class SetupClientViewImpl implements SetupClientView {
             }
     }
 
-    public void printQuestionAnswer(Question qn) {
+    public void printQuestionAnswer(Question qn) throws RemoteException {
         System.out.println("The correct answer is: " + qn.getCorrectAns());
     }
 
@@ -124,7 +124,7 @@ public class SetupClientViewImpl implements SetupClientView {
         }
     }
 
-    public void printQuizDetails(Quiz quiz) {
+    public void printQuizDetails(Quiz quiz) throws RemoteException {
         System.out.println("The quiz details for " + "'" + quiz.getQuizName()+ "'");
         System.out.println("\nQuiz ID: " + quiz.getQuizId());
         System.out.println("Quiz Author: " + quiz.getQuizAuthor());
@@ -133,7 +133,7 @@ public class SetupClientViewImpl implements SetupClientView {
     }
 
 
-    private void printQuestionsAndAnswers(Quiz quiz) {
+    private void printQuestionsAndAnswers(Quiz quiz) throws RemoteException {
         for(int x = 0;x < quiz.getQuestions().length;x++) {
             printQuestion((quiz.getQuestions()[x]));
             printQuestionAnswer((quiz.getQuestions()[x]));

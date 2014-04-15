@@ -13,7 +13,6 @@ import java.rmi.registry.Registry;
 public class SetupClientLauncherImpl implements SetupClientLauncher {
 
 
-    private QuizServerController quizServerController;
     final String server = "quizServerController";
 
     public static void main(String[] args) {
@@ -28,7 +27,7 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
         Registry registry;
         try {
             registry = LocateRegistry.getRegistry(1099);
-            quizServerController = (QuizServerController) registry.lookup("quizServerController");
+            QuizServerController quizServerController = (QuizServerController) registry.lookup("quizServerController");
 
 //CONNECTION AND SETUP
             try {
@@ -36,21 +35,11 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
                 SetupClientController setupClientController = new SetupClientControllerImpl(quizServerController, setupClientView);
 
                 setupClientController.start();
-
-                if(quizServerController != null) {
-                    assert registry != null;
-                    registry.unbind("quizServerController");
-                    System.out.println("NOTE:the quizServerController object has been unbound.");
-                } else {
-                    System.out.println("(NOTE:There was no Server to unbind)");
-                }
-
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Something went wrong starting the SetupClient...");
             }
-
         } catch (Exception e) {
-            System.out.println("Could not connect to a 'quizServerController' object on the server side. Exception: " + e);
+            System.out.println("There was a problem with the launcher.");
         }
     }
 }

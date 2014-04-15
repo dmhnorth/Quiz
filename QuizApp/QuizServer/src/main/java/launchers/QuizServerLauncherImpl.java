@@ -25,9 +25,16 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
     @Override
     public void launch() throws RemoteException {
-        //TODO this is where I am!!!
+
+        System.setProperty("java.security.policy", "QuizServer/security.policy");
+
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new SecurityManager()); }
+
+//        File file = new File("QuizServer/security.policy");
+//        System.out.println(file.exists());
+
+
 
         try {
 

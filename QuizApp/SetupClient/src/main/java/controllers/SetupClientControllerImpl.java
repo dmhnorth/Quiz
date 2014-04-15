@@ -100,7 +100,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         }
     }
 
-    private Quiz editAQuiz(Quiz quiz) {
+    private Quiz editAQuiz(Quiz quiz) throws RemoteException {
         //TODO Add editing methods
         Quiz result = new QuizImpl(quiz.getQuizAuthor(), quiz.getQuizName(), quiz.getQuestions(), quiz.getQuizId());
         view.printQuizDetails(quiz);
@@ -140,7 +140,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         return quizName;
     }
 
-    public Question createAQuestion() {
+    public Question createAQuestion() throws RemoteException {
 
         Question result;
 
@@ -223,7 +223,7 @@ public class SetupClientControllerImpl implements SetupClientController {
     }
 
 
-    public Question[] createAQuestionSet() {
+    public Question[] createAQuestionSet() throws RemoteException {
         Question[] result;
 
         view.createQuestions();

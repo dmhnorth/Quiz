@@ -67,7 +67,7 @@ public interface SetupClientView {
     /**
      * Prints out a question and it's answer
      */
-    void printQuestion(Question qn);
+    void printQuestion(Question qn) throws RemoteException;
 
 
 
@@ -75,13 +75,13 @@ public interface SetupClientView {
     /**
      * Prints out the correct answer integer
      */
-    void printQuestionAnswer(Question qn);
+    void printQuestionAnswer(Question qn) throws RemoteException;
 
     /**
      * print a summary of the details within a give quiz
-     * @param quiz
+     * @param quiz quiz details are required for
      */
-    void printQuizDetails(Quiz quiz);
+    void printQuizDetails(Quiz quiz) throws RemoteException;
 
     /**
      * tells a User to try again
@@ -120,19 +120,19 @@ public interface SetupClientView {
 
     /**
      * Notification user decided to upload the quiz to the server
-     * @param quiz
+     * @param quiz quiz to be uploaded
      */
     void uploadingQuiz(Quiz quiz);
 
     /**
      * Tells a user they are about to edit a quiz
-     * @param quiz
+     * @param quiz quiz to be edited
      */
     void editAQuiz(Quiz quiz);
 
     /**
      * Tell a user they have created a quiz and give them the id on the terminal
-     * @param quiz
+     * @param quiz quiz just created
      */
     void quizCreatedWithId(Quiz quiz);
 
@@ -142,8 +142,8 @@ public interface SetupClientView {
     void thanksForUsingTheQuizSetupClient();
 
     /**
-     * Fetchs and prints on terminal the quizzes on the server we are currently connected to
-     * @param quizServerController
+     * Fetches and prints on terminal the quizzes on the server we are currently connected to
+     * @param quizServerController the server object required
      */
     void printActiveQuizzes(QuizServerController quizServerController) throws RemoteException;
 }

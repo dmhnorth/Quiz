@@ -1,16 +1,19 @@
 package models;
 
-public interface Question {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-    void setQuestion(String question);
+public interface Question extends Remote {
 
-    String getQuestion();
+    void setQuestion(String question) throws RemoteException;
 
-    void setAnswersChoices(String[] answersChoices);
+    String getQuestion()throws RemoteException;
 
-    String[] getAnswersChoices();
+    void setAnswersChoices(String[] answersChoices) throws RemoteException;
 
-    void setCorrectAns(int correctAns);
+    String[] getAnswersChoices() throws RemoteException;
 
-    int getCorrectAns();
+    void setCorrectAns(int correctAns) throws RemoteException ;
+
+    int getCorrectAns() throws RemoteException ;
 }

@@ -1,6 +1,8 @@
 package models;
 
-public interface Quiz {
+import java.rmi.Remote;
+
+public interface Quiz extends Remote {
     String getQuizAuthor();
 
     String getQuizName();

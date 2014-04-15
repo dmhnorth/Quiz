@@ -1,8 +1,10 @@
 package models;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
-public class QuizImpl implements Serializable, Quiz{
+public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz {
 
     private String quizAuthor;
     private String quizName;
@@ -12,7 +14,7 @@ public class QuizImpl implements Serializable, Quiz{
     private String highScoreHolder;
     private boolean quizLock;
 
-    public QuizImpl(String quizAuthor, String quizName, Question[] questions, int generatedId){
+    public QuizImpl(String quizAuthor, String quizName, Question[] questions, int generatedId) throws RemoteException {
         this.quizAuthor = quizAuthor;
         this.quizName = quizName;
         this.questions = questions;
