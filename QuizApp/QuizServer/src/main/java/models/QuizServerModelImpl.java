@@ -1,6 +1,7 @@
 package models;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.TreeMap;
 
 public class QuizServerModelImpl implements QuizServerModel, Serializable {
@@ -8,7 +9,8 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
 
     private static int counter = 0;
 
-    private TreeMap<Integer, Quiz> quizzes;
+    private TreeMap<Integer, Quiz> quizzes = new TreeMap<>();
+
 
     public QuizServerModelImpl() {
 
@@ -25,13 +27,18 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
     }
 
     @Override
-    public int addQuizToModel(Quiz quiz) {
+    public int addQuizToModel(Quiz quiz) throws RemoteException {
+
+
+        System.out.println("before trying to add " + quiz.getQuizId());
         quizzes.put(quiz.getQuizId(), quiz);
+        System.out.println("after adding " + quiz.getQuizId());
+        testPrintContainer();
         return quiz.getQuizId();
     }
 
     @Override
-    public void checkAndReplaceScore(int quizId, int score, String playerName) {
+    public void checkAndReplaceScore(int quizId, int score, String playerName) throws RemoteException {
         Quiz quiz = quizzes.get(quizId);
 
         if(quiz.getHighScore() < score) {
@@ -39,6 +46,12 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
             quiz.setHighScoreHolder(playerName);
         } else {
             //Do Nothing
+        }
+    }
+
+    private void testPrintContainer() throws RemoteException {
+        for (Quiz q: quizzes.values()) {
+            System.out.println(q.quizDetailsToString());
         }
     }
 

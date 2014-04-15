@@ -59,7 +59,8 @@ public class SetupClientControllerImpl implements SetupClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option exception thrown...<<" + e);
+            System.err.println(">>'case' option exception thrown...<<" + e + " The stacktrace: ");
+            e.printStackTrace();
             view.tryAgain();
             chooseTask();
         }
@@ -198,7 +199,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         view.createAQuestion();
         String question = sc.nextLine();
 
-        if (question.equals(null) || question.equals("")) {
+        if (question.equals("")) {
             return question();
         } else {
             System.out.println("you entered: " + question);

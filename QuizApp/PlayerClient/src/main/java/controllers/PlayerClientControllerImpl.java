@@ -60,7 +60,8 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option exception thrown...<<" + e);
+            System.err.println(">>'case' option exception thrown...<<" + e + " The Stacktrace: ");
+            e.printStackTrace();
             view.inputError();
             chooseTask();
 

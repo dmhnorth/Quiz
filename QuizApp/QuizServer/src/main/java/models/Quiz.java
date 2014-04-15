@@ -1,29 +1,31 @@
 package models;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-public interface Quiz extends Remote {
-    String getQuizAuthor();
+public interface Quiz extends Remote{
 
-    String getQuizName();
+    String getQuizAuthor() throws RemoteException;
 
-    int getQuizId();
+    String getQuizName() throws RemoteException;
 
-    void setHighScore(int highScore);
+    int getQuizId() throws RemoteException;
 
-    int getHighScore();
+    void setHighScore(int highScore) throws RemoteException;
 
-    void setHighScoreHolder(String highScoreHolder);
+    int getHighScore() throws RemoteException;
 
-    String getHighScoreHolder();
+    void setHighScoreHolder(String highScoreHolder) throws RemoteException;
 
-    Question[] getQuestions();
+    String getHighScoreHolder() throws RemoteException;
 
-    boolean isQuizLocked();
+    Question[] getQuestions() throws RemoteException;
 
-    void lockQuiz();
+    boolean isQuizLocked() throws RemoteException;
 
-    void unlockQuiz();
+    void lockQuiz() throws RemoteException;
 
-    String quizDetailsToString();
+    void unlockQuiz() throws RemoteException;
+
+    String quizDetailsToString() throws RemoteException;
 }

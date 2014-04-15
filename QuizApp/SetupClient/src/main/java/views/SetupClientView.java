@@ -122,19 +122,19 @@ public interface SetupClientView {
      * Notification user decided to upload the quiz to the server
      * @param quiz quiz to be uploaded
      */
-    void uploadingQuiz(Quiz quiz);
+    void uploadingQuiz(Quiz quiz) throws RemoteException;
 
     /**
      * Tells a user they are about to edit a quiz
      * @param quiz quiz to be edited
      */
-    void editAQuiz(Quiz quiz);
+    void editAQuiz(Quiz quiz) throws RemoteException;
 
     /**
      * Tell a user they have created a quiz and give them the id on the terminal
      * @param quiz quiz just created
      */
-    void quizCreatedWithId(Quiz quiz);
+    void quizCreatedWithId(Quiz quiz) throws RemoteException;
 
     /**
      * Exit message on client

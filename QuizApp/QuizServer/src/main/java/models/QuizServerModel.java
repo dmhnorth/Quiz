@@ -1,5 +1,6 @@
 package models;
 
+import java.rmi.RemoteException;
 import java.util.TreeMap;
 
 /**
@@ -22,7 +23,7 @@ public interface QuizServerModel {
      * @param quiz quiz just made
      * @return the id of the quiz
      */
-    int addQuizToModel(Quiz quiz);
+    int addQuizToModel(Quiz quiz) throws RemoteException;
 
     /**
      * checks if the quiz results some one has just played beat that on the model
@@ -30,5 +31,5 @@ public interface QuizServerModel {
      * @param score the score they achieved
      * @param playerName the name they gave
      */
-    void checkAndReplaceScore(int quizId, int score, String playerName);
+    void checkAndReplaceScore(int quizId, int score, String playerName) throws RemoteException;
 }

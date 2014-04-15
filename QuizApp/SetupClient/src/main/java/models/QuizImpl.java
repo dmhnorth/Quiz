@@ -27,62 +27,62 @@ public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz 
     }
 
     @Override
-    public String getQuizAuthor() {
+    public String getQuizAuthor() throws RemoteException {
         return quizAuthor;
     }
 
     @Override
-    public String getQuizName(){
+    public String getQuizName() throws RemoteException{
         return quizName;
     }
 
     @Override
-    public int getQuizId(){
+    public int getQuizId() throws RemoteException{
         return quizId;
     }
 
     @Override
-    public void setHighScore(int highScore) {
+    public void setHighScore(int highScore) throws RemoteException {
         this.highScore = highScore;
     }
 
     @Override
-    public int getHighScore(){
+    public int getHighScore() throws RemoteException{
         return highScore;
     }
 
     @Override
-    public void setHighScoreHolder(String highScoreHolder){
+    public void setHighScoreHolder(String highScoreHolder) throws RemoteException{
         this.highScoreHolder = highScoreHolder;
     }
 
     @Override
-    public String getHighScoreHolder(){
+    public String getHighScoreHolder() throws RemoteException{
         return highScoreHolder;
     }
 
     @Override
-    public Question[] getQuestions(){
+    public Question[] getQuestions() throws RemoteException{
         return questions;
     }
 
     @Override
-    public boolean isQuizLocked() {
+    public boolean isQuizLocked() throws RemoteException {
         return quizLock;
     }
 
     @Override
-    public void lockQuiz(){
+    public void lockQuiz() throws RemoteException{
         this.quizLock = true;
     }
 
     @Override
-    public  void unlockQuiz(){
+    public  void unlockQuiz() throws RemoteException{
         this.quizLock = false;
     }
 
     @Override
-    public String quizDetailsToString() {
+    public String quizDetailsToString() throws RemoteException {
         return "Quiz ID: " + getQuizId() + "\nQuiz Name: " + getQuizName() + "\nHigh Score holder: " + getHighScoreHolder() + "\nScore: " + getHighScore();
     }
 }

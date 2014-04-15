@@ -95,16 +95,16 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Do you wish to upload this quiz?");
     }
 
-    public void uploadingQuiz(Quiz quiz) {
+    public void uploadingQuiz(Quiz quiz) throws RemoteException {
         System.out.println("You decided to upload the quiz: " + quiz.getQuizName());
     }
 
-    public void editAQuiz(Quiz quiz) {
+    public void editAQuiz(Quiz quiz) throws RemoteException {
         System.out.println("You are about to edit the quiz: " + quiz.getQuizName());
     }
 
 
-    public void quizCreatedWithId(Quiz quiz) {
+    public void quizCreatedWithId(Quiz quiz) throws RemoteException {
         System.out.println("You've created a quiz with the id: " + quiz.getQuizId());
     }
 
