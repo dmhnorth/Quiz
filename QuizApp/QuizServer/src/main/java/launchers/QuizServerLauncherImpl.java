@@ -7,9 +7,9 @@ import models.QuizServerModelImpl;
 import utilities.DataManager;
 import utilities.DataManagerImpl;
 
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class QuizServerLauncherImpl implements QuizServerLauncher {
 
@@ -28,8 +28,8 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
         System.setProperty("java.security.policy", "QuizServer/security.policy");
 
-        if (System.getSecurityManager() == null) {
-            System.setSecurityManager(new SecurityManager()); }
+//        if (System.getSecurityManager() == null) {
+//            System.setSecurityManager(new SecurityManager()); }
 
 //        File file = new File("QuizServer/security.policy");
 //        System.out.println(file.exists());
@@ -47,12 +47,10 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
                 }
                 Runtime.getRuntime().addShutdownHook(saveOnExit());
 
-
             QuizServerController quizServerController = new QuizServerControllerImpl(quizServerModel);
 
-
-            LocateRegistry.createRegistry(1099);
-            Naming.rebind("quizServerController", quizServerController);
+            Registry registry = LocateRegistry.createRegistry(1099);
+            registry.rebind("quizServerController", quizServerController);
 
             System.out.println("Quiz Server is ready");
 
@@ -60,7 +58,7 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
             quizServerModel.testPrintContainer();
 
         }catch (Exception e) {
-            System.out.println("The Quiz Server failed: " + e + " StackTrace: ");
+            System.out.println("The Quiz Server failed: " + e);
             e.printStackTrace();
         }
     }

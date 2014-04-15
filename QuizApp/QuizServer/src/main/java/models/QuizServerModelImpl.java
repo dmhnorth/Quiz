@@ -6,15 +6,10 @@ import java.util.TreeMap;
 
 public class QuizServerModelImpl implements QuizServerModel, Serializable {
 
-
     private static int counter = 0;
-
-    //TODO this is reiinitialising everytime i start the program
     private TreeMap<Integer, Quiz> quizzes = new TreeMap<>();
 
-
     public QuizServerModelImpl() {
-
     }
 
     @Override
@@ -53,7 +48,7 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
     public void testPrintContainer() throws RemoteException {
 
         if(quizzes.isEmpty()) {
-            System.out.printf("The QuizServerModel is empty on this server");
+            System.out.println("The QuizServerModel is empty on this server.");
         }
 
         for (Quiz q: quizzes.values()) {

@@ -26,7 +26,7 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
 
         Registry registry;
         try {
-            registry = LocateRegistry.getRegistry(1099);
+            registry = LocateRegistry.getRegistry("localhost", 1099);
             QuizServerController quizServerController = (QuizServerController) registry.lookup("quizServerController");
 
 //CONNECTION AND SETUP

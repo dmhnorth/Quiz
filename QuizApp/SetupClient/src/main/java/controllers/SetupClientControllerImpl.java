@@ -59,7 +59,7 @@ public class SetupClientControllerImpl implements SetupClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option exception thrown...<<" + e + " The stacktrace: ");
+            System.err.println(">>'case' option exception thrown...<<" + e);
             e.printStackTrace();
             view.tryAgain();
             chooseTask();
