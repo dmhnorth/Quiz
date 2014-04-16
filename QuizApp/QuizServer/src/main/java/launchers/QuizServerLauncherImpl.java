@@ -10,6 +10,7 @@ import utilities.DataManagerImpl;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Scanner;
 
 public class QuizServerLauncherImpl implements QuizServerLauncher {
 
@@ -19,12 +20,14 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
     public static void main(String[] args) throws RemoteException {
 
-            QuizServerLauncher launcher = new QuizServerLauncherImpl();
-            launcher.launch();
-            }
+        QuizServerLauncher launcher = new QuizServerLauncherImpl();
+        launcher.launch();
+    }
 
     @Override
     public void launch() throws RemoteException {
+
+        System.out.println("let's try this...");
 
         System.setProperty("java.security.policy", "QuizServer/security.policy");
 
@@ -38,29 +41,40 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
         try {
 
-                if (dm.dataFileExists()){
-                    quizServerModel = dm.loadData();
-                    System.out.println("Data was loaded from 'quizdata.txt' file.");
-                } else {
-                    quizServerModel = new QuizServerModelImpl();
-                    System.out.println("New quizdata.txt will be created.");
-                }
-                Runtime.getRuntime().addShutdownHook(saveOnExit());
+            if (dm.dataFileExists()){
+                quizServerModel = dm.loadData();
+                System.out.println("Data was loaded from 'quizdata.txt' file.");
+            } else {
+                quizServerModel = new QuizServerModelImpl();
+                System.out.println("New quizdata.txt will be created.");
+            }
+            Runtime.getRuntime().addShutdownHook(saveOnExit());
 
             QuizServerController quizServerController = new QuizServerControllerImpl(quizServerModel);
 
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("quizServerController", quizServerController);
 
-            System.out.println("Quiz Server is ready");
+            System.out.println("Quiz Server is ready\n");
 
             System.out.println("Quizzes on this server: ");
             quizServerModel.testPrintContainer();
+
+            System.out.println("\nPress enter to shutdown the server.");
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine();
+            flush();
+            System.exit(0);
+
 
         }catch (Exception e) {
             System.out.println("The Quiz Server failed: " + e);
             e.printStackTrace();
         }
+        System.out.println("\nPress enter to shutdown the server.");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        System.exit(0);
     }
 
 
@@ -78,5 +92,4 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
     public void flush() {
         dm.saveData(quizServerModel);
     }
-
 }

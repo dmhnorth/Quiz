@@ -67,7 +67,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
     //TODO separate all the methods in here into separate ones and add the retry section to them!
     public Quiz createAQuiz() throws RemoteException {
-        Quiz quiz = null;
+        Quiz quiz;
         String quizAuthor;
         String quizName;
         Question[] questions;

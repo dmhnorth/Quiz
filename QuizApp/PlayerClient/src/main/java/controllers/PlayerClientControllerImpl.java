@@ -43,7 +43,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     break;
                 case 2:
 
-                    if(quizServerController.getModelQuizzes().isEmpty()){
+                    if (quizServerController.getModelQuizzes().isEmpty()) {
                         System.out.println("No quizzes on Server.");
                         chooseTask();
                         break;
@@ -89,8 +89,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         view.beginAQuiz(quiz);
 
 
-
-        for(Question qn : quiz.getQuestions()) {
+        for (Question qn : quiz.getQuestions()) {
             int questionNo = 0;
             questionNo++;
             System.out.println("Question number: " + questionNo);
@@ -100,7 +99,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
             userInput = Integer.parseInt(sc.nextLine());
 
 
-            if(answer == userInput) {
+            if (answer == userInput) {
                 score++;
             }
 
@@ -117,7 +116,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         view.enterAUserName();
         userName = sc.nextLine();
 
-        if(userName.equals("") || userName.equals(null)){
+        if (userName == null || userName.trim().isEmpty()) {
             getUserName();
         }
         return userName;
