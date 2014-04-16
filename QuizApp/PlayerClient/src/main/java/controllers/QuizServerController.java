@@ -72,12 +72,12 @@ public interface QuizServerController extends Remote {
     Question buildQuestion(String[] question) throws RemoteException;
 
     /**
-     * builds a Quiz object on the Server with the given resources
+     * builds a Quiz object on the Server with the given resources and adds it to the data structure
      * @param quizAuthor the person that made the quiz
      * @param quizName the name of the quiz
      * @param questions the series of questions
      * @param quizId the id generated
-     * @return a quiz object
+     * @return the quiz id
      */
-    Quiz buildQuiz(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException;
+    int buildQuizOnServer(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException;
 }

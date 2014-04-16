@@ -77,17 +77,21 @@ public class SetupClientControllerImpl implements SetupClientController {
         questions = createAQuestionSet();
         quizId = quizServerController.generateIdUniqueOnThisModel();
 
-        quiz = quizServerController.buildQuiz(quizAuthor, quizName, questions, quizId);
+        quizServerController.buildQuizOnServer(quizAuthor, quizName, questions, quizId);
 
-        view.printQuizDetails(quiz);
+        view.printQuizDetails(quizServerController.getQuizViaId(quizId));
         view.doYouWantToPublishThisQuiz();
         view.isThisCorrect();
 
 
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
-                view.uploadingQuiz(quiz);
-                quizServerController.addQuizAndReturnId(quiz);
+                view.uploadingQuiz(quizServerController.getQuizViaId(quizId));
+
+                quizServerController.addQuizAndReturnId();
+
+
+
                 view.quizCreatedWithId(quiz.getQuizId());
                 return quiz.getQuizId();
             default:
