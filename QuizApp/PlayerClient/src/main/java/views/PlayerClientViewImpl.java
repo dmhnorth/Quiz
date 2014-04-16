@@ -36,9 +36,14 @@ public class PlayerClientViewImpl implements PlayerClientView {
         Map<Integer, Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();
 
-        for (Quiz quiz : quizzes.values()) {
-            System.out.println(quiz.quizDetailsToString());
-            System.out.println("Quiz currently locked: " + quiz.isQuizLocked());
+        if(quizzes.isEmpty()) {
+            System.out.println("There are no quizzes on the server yet.");
+        } else {
+
+            for (Quiz quiz : quizzes.values()) {
+                System.out.println(quiz.quizDetailsToString());
+                System.out.println("Quiz currently locked: " + quiz.isQuizLocked());
+            }
         }
     }
 
@@ -94,7 +99,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
     @Override
     public void doYouHaveTheNewHighScore(Quiz quiz, int score, String playerName) throws RemoteException {
         if (quiz.getHighScore() == score && quiz.getHighScoreHolder().equals(playerName)) {
-            System.out.println("You have the new high score!\n" + quiz.getHighScoreHolder() + " is now a total loser!");
+            System.out.println("You have the new high score!\n" + "You beat that loser!");
         } else {
             System.out.println("Dammit! " + quiz.getHighScoreHolder() + " still has the highest score with " + quiz.getHighScore() + ".\n" + "You were only " + (quiz.getHighScore() - score) + " point off!\nBetter luck next time. Idiot.");
         }
