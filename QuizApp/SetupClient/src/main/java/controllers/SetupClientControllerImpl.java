@@ -79,7 +79,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         quizServerController.buildQuizOnServer(quizAuthor, quizName, questions, quizId);
 
-        view.printQuizDetails(quizServerController.getQuizViaId(quizId));
+        view.printQuizTempDetails(quizServerController.getQuizViaId(quizId));
         view.doYouWantToPublishThisQuiz();
         view.isThisCorrect();
 

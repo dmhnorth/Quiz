@@ -121,17 +121,17 @@ public class SetupClientViewImpl implements SetupClientView {
         }
     }
 
-    public void printQuizDetails(Quiz quiz) throws RemoteException {
-        System.out.println("The quiz details for " + "'" + quiz.getQuizName()+ "'");
-        System.out.println("\nQuiz ID: " + quiz.getQuizId());
-        System.out.println("Quiz Author: " + quiz.getQuizAuthor());
+    public void printQuizDetails(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException {
+        System.out.println("The quiz details for " + "'" + quizName + "'");
+        System.out.println("\nQuiz ID: " + quizId);
+        System.out.println("Quiz Author: " + quizAuthor);
         System.out.println("\nQuiz Questions: ");
-        printQuestionsAndAnswers(quiz);
+        printQuestionsAndAnswers(questions);
     }
 
-
-    private void printQuestionsAndAnswers(Quiz quiz) throws RemoteException {
-        for(int x = 0;x < quiz.getQuestions().length;x++) {
+//TODO finish writing up this utter shit
+    private void printQuestionsAndAnswers(String[][] questions) throws RemoteException {
+        for(int x = 0;x < questions[x].length;x++) {
             printQuestion(quiz.getQuestions()[x]);
             printQuestionAnswer(quiz.getQuestions()[x][4]);
             System.out.println("\n");
