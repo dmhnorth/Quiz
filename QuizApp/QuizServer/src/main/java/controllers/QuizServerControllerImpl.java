@@ -1,7 +1,6 @@
 package controllers;
 
-import models.Quiz;
-import models.QuizServerModel;
+import models.*;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -40,6 +39,16 @@ public class QuizServerControllerImpl extends UnicastRemoteObject implements Qui
     @Override
     public Quiz getQuizViaId(int id) throws RemoteException {
         return quizServerModel.getQuizzes().get(id);
+    }
+
+    @Override
+    public Question buildQuestion(String question, String[] answersChoices, int correctAns) throws RemoteException {
+        return new QuestionImpl(question, answersChoices, correctAns);
+    }
+
+    @Override
+    public Quiz buildQuiz(String quizAuthor, String quizName, Question[] questions, int quizId) throws RemoteException {
+        return new QuizImpl(quizAuthor, quizName, questions, quizId);
     }
 
     public QuizServerModel getQuizServerModel() {

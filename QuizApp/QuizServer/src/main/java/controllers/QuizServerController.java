@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Question;
 import models.Quiz;
 
 import java.rmi.Remote;
@@ -62,4 +63,23 @@ public interface QuizServerController extends Remote {
      * @return a quiz with the given id
      */
     Quiz getQuizViaId(int id) throws RemoteException;
+
+    /**
+     * builds a Question object on the Server with the given resources
+     * @param question a string of the question to be asked
+     * @param answersChoices the answer options
+     * @param correctAns the correct number of the answer
+     * @return the build question
+     */
+    Question buildQuestion(String question, String[] answersChoices, int correctAns) throws RemoteException;
+
+    /**
+     * builds a Quiz object on the Server with the given resources
+     * @param quizAuthor the person that made the quiz
+     * @param quizName the name of the quiz
+     * @param questions the series of questions
+     * @param quizId the id generated
+     * @return a quiz object
+     */
+    Quiz buildQuiz(String quizAuthor, String quizName, Question[] questions, int quizId) throws RemoteException;
 }

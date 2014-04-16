@@ -28,8 +28,8 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
         System.setProperty("java.security.policy", "QuizServer/security.policy");
 
-//        if (System.getSecurityManager() == null) {
-//            System.setSecurityManager(new SecurityManager()); }
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager()); }
 
 //        File file = new File("QuizServer/security.policy");
 //        System.out.println(file.exists());
