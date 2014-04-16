@@ -92,12 +92,12 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Do you wish to upload this quiz?");
     }
 
-    public void uploadingQuiz(Quiz quiz) throws RemoteException {
-        System.out.println("You decided to upload the quiz: " + quiz.getQuizName());
+    public void uploadingQuiz() throws RemoteException {
+        System.out.println("You decided to upload the quiz...");
     }
 
-    public void editAQuiz(Quiz quiz) throws RemoteException {
-        System.out.println("You are about to edit the quiz: " + quiz.getQuizName());
+    public void editAQuiz(int id) throws RemoteException {
+        System.out.println("You are about to edit the quiz: " + id);
     }
 
 
@@ -129,11 +129,11 @@ public class SetupClientViewImpl implements SetupClientView {
         printQuestionsAndAnswers(questions);
     }
 
-//TODO finish writing up this utter shit
     private void printQuestionsAndAnswers(String[][] questions) throws RemoteException {
-        for(int x = 0;x < questions[x].length;x++) {
-            printQuestion(quiz.getQuestions()[x]);
-            printQuestionAnswer(quiz.getQuestions()[x][4]);
+
+        for (String[] question : questions) {
+            printQuestion(new String[]{question[1], question[2], question[3], question[4]});
+            printQuestionAnswer(question[4]);
             System.out.println("\n");
         }
     }

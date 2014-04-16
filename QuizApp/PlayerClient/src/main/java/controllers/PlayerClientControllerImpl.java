@@ -89,13 +89,13 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         view.beginAQuiz(quiz);
 
 
-        for (Question qn : quiz.getQuestions()) {
+        for (String[] qn : quiz.getQuestions()) {
             int questionNo = 0;
             questionNo++;
             System.out.println("Question number: " + questionNo);
             view.printAQuestionAndChoices(qn);
 
-            String answer = qn.getCorrectAns();
+            String answer = qn[5];
             userInput = Integer.parseInt(sc.nextLine());
 
 

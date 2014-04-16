@@ -37,7 +37,7 @@ public class SetupClientControllerImpl implements SetupClientController {
             switch (choice) {
                 case 1:
                     int newQuizId = createAQuiz();
-                    System.out.println("You've created and uploaded the quiz with the id: " + quizServerController.getQuizViaId(newQuizId) + "\nWhat Now?");
+                    System.out.println("You've created and uploaded the quiz with the id: " + quizServerController.getQuizViaId(newQuizId).getQuizId() + "\nWhat Now?");
                     chooseTask();
                     break;
                 case 2:
@@ -77,39 +77,32 @@ public class SetupClientControllerImpl implements SetupClientController {
         questions = createAQuestionSet();
         quizId = quizServerController.generateIdUniqueOnThisModel();
 
-        quizServerController.buildQuizOnServer(quizAuthor, quizName, questions, quizId);
-
-        view.printQuizTempDetails(quizServerController.getQuizViaId(quizId));
+        view.printQuizDetails(quizAuthor, quizName, questions, quizId);
         view.doYouWantToPublishThisQuiz();
         view.isThisCorrect();
 
 
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
-                view.uploadingQuiz(quizServerController.getQuizViaId(quizId));
+                //TODO null
+                view.uploadingQuiz();
 
-                quizServerController.addQuizAndReturnId();
-
-
-
-                view.quizCreatedWithId(quiz.getQuizId());
-                return quiz.getQuizId();
+                quizServerController.buildQuizOnServer(quizAuthor, quizName, questions, quizId);
+                view.quizCreatedWithId(quizId);
+                return quizId;
             default:
-                view.editAQuiz(quiz);
-                editAQuiz(quiz);
+                view.editAQuiz(quizId);
+                editAQuiz(quizAuthor, quizName, questions, quizId);
                 //TODO possible error on quizid on next line
-                view.quizCreatedWithId(quiz.getQuizId());
-                return quiz.getQuizId();
+                view.quizCreatedWithId(quizId);
+                return quizId;
         }
     }
 
-    private Quiz editAQuiz(Quiz quiz) throws RemoteException {
+    private void editAQuiz(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException {
         //TODO Add editing methods
-        Quiz result = quizServerController.buildQuiz(quiz.getQuizAuthor(), quiz.getQuizName(), quiz.getQuestions(), quiz.getQuizId());
-
-        view.printQuizDetails(quiz);
+        view.printQuizDetails(quizAuthor, quizName, questions, quizId);
         System.out.println("Sorry, edit quiz is not yet available.");
-        return result;
     }
 
 
@@ -237,6 +230,7 @@ public class SetupClientControllerImpl implements SetupClientController {
             System.arraycopy(tempQn, 0, result[x], 0, tempQn.length);
         }
         view.questionsHaveBeenSet();
+
         return result;
     }
 }

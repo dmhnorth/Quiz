@@ -2,7 +2,6 @@ package views;
 
 
 import controllers.QuizServerController;
-import models.Quiz;
 
 import java.rmi.RemoteException;
 
@@ -69,9 +68,6 @@ public interface SetupClientView {
      */
     void printQuestion(String[] qn) throws RemoteException;
 
-
-
-
     /**
      * Prints out the correct answer integer
      */
@@ -79,9 +75,13 @@ public interface SetupClientView {
 
     /**
      * print a summary of the details within a give quiz
-     * @param quiz quiz details are required for
+     * @param quizAuthor the author of the currently being made quiz
+     * @param quizName the name of the currently being made quiz
+     * @param questions the questions currently being built
+     * @param quizId the id currently set
+     * @throws RemoteException
      */
-    void printQuizDetails(Quiz quiz) throws RemoteException;
+    void printQuizDetails(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException;
 
     /**
      * tells a User to try again
@@ -120,15 +120,14 @@ public interface SetupClientView {
 
     /**
      * Notification user decided to upload the quiz to the server
-     * @param quiz quiz to be uploaded
      */
-    void uploadingQuiz(Quiz quiz) throws RemoteException;
+    void uploadingQuiz() throws RemoteException;
 
     /**
      * Tells a user they are about to edit a quiz
      * @param quiz quiz to be edited
      */
-    void editAQuiz(Quiz quiz) throws RemoteException;
+    void editAQuiz(int quiz) throws RemoteException;
 
     /**
      * Tell a user they have created a quiz and give them the id on the terminal

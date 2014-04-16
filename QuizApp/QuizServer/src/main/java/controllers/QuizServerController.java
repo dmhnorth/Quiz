@@ -23,19 +23,6 @@ import java.util.TreeMap;
  */
 public interface QuizServerController extends Remote {
 
-    /**
-     *
-     * Variables to consider this must create one way or another = String quizName, Question[] questions, int[] answers, int generatedId
-     *
-     * to create a quiz and then calls the method to store it in the QuizServerModel,
-     * finally returning the new quiz id
-     *
-     * @return the new quiz id int
-     * @param quiz the quiz you want to add to the model
-     */
-    public int addQuizAndReturnId(Quiz quiz) throws RemoteException;
-
-
 // Model interactions
 
     /**
