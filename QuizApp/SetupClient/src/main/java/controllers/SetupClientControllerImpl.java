@@ -2,9 +2,7 @@ package controllers;
 
 
 import models.Question;
-import models.QuestionImpl;
 import models.Quiz;
-import models.QuizImpl;
 import views.SetupClientView;
 
 import java.rmi.RemoteException;
@@ -82,7 +80,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         questions = createAQuestionSet();
         quizId = quizServerController.generateIdUniqueOnThisModel();
 
-        quiz = new QuizImpl(quizAuthor, quizName, questions, quizId);
+        quiz = quizServerController.buildQuiz(quizAuthor, quizName, questions, quizId);
 
         view.printQuizDetails(quiz);
         view.doYouWantToPublishThisQuiz();
@@ -103,7 +101,8 @@ public class SetupClientControllerImpl implements SetupClientController {
 
     private Quiz editAQuiz(Quiz quiz) throws RemoteException {
         //TODO Add editing methods
-        Quiz result = new QuizImpl(quiz.getQuizAuthor(), quiz.getQuizName(), quiz.getQuestions(), quiz.getQuizId());
+        Quiz result = quizServerController.buildQuiz(quiz.getQuizAuthor(), quiz.getQuizName(), quiz.getQuestions(), quiz.getQuizId());
+
         view.printQuizDetails(quiz);
         System.out.println("Sorry, edit quiz is not yet available.");
         return result;
@@ -156,7 +155,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 //Choose a correct answer
         int correctAns = correctAns();
-        result = new QuestionImpl(question, answersChoices, correctAns);
+        result = quizServerController.buildQuestion(question, answersChoices, correctAns);
 
 //check if User happy with the question
         view.printQuestion(result);
@@ -165,7 +164,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         view.isThisCorrect();
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
-                result = new QuestionImpl(question, answersChoices, correctAns);
+                result = quizServerController.buildQuestion(question, answersChoices, correctAns);
                 view.questionHasBeenSet();
                 return result;
 
@@ -176,7 +175,7 @@ public class SetupClientControllerImpl implements SetupClientController {
 
             default:
                 view.questionHasBeenSet();
-                result = new QuestionImpl(question, answersChoices, correctAns);
+                result = quizServerController.buildQuestion(question, answersChoices, correctAns);
                 return result;
         }
 
