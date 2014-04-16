@@ -2,7 +2,6 @@ package views;
 
 
 import controllers.QuizServerController;
-import models.Question;
 import models.Quiz;
 
 import java.rmi.RemoteException;
@@ -66,8 +65,9 @@ public interface SetupClientView {
 
     /**
      * Prints out a question and it's answer
+     * @param qn
      */
-    void printQuestion(Question qn) throws RemoteException;
+    void printQuestion(String[] qn) throws RemoteException;
 
 
 
@@ -75,7 +75,7 @@ public interface SetupClientView {
     /**
      * Prints out the correct answer integer
      */
-    void printQuestionAnswer(Question qn) throws RemoteException;
+    void printQuestionAnswer(String correctAns) throws RemoteException;
 
     /**
      * print a summary of the details within a give quiz
@@ -134,7 +134,7 @@ public interface SetupClientView {
      * Tell a user they have created a quiz and give them the id on the terminal
      * @param quiz quiz just created
      */
-    void quizCreatedWithId(Quiz quiz) throws RemoteException;
+    void quizCreatedWithId(int quiz) throws RemoteException;
 
     /**
      * Exit message on client

@@ -9,12 +9,12 @@ public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz 
     private String quizAuthor;
     private String quizName;
     private int quizId;
-    private Question[] questions;
+    private String[][] questions;
     private int highScore;
     private String highScoreHolder;
     private boolean quizLock;
 
-    public QuizImpl(String quizAuthor, String quizName, Question[] questions, int generatedId) throws RemoteException {
+    public QuizImpl(String quizAuthor, String quizName, String[][] questions, int generatedId) throws RemoteException {
         this.quizAuthor = quizAuthor;
         this.quizName = quizName;
         this.questions = questions;
@@ -62,7 +62,7 @@ public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz 
     }
 
     @Override
-    public Question[] getQuestions() throws RemoteException{
+    public String[][] getQuestions() throws RemoteException{
         return questions;
     }
 

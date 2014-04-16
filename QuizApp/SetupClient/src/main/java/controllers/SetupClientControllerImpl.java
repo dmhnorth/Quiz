@@ -1,7 +1,6 @@
 package controllers;
 
 
-import models.Question;
 import models.Quiz;
 import views.SetupClientView;
 
@@ -37,10 +36,8 @@ public class SetupClientControllerImpl implements SetupClientController {
 
             switch (choice) {
                 case 1:
-                    Quiz quiz = createAQuiz();
-                    view.quizCreatedWithId(quiz);
-                    //TODO this is where the error is
-                    System.out.println("You've created and uploaded the quiz with the id: " + quizServerController.addQuizAndReturnId(quiz) + "\nWhat Now?");
+                    int newQuizId = createAQuiz();
+                    System.out.println("You've created and uploaded the quiz with the id: " + quizServerController.getQuizViaId(newQuizId) + "\nWhat Now?");
                     chooseTask();
                     break;
                 case 2:
@@ -66,11 +63,11 @@ public class SetupClientControllerImpl implements SetupClientController {
 
 
     //TODO separate all the methods in here into separate ones and add the retry section to them!
-    public Quiz createAQuiz() throws RemoteException {
+    public int createAQuiz() throws RemoteException {
         Quiz quiz;
         String quizAuthor;
         String quizName;
-        Question[] questions;
+        String[][] questions;
         int quizId;
 
 
@@ -90,12 +87,15 @@ public class SetupClientControllerImpl implements SetupClientController {
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
                 view.uploadingQuiz(quiz);
-                return quiz;
+                quizServerController.addQuizAndReturnId(quiz);
+                view.quizCreatedWithId(quiz.getQuizId());
+                return quiz.getQuizId();
             default:
                 view.editAQuiz(quiz);
                 editAQuiz(quiz);
-                view.quizCreatedWithId(quiz);
-                return quiz;
+                //TODO possible error on quizid on next line
+                view.quizCreatedWithId(quiz.getQuizId());
+                return quiz.getQuizId();
         }
     }
 
@@ -140,31 +140,27 @@ public class SetupClientControllerImpl implements SetupClientController {
         return quizName;
     }
 
-    public Question createAQuestion() throws RemoteException {
+    public String[] createAQuestion() throws RemoteException {
 
-        Question result;
+        String[] result;
 
-
-//create the question asked
         String question = question();
         view.thatsDone();
 
-//create the answer options
         String[] answersChoices = answersChoices();
         view.thatsDone();
 
-//Choose a correct answer
-        int correctAns = correctAns();
-        result = quizServerController.buildQuestion(question, answersChoices, correctAns);
+        String correctAns = correctAns();
+        result = new String[]{question, answersChoices[0], answersChoices[1], answersChoices[2], correctAns};
 
 //check if User happy with the question
         view.printQuestion(result);
-        view.printQuestionAnswer(result);
+        view.printQuestionAnswer(result[4]);
 
         view.isThisCorrect();
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
-                result = quizServerController.buildQuestion(question, answersChoices, correctAns);
+                quizServerController.buildQuestion(result);
                 view.questionHasBeenSet();
                 return result;
 
@@ -175,10 +171,9 @@ public class SetupClientControllerImpl implements SetupClientController {
 
             default:
                 view.questionHasBeenSet();
-                result = quizServerController.buildQuestion(question, answersChoices, correctAns);
+                quizServerController.buildQuestion(result);
                 return result;
         }
-
     }
 
 
@@ -206,39 +201,38 @@ public class SetupClientControllerImpl implements SetupClientController {
         }
     }
 
-    private int correctAns() {
+    private String correctAns() {
 
-        int result;
+        String result;
 
         view.createACorrectAnswer();
         try {
-            result = Integer.parseInt(sc.nextLine());
-            if (!(result > 0 && result < 4)) {
+            result = sc.nextLine();
+            if (result.equals("1") || result.equals("2") || result.equals("3")) {
+                return result;
+            } else {
                 return correctAns();
             }
         } catch (Exception e) {
             return correctAns();
         }
-        return result;
     }
 
 
-    public Question[] createAQuestionSet() throws RemoteException {
-        Question[] result;
+    public String[][] createAQuestionSet() throws RemoteException {
+        String[][] result;
 
         view.createQuestions();
         view.howManyQuestions();
 
-        result = new Question[Integer.parseInt(sc.nextLine())];
+        int noOfQuestions = Integer.parseInt(sc.nextLine());
+        result = new String[noOfQuestions][5];
 
-        for (int x = 0; x < result.length; x++) {
-            result[x] = createAQuestion();
+        for (int x = 0; x < noOfQuestions; x++) {
+            String[] tempQn = createAQuestion();
+            System.arraycopy(tempQn, 0, result[x], 0, tempQn.length);
         }
-
         view.questionsHaveBeenSet();
         return result;
     }
-
-
-
 }

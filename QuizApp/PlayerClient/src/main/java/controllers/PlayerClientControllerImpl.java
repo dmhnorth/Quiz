@@ -95,11 +95,11 @@ public class PlayerClientControllerImpl implements PlayerClientController {
             System.out.println("Question number: " + questionNo);
             view.printAQuestionAndChoices(qn);
 
-            int answer = qn.getCorrectAns();
+            String answer = qn.getCorrectAns();
             userInput = Integer.parseInt(sc.nextLine());
 
 
-            if (answer == userInput) {
+            if (answer.equals(userInput)) {
                 score++;
             }
 

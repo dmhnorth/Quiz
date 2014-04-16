@@ -13,7 +13,7 @@ public interface Question extends Remote {
 
     String[] getAnswersChoices() throws RemoteException;
 
-    void setCorrectAns(int correctAns) throws RemoteException ;
+    void setCorrectAns(String correctAns) throws RemoteException;
 
-    int getCorrectAns() throws RemoteException ;
+    String getCorrectAns() throws RemoteException ;
 }

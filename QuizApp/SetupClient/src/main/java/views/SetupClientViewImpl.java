@@ -2,7 +2,6 @@ package views;
 
 
 import controllers.QuizServerController;
-import models.Question;
 import models.Quiz;
 
 import java.rmi.RemoteException;
@@ -53,17 +52,15 @@ public class SetupClientViewImpl implements SetupClientView {
         System.out.println("Is this alright?\n(1)Yes\n(2)No");
     }
 
-    public void printQuestion(Question qn) throws RemoteException {
-        System.out.println("For the question: " + "'" + qn.getQuestion() + "'");
-
-        System.out.println("You gave the options:");
-        for(int x = 0;x < qn.getAnswersChoices().length;x++) {
-            System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
-            }
+    public void printQuestion(String[] qn) throws RemoteException {
+        System.out.println("For the question: " + "'" + qn[0] + "'");
+        System.out.println("You gave the options:\n" + qn[1] + "\n" + qn[2] + "\n" + qn[3] + "\n");
     }
 
-    public void printQuestionAnswer(Question qn) throws RemoteException {
-        System.out.println("The correct answer is: " + qn.getCorrectAns());
+
+
+    public void printQuestionAnswer(String correctAns) throws RemoteException {
+        System.out.println("The correct answer is: " + correctAns);
     }
 
 
@@ -104,8 +101,8 @@ public class SetupClientViewImpl implements SetupClientView {
     }
 
 
-    public void quizCreatedWithId(Quiz quiz) throws RemoteException {
-        System.out.println("You've created a quiz with the id: " + quiz.getQuizId());
+    public void quizCreatedWithId(int quizId) throws RemoteException {
+        System.out.println("You've created a quiz with the id: " + quizId);
     }
 
     @Override
@@ -135,9 +132,9 @@ public class SetupClientViewImpl implements SetupClientView {
 
     private void printQuestionsAndAnswers(Quiz quiz) throws RemoteException {
         for(int x = 0;x < quiz.getQuestions().length;x++) {
-            printQuestion((quiz.getQuestions()[x]));
-            printQuestionAnswer((quiz.getQuestions()[x]));
-            System.out.printf("\n");
+            printQuestion(quiz.getQuestions()[x]);
+            printQuestionAnswer(quiz.getQuestions()[x][4]);
+            System.out.println("\n");
         }
     }
 }

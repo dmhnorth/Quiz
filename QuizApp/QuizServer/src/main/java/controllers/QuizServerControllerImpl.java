@@ -17,7 +17,7 @@ public class QuizServerControllerImpl extends UnicastRemoteObject implements Qui
 
     @Override
     public int addQuizAndReturnId(Quiz quiz) throws RemoteException {
-            quizServerModel.addQuizToModel(quiz);
+        quizServerModel.addQuizToModel(quiz);
             return quiz.getQuizId();
     }
 
@@ -42,12 +42,12 @@ public class QuizServerControllerImpl extends UnicastRemoteObject implements Qui
     }
 
     @Override
-    public Question buildQuestion(String question, String[] answersChoices, int correctAns) throws RemoteException {
-        return new QuestionImpl(question, answersChoices, correctAns);
+    public Question buildQuestion(String[] question) throws RemoteException {
+        return new QuestionImpl(question);
     }
 
     @Override
-    public Quiz buildQuiz(String quizAuthor, String quizName, Question[] questions, int quizId) throws RemoteException {
+    public Quiz buildQuiz(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException {
         return new QuizImpl(quizAuthor, quizName, questions, quizId);
     }
 

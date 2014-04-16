@@ -1,8 +1,6 @@
 package controllers;
 
 
-import models.Question;
-
 import java.rmi.RemoteException;
 
 /**
@@ -27,7 +25,7 @@ public interface SetupClientController {   //needs to use QuizServerController m
     /**
      * Used to run the user through creating a quiz
      */
-    models.Quiz createAQuiz() throws RemoteException;
+    int createAQuiz() throws RemoteException;
 
     /**
      * Get input for a quiz author name
@@ -45,11 +43,10 @@ public interface SetupClientController {   //needs to use QuizServerController m
      * Used to create a single question
      * @return Question created
      */
-    Question createAQuestion() throws RemoteException;
+    String[] createAQuestion() throws RemoteException;
 
     /**
      * Used to create a set of Questions for the Quiz
      */
-    Question[] createAQuestionSet() throws RemoteException;
-
+    String[][] createAQuestionSet() throws RemoteException;
 }

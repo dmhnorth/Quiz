@@ -11,14 +11,13 @@ import java.rmi.server.UnicastRemoteObject;
 public class QuestionImpl extends UnicastRemoteObject implements Serializable, Question {
     private String question;
     private String[] answersChoices;
-    private int correctAns;
+    private String correctAns;
 
-    public QuestionImpl(String question, String[] answersChoices, int correctAns) throws RemoteException {
-        this.question = question;
-        this.answersChoices = answersChoices;
-        this.correctAns = correctAns;
+    public QuestionImpl(String[] question) throws RemoteException {
+        this.question = question[0];
+        this.answersChoices = question;
+        this.correctAns = question[4];
     }
-
 
     @Override
     public void setQuestion(String question) throws RemoteException {
@@ -41,12 +40,12 @@ public class QuestionImpl extends UnicastRemoteObject implements Serializable, Q
     }
 
     @Override
-    public void setCorrectAns(int correctAns) throws RemoteException {
+    public void setCorrectAns(String correctAns) throws RemoteException {
         this.correctAns = correctAns;
     }
 
     @Override
-    public int getCorrectAns() throws RemoteException {
+    public String getCorrectAns() throws RemoteException {
         return correctAns;
     }
 }

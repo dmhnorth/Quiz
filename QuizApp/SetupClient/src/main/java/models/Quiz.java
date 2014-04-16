@@ -19,7 +19,7 @@ public interface Quiz extends Remote{
 
     String getHighScoreHolder() throws RemoteException;
 
-    Question[] getQuestions() throws RemoteException;
+    String[][] getQuestions() throws RemoteException;
 
     boolean isQuizLocked() throws RemoteException;
 

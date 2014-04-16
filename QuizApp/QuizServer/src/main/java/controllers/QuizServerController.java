@@ -31,7 +31,7 @@ public interface QuizServerController extends Remote {
      * finally returning the new quiz id
      *
      * @return the new quiz id int
-     * @param quiz the quiz you require an id for
+     * @param quiz the quiz you want to add to the model
      */
     public int addQuizAndReturnId(Quiz quiz) throws RemoteException;
 
@@ -66,12 +66,10 @@ public interface QuizServerController extends Remote {
 
     /**
      * builds a Question object on the Server with the given resources
-     * @param question a string of the question to be asked
-     * @param answersChoices the answer options
-     * @param correctAns the correct number of the answer
+     * @param question a string of the question to be asked, the answer options, the correct number of the answer
      * @return the build question
      */
-    Question buildQuestion(String question, String[] answersChoices, int correctAns) throws RemoteException;
+    Question buildQuestion(String[] question) throws RemoteException;
 
     /**
      * builds a Quiz object on the Server with the given resources
@@ -81,5 +79,5 @@ public interface QuizServerController extends Remote {
      * @param quizId the id generated
      * @return a quiz object
      */
-    Quiz buildQuiz(String quizAuthor, String quizName, Question[] questions, int quizId) throws RemoteException;
+    Quiz buildQuiz(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException;
 }
