@@ -53,7 +53,7 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
         for (Quiz q: quizzes.values()) {
             System.out.println(q.quizDetailsToString() + "\n");
         }
+        System.out.println("Quiz Server is ready\n");
     }
-
 }
 

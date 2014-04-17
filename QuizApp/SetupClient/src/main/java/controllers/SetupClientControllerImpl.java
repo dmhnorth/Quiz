@@ -84,7 +84,6 @@ public class SetupClientControllerImpl implements SetupClientController {
 
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
-                //TODO null
                 view.uploadingQuiz();
 
                 quizServerController.buildQuizOnServer(quizAuthor, quizName, questions, quizId);
@@ -93,7 +92,6 @@ public class SetupClientControllerImpl implements SetupClientController {
             default:
                 view.editAQuiz(quizId);
                 editAQuiz(quizAuthor, quizName, questions, quizId);
-                //TODO possible error on quizid on next line
                 view.quizCreatedWithId(quizId);
                 return quizId;
         }

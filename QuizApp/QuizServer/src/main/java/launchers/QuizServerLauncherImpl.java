@@ -28,41 +28,24 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
     public void launch() throws RemoteException {
 
         System.setProperty("java.security.policy", "QuizServer/security.policy");
-
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new SecurityManager()); }
 
-//        File file = new File("QuizServer/security.policy");
-//        System.out.println(file.exists());
-
-
-
         try {
-//TODO remove this data loader
-            if (dm.dataFileExists()){
-                quizServerModel = dm.loadData();
-                System.out.println("Data was loaded from 'quizdata.txt' file.");
-            } else {
-                quizServerModel = new QuizServerModelImpl();
-                System.out.println("New quizdata.txt will be created.");
-            }
-            Runtime.getRuntime().addShutdownHook(saveOnExit());
 
+            loadData();
             QuizServerController quizServerController = new QuizServerControllerImpl(quizServerModel);
 
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("quizServerController", quizServerController);
 
             quizServerModel.testPrintContainer();
-            System.out.println("Quiz Server is ready\n");
 
-
-            System.out.println("\nPress enter to shutdown the server.");
+            System.out.println("Press enter to shutdown the server.");
             Scanner scanner = new Scanner(System.in);
             scanner.nextLine();
             flush();
             System.exit(0);
-
 
         }catch (Exception e) {
             System.out.println("The Quiz Server failed: " + e);
@@ -74,7 +57,20 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
         System.exit(0);
     }
 
-
+    /**
+     * Loads persistent data, or creates a new one.
+     * Adds the shutdown hook.
+     */
+    private void loadData() {
+        if (dm.dataFileExists()){
+            quizServerModel = dm.loadData();
+            System.out.println("Data was loaded from 'quizdata.txt' file.");
+        } else {
+            quizServerModel = new QuizServerModelImpl();
+            System.out.println("New quizdata.txt will be created.");
+        }
+        Runtime.getRuntime().addShutdownHook(saveOnExit());
+    }
 
     /**
      * Saves the state of the QuizServerModel on exit
@@ -85,7 +81,6 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
         return new Thread(() -> flush());
     }
-
     public void flush() {
         dm.saveData(quizServerModel);
     }
