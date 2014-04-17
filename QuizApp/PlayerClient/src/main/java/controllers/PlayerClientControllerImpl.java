@@ -112,17 +112,11 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                 //TODO format this question properly and have it so that quizzes can be more than one question on the player
                 view.printAQuestionAndChoices(currentQn[k]);
 
-
                 userInput = sc.nextLine();
-
-
-                //TODO delete this debug line
-                System.out.println(currentQn[k][4] + " :matches: " + userInput + "?");
 
                 if (currentQn[k][4].equals(userInput)) {
                     score++;
                 }
-
 
             view.userScore(quiz, score, playerName);
             submitScore(quiz.getQuizId(), score, playerName);

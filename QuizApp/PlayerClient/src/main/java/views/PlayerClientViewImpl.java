@@ -87,8 +87,8 @@ public class PlayerClientViewImpl implements PlayerClientView {
 
     @Override
     public void printAQuestionAndChoices(String[] qn) throws RemoteException {
-        System.out.println("For the question: " + "'" + qn[0] + "'");
-        System.out.print("You gave the options:\n1)" + qn[1] + "\n2)" + qn[2] + "\n3)" + qn[3] + "\nChoose an answer: ");
+        System.out.println("'" + qn[0] + "'");
+        System.out.print("1)" + qn[1] + "\n2)" + qn[2] + "\n3)" + qn[3] + "\nChoose an answer: ");
     }
 
     @Override

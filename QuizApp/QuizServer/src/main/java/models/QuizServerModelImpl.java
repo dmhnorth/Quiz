@@ -35,12 +35,9 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
     @Override
     public void checkAndReplaceScore(int quizId, int score, String playerName) throws RemoteException {
         Quiz quiz = quizzes.get(quizId);
-
-        if(quiz.getHighScore() < score) {
+        if(quiz.getHighScore() <= score) {
             quiz.setHighScore(score);
             quiz.setHighScoreHolder(playerName);
-        } else {
-            //Do Nothing
         }
     }
 
