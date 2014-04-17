@@ -27,8 +27,6 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
     @Override
     public void launch() throws RemoteException {
 
-        System.out.println("let's try this...");
-
         System.setProperty("java.security.policy", "QuizServer/security.policy");
 
         if (System.getSecurityManager() == null) {
@@ -40,7 +38,7 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
 
         try {
-
+//TODO remove this data loader
             if (dm.dataFileExists()){
                 quizServerModel = dm.loadData();
                 System.out.println("Data was loaded from 'quizdata.txt' file.");
@@ -55,10 +53,9 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("quizServerController", quizServerController);
 
+            quizServerModel.testPrintContainer();
             System.out.println("Quiz Server is ready\n");
 
-            System.out.println("Quizzes on this server: ");
-            quizServerModel.testPrintContainer();
 
             System.out.println("\nPress enter to shutdown the server.");
             Scanner scanner = new Scanner(System.in);

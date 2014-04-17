@@ -47,12 +47,14 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
     @Override
     public void testPrintContainer() throws RemoteException {
 
+        System.out.println("Quizzes on this server:\n");
+
         if(quizzes.isEmpty()) {
             System.out.println("The QuizServerModel is empty on this server.");
         }
 
         for (Quiz q: quizzes.values()) {
-            System.out.println(q.quizDetailsToString());
+            System.out.println(q.quizDetailsToString() + "\n");
         }
     }
 

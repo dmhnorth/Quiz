@@ -2,7 +2,6 @@ package views;
 
 
 import controllers.QuizServerController;
-import models.Question;
 import models.Quiz;
 
 import java.rmi.RemoteException;
@@ -30,7 +29,7 @@ public interface PlayerClientView {
 
     void beginAQuiz(Quiz quiz) throws RemoteException;
 
-    void printAQuestionAndChoices(Question q) throws RemoteException;
+    void printAQuestionAndChoices(String[] qn) throws RemoteException;
 
     void userScore(Quiz quiz, int score, String playerName) throws RemoteException;
 

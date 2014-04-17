@@ -1,7 +1,6 @@
 package views;
 
 import controllers.QuizServerController;
-import models.Question;
 import models.Quiz;
 
 import java.rmi.RemoteException;
@@ -81,14 +80,22 @@ public class PlayerClientViewImpl implements PlayerClientView {
         System.out.println("You're about to play the quiz " + quiz.quizDetailsToString());
     }
 
+    /*
     @Override
     public void printAQuestionAndChoices(Question qn) throws RemoteException {
         System.out.println(qn.getQuestion());
-
         for (int x = 0; x < qn.getAnswersChoices().length; x++) {
             System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
         }
     }
+*/
+    public void printAQuestionAndChoices(String[] qn) throws RemoteException {
+        System.out.println("For the question: " + "'" + qn[0] + "'");
+        System.out.println("You gave the options:\n" + qn[1] + "\n" + qn[2] + "\n" + qn[3] + "\n");
+    }
+
+
+
 
     @Override
     public void userScore(Quiz quiz, int score, String playerName) throws RemoteException {

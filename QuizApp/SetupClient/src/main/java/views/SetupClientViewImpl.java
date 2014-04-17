@@ -54,13 +54,13 @@ public class SetupClientViewImpl implements SetupClientView {
 
     public void printQuestion(String[] qn) throws RemoteException {
         System.out.println("For the question: " + "'" + qn[0] + "'");
-        System.out.println("You gave the options:\n" + qn[1] + "\n" + qn[2] + "\n" + qn[3] + "\n");
+        System.out.println("You gave the options:\n1)" + qn[1] + "\n2)" + qn[2] + "\n3)" + qn[3]);
     }
 
 
 
     public void printQuestionAnswer(String correctAns) throws RemoteException {
-        System.out.println("The correct answer is: " + correctAns);
+        System.out.println("The correct answer is: " + correctAns + "\n");
     }
 
 
@@ -122,8 +122,8 @@ public class SetupClientViewImpl implements SetupClientView {
     }
 
     public void printQuizDetails(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException {
-        System.out.println("The quiz details for " + "'" + quizName + "'");
-        System.out.println("\nQuiz ID: " + quizId);
+        System.out.println("\nThe quiz details for " + "'" + quizName + "'");
+        System.out.println("Quiz ID: " + quizId);
         System.out.println("Quiz Author: " + quizAuthor);
         System.out.println("\nQuiz Questions: ");
         printQuestionsAndAnswers(questions);
@@ -132,7 +132,7 @@ public class SetupClientViewImpl implements SetupClientView {
     private void printQuestionsAndAnswers(String[][] questions) throws RemoteException {
 
         for (String[] question : questions) {
-            printQuestion(new String[]{question[1], question[2], question[3], question[4]});
+            printQuestion(new String[]{question[0], question[1], question[2], question[3]});
             printQuestionAnswer(question[4]);
             System.out.println("\n");
         }

@@ -1,6 +1,5 @@
 package controllers;
 
-import models.Question;
 import models.Quiz;
 import views.PlayerClientView;
 
@@ -85,23 +84,32 @@ public class PlayerClientControllerImpl implements PlayerClientController {
 
         String playerName = getUserName();
         int score = 0;
-        int userInput;
+        String userInput;
         view.beginAQuiz(quiz);
 
 
-        for (String[] qn : quiz.getQuestions()) {
-            int questionNo = 0;
-            questionNo++;
-            System.out.println("Question number: " + questionNo);
-            view.printAQuestionAndChoices(qn);
-
-            String answer = qn[5];
-            userInput = Integer.parseInt(sc.nextLine());
 
 
-            if (answer.equals(userInput)) {
-                score++;
-            }
+            for (int k = 0; k < quiz.getQuestions().length; k++) {
+                int questionNo = 0;
+                questionNo++;
+                System.out.println("Question number: " + questionNo);
+                String[][] currentQn = new String[][]{quiz.getQuestions()[k]};
+
+                //TODO format this question properly and have it so that quizzes can be one question?
+                view.printAQuestionAndChoices(currentQn[k]);
+
+
+                userInput = sc.nextLine();
+
+
+                //TODO delete this debug
+                System.out.println(currentQn[k][4] + " :matches: " + userInput + "?");
+
+                if (currentQn[k][4].equals(userInput)) {
+                    score++;
+                }
+
 
             view.userScore(quiz, score, playerName);
             submitScore(quiz.getQuizId(), score, playerName);
