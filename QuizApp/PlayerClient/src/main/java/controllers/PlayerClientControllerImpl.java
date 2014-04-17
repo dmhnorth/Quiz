@@ -47,11 +47,23 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                         chooseTask();
                         break;
                     }
-
                     view.whatQuizWouldYouLikeToPlay();
-                    int id = Integer.parseInt(sc.nextLine());
-                    playQuiz(id);
+                    int id = 0;
+                    try {
+                        id = Integer.parseInt(sc.nextLine());
+
+                    } catch (NumberFormatException n) {
+                        System.out.print("Enter a number 1-4: ");
+                        chooseTask();
+                    }
+
+                    try {
+                        playQuiz(id);
+                    } catch (NullPointerException n) {
+                        System.out.println("Sorry, A quiz with that ID does not exist.");
+                    }
                     chooseTask();
+
                     break;
                 case 3:
                     view.checkOutRankings(quizServerController);
@@ -61,14 +73,14 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     //Do nothing and exit
                     break;
                 default:
-                    System.err.println(choice + " is not an option.");
+                    System.out.println("'" + choice + "' is not an option.");
                     view.tryAgain();
                     chooseTask();
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option exception thrown...<<" + e + " The Stacktrace: ");
-            e.printStackTrace();
+            System.err.println(">>'case' option exception thrown...<<" + e);
+//            e.printStackTrace();
             view.inputError();
             chooseTask();
 
@@ -82,10 +94,11 @@ public class PlayerClientControllerImpl implements PlayerClientController {
 
         Quiz quiz = quizServerController.getQuizViaId(id);
 
+        view.beginAQuiz(quiz);
         String playerName = getUserName();
+
         int score = 0;
         String userInput;
-        view.beginAQuiz(quiz);
 
 
 
@@ -96,14 +109,14 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                 System.out.println("Question number: " + questionNo);
                 String[][] currentQn = new String[][]{quiz.getQuestions()[k]};
 
-                //TODO format this question properly and have it so that quizzes can be one question?
+                //TODO format this question properly and have it so that quizzes can be more than one question on the player
                 view.printAQuestionAndChoices(currentQn[k]);
 
 
                 userInput = sc.nextLine();
 
 
-                //TODO delete this debug
+                //TODO delete this debug line
                 System.out.println(currentQn[k][4] + " :matches: " + userInput + "?");
 
                 if (currentQn[k][4].equals(userInput)) {

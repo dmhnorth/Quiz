@@ -20,7 +20,7 @@ public class PlayerClientViewImpl implements PlayerClientView {
 
     @Override
     public void displayUserOptions() {
-        System.out.println("Please Select an option by entering a number\n1. View Quizzes available on this server\n2. Play a Quiz\n3. Check out high scores and high score holders for each quiz\n4. Close and Exit");
+        System.out.println("\nPlease Select an option by entering a number\n1. View Quizzes available on this server\n2. Play a Quiz\n3. Check out high scores and high score holders for each quiz\n4. Close and Exit");
     }
 
     @Override
@@ -38,11 +38,16 @@ public class PlayerClientViewImpl implements PlayerClientView {
         if(quizzes.isEmpty()) {
             System.out.println("There are no quizzes on the server yet.");
         } else {
+                printActiveQuizDetails(quizServerController);
+        }
+    }
 
-            for (Quiz quiz : quizzes.values()) {
-                System.out.println(quiz.quizDetailsToString());
-                System.out.println("Quiz currently locked: " + quiz.isQuizLocked());
-            }
+    private void printActiveQuizDetails(QuizServerController quizServerController) throws RemoteException {
+        Map<Integer,Quiz> quizzes;
+        quizzes = quizServerController.getModelQuizzes();
+        for(Quiz quiz: quizzes.values()){
+            System.out.println("Quiz ID = " + quiz.getQuizId() + ":'" +  quiz.getQuizName() + "'");
+//            System.out.println("Quiz currently locked: " + quiz.isQuizLocked());
         }
     }
 
@@ -77,30 +82,19 @@ public class PlayerClientViewImpl implements PlayerClientView {
 
     @Override
     public void beginAQuiz(Quiz quiz) throws RemoteException {
-        System.out.println("You're about to play the quiz " + quiz.quizDetailsToString());
+        System.out.println("You're about to play the quiz:\n" + quiz.quizDetailsToString());
     }
 
-    /*
     @Override
-    public void printAQuestionAndChoices(Question qn) throws RemoteException {
-        System.out.println(qn.getQuestion());
-        for (int x = 0; x < qn.getAnswersChoices().length; x++) {
-            System.out.println((x + 1) + "." + qn.getAnswersChoices()[x]);
-        }
-    }
-*/
     public void printAQuestionAndChoices(String[] qn) throws RemoteException {
         System.out.println("For the question: " + "'" + qn[0] + "'");
-        System.out.println("You gave the options:\n" + qn[1] + "\n" + qn[2] + "\n" + qn[3] + "\n");
+        System.out.print("You gave the options:\n1)" + qn[1] + "\n2)" + qn[2] + "\n3)" + qn[3] + "\nChoose an answer: ");
     }
-
-
-
 
     @Override
     public void userScore(Quiz quiz, int score, String playerName) throws RemoteException {
         System.out.println("You have finished the quiz: " + quiz.quizDetailsToString());
-        System.out.println("So, " + playerName + ". Your score was: " + score);
+        System.out.println("Well done " + playerName + ". Your score was: " + score);
     }
 
     @Override
