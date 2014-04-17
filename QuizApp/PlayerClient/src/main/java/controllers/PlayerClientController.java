@@ -5,9 +5,8 @@ package controllers;
  * to carry out the operations associated with
  * choosing and playing quizzes, along with
  * retrieving data about the QuizServerModel
- *
+ * <p>
  * Constructed with a model (Server side) and with a view (on the Client side)
- *
  */
 public interface PlayerClientController { //needs to implement QuizServerController methods
 

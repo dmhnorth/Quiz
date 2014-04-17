@@ -54,8 +54,8 @@ public class SetupClientControllerImpl implements SetupClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option exception thrown...<<" + e);
-            e.printStackTrace();
+//            System.err.println(">>'case' option exception thrown...<<" + e);
+//            e.printStackTrace();
             view.tryAgain();
             chooseTask();
         }
@@ -85,9 +85,7 @@ public class SetupClientControllerImpl implements SetupClientController {
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
                 view.uploadingQuiz();
-
                 quizServerController.buildQuizOnServer(quizAuthor, quizName, questions, quizId);
-                view.quizCreatedWithId(quizId);
                 return quizId;
             default:
                 view.editAQuiz(quizId);

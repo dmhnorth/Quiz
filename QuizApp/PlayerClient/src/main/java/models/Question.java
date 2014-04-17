@@ -7,7 +7,7 @@ public interface Question extends Remote {
 
     void setQuestion(String question) throws RemoteException;
 
-    String getQuestion()throws RemoteException;
+    String getQuestion() throws RemoteException;
 
     void setAnswersChoices(String[] answersChoices) throws RemoteException;
 
@@ -15,5 +15,5 @@ public interface Question extends Remote {
 
     void setCorrectAns(String correctAns) throws RemoteException;
 
-    String getCorrectAns() throws RemoteException ;
+    String getCorrectAns() throws RemoteException;
 }

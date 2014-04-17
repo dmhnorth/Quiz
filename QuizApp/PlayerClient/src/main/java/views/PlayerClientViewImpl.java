@@ -35,18 +35,18 @@ public class PlayerClientViewImpl implements PlayerClientView {
         Map<Integer, Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();
 
-        if(quizzes.isEmpty()) {
+        if (quizzes.isEmpty()) {
             System.out.println("There are no quizzes on the server yet.");
         } else {
-                printActiveQuizDetails(quizServerController);
+            printActiveQuizDetails(quizServerController);
         }
     }
 
     private void printActiveQuizDetails(QuizServerController quizServerController) throws RemoteException {
-        Map<Integer,Quiz> quizzes;
+        Map<Integer, Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();
-        for(Quiz quiz: quizzes.values()){
-            System.out.println("Quiz ID = " + quiz.getQuizId() + ":'" +  quiz.getQuizName() + "'");
+        for (Quiz quiz : quizzes.values()) {
+            System.out.println("Quiz ID = " + quiz.getQuizId() + ":'" + quiz.getQuizName() + "'");
 //            System.out.println("Quiz currently locked: " + quiz.isQuizLocked());
         }
     }

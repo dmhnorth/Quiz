@@ -64,6 +64,7 @@ public interface SetupClientView {
 
     /**
      * Prints out a question and it's answer
+     *
      * @param qn
      */
     void printQuestion(String[] qn) throws RemoteException;
@@ -75,10 +76,11 @@ public interface SetupClientView {
 
     /**
      * print a summary of the details within a give quiz
+     *
      * @param quizAuthor the author of the currently being made quiz
-     * @param quizName the name of the currently being made quiz
-     * @param questions the questions currently being built
-     * @param quizId the id currently set
+     * @param quizName   the name of the currently being made quiz
+     * @param questions  the questions currently being built
+     * @param quizId     the id currently set
      * @throws RemoteException
      */
     void printQuizDetails(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException;
@@ -125,12 +127,14 @@ public interface SetupClientView {
 
     /**
      * Tells a user they are about to edit a quiz
+     *
      * @param quiz quiz to be edited
      */
     void editAQuiz(int quiz) throws RemoteException;
 
     /**
      * Tell a user they have created a quiz and give them the id on the terminal
+     *
      * @param quiz quiz just created
      */
     void quizCreatedWithId(int quiz) throws RemoteException;
@@ -142,6 +146,7 @@ public interface SetupClientView {
 
     /**
      * Fetches and prints on terminal the quizzes on the server we are currently connected to
+     *
      * @param quizServerController the server object required
      */
     void printActiveQuizzes(QuizServerController quizServerController) throws RemoteException;

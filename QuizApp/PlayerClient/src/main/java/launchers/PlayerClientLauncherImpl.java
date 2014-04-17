@@ -11,8 +11,6 @@ import java.rmi.registry.Registry;
 
 public class PlayerClientLauncherImpl implements PlayerClientLauncher {
 
-    private QuizServerController quizServerController;
-
     public static void main(String[] args) {
         PlayerClientLauncher launcher = new PlayerClientLauncherImpl();
         launcher.launch();
@@ -23,14 +21,14 @@ public class PlayerClientLauncherImpl implements PlayerClientLauncher {
         Registry registry;
         try {
             registry = LocateRegistry.getRegistry(1099);
-            quizServerController = (QuizServerController) registry.lookup("quizServerController");
+            QuizServerController quizServerController = (QuizServerController) registry.lookup("quizServerController");
 
 //CONNECTION AND SETUP
             try {
                 PlayerClientView playerClientView = new PlayerClientViewImpl();
                 PlayerClientController playerClientController = new PlayerClientControllerImpl(quizServerController, playerClientView);
                 playerClientController.start();
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Something went wrong starting the SetupClient...");
             }
         } catch (Exception e) {

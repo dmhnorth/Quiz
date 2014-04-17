@@ -3,7 +3,7 @@ package models;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface Quiz extends Remote{
+public interface Quiz extends Remote {
 
     String getQuizAuthor() throws RemoteException;
 

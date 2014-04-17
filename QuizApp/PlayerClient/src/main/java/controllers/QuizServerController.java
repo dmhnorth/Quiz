@@ -9,17 +9,12 @@ import java.util.TreeMap;
 
 
 /**
- *
  * It manipulates the QuizServerModel by taking inputs from a user.
- *
+ * <p>
  * It also builds the Quiz Assets required to create a
  * Quiz on the server side (a QuestionSet, an AnswerSet)
- *
+ * <p>
  * It should be constructed with a QuizServerModel.
- *
- *
- *
- *
  */
 public interface QuizServerController extends Remote {
 
@@ -32,20 +27,23 @@ public interface QuizServerController extends Remote {
 
     /**
      * Retrieves the quizzes currently available on the server as List
+     *
      * @return the data structure of the quizzes
      */
     TreeMap<Integer, Quiz> getModelQuizzes() throws RemoteException;
 
     /**
      * Submits a score to the server at the end of a game
-     * @param quizId the id of the quiz
-     * @param score the score the user achieved
+     *
+     * @param quizId     the id of the quiz
+     * @param score      the score the user achieved
      * @param playerName the name given
      */
     void submitScore(int quizId, int score, String playerName) throws RemoteException;
 
     /**
      * Retrieves a quiz from the server with the given ID
+     *
      * @param id the id of the quiz requested
      * @return a quiz with the given id
      */
@@ -53,6 +51,7 @@ public interface QuizServerController extends Remote {
 
     /**
      * builds a Question object on the Server with the given resources
+     *
      * @param question a string of the question to be asked, the answer options, the correct number of the answer
      * @return the build question
      */
@@ -60,10 +59,11 @@ public interface QuizServerController extends Remote {
 
     /**
      * builds a Quiz object on the Server with the given resources and adds it to the data structure
+     *
      * @param quizAuthor the person that made the quiz
-     * @param quizName the name of the quiz
-     * @param questions the series of questions
-     * @param quizId the id generated
+     * @param quizName   the name of the quiz
+     * @param questions  the series of questions
+     * @param quizId     the id generated
      * @return the quiz id
      */
     int buildQuizOnServer(String quizAuthor, String quizName, String[][] questions, int quizId) throws RemoteException;

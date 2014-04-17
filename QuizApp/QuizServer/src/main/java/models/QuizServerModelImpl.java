@@ -24,36 +24,33 @@ public class QuizServerModelImpl implements QuizServerModel, Serializable {
 
     @Override
     public int addQuizToModel(Quiz quiz) throws RemoteException {
-
-        System.out.println("before trying to add " + quiz.getQuizId());
         quizzes.put(quiz.getQuizId(), quiz);
-        System.out.println("after adding " + quiz.getQuizId());
-        testPrintContainer();
+        System.out.println("Quiz just added to server = " + quiz.getQuizId() + " | " + quiz.getQuizName());
         return quiz.getQuizId();
     }
 
     @Override
     public void checkAndReplaceScore(int quizId, int score, String playerName) throws RemoteException {
         Quiz quiz = quizzes.get(quizId);
-        if(quiz.getHighScore() <= score) {
+        if (quiz.getHighScore() <= score) {
             quiz.setHighScore(score);
             quiz.setHighScoreHolder(playerName);
         }
     }
 
     @Override
-    public void testPrintContainer() throws RemoteException {
+    public void printContainer() throws RemoteException {
 
         System.out.println("Quizzes on this server:\n");
 
-        if(quizzes.isEmpty()) {
+        if (quizzes.isEmpty()) {
             System.out.println("The QuizServerModel is empty on this server.");
         }
 
-        for (Quiz q: quizzes.values()) {
+        for (Quiz q : quizzes.values()) {
             System.out.println(q.quizDetailsToString() + "\n");
         }
-        System.out.println("Quiz Server is ready\n");
+        System.out.println("--- Quiz Server is ready ---");
     }
 }
 

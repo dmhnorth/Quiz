@@ -7,7 +7,6 @@ import java.rmi.RemoteException;
  * For users who connect to a Quiz Server and enable users
  * to carry out the operations associated with the setting up
  * and managing of quizzes within the QuizServerModel
- *
  */
 public interface SetupClientController {   //needs to use QuizServerController methods
 
@@ -29,18 +28,21 @@ public interface SetupClientController {   //needs to use QuizServerController m
 
     /**
      * Get input for a quiz author name
+     *
      * @return String
      */
     String nameOfAuthor();
 
     /**
      * Get input for a quiz name
+     *
      * @return String
      */
     String nameOfQuiz();
 
     /**
      * Used to create a single question
+     *
      * @return Question created
      */
     String[] createAQuestion() throws RemoteException;

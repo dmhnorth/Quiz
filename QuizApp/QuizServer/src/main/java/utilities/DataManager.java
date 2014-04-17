@@ -4,11 +4,10 @@ package utilities;
 import models.QuizServerModel;
 
 /**
- *
  * An interface to create DataManagers that save and load a file for the
  * QuizServerModel class
- * @author Dave
  *
+ * @author Dave
  */
 public interface DataManager {
 
@@ -30,8 +29,12 @@ public interface DataManager {
      * takes the QuizServerModel and saves it out to a file.
      *
      * @param quizServerModel a datastore for the quizzes
-     *
      */
     public abstract void saveData(QuizServerModel quizServerModel);
 
+    /**
+     * if the data file doesn't work properly, it will be deleted and a fresh one will be created
+     * the next time the server is started
+     */
+    void deleteCorruptData();
 }

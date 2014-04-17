@@ -43,7 +43,7 @@ public class SetupClientViewImpl implements SetupClientView {
 
     @Override
     public void createAQuestion() {
-        System.out.println("Lets create a question!\nWe need a Question, three optional answers, and a number indicating the correct answer!\nPlease type the question you would like to ask:");
+        System.out.println("\nWe need a Question, three optional answers, and a number indicating the correct answer!\nPlease type the question you would like to ask:");
     }
 
     @Override
@@ -76,7 +76,7 @@ public class SetupClientViewImpl implements SetupClientView {
 
     @Override
     public void tryAgain() {
-        System.out.println("Okay...let's try that again...");
+        System.out.println("Okay...let's try that again...\n");
     }
 
     @Override
@@ -132,10 +132,10 @@ public class SetupClientViewImpl implements SetupClientView {
     @Override
     public void printActiveQuizzes(QuizServerController quizServerController) throws RemoteException {
         System.out.println("\nThe active quizzes on the server are: ");
-        Map<Integer,Quiz> quizzes;
+        Map<Integer, Quiz> quizzes;
         quizzes = quizServerController.getModelQuizzes();
-        for(Quiz quiz: quizzes.values()){
-            System.out.println("Quiz ID = " + quiz.getQuizId() + ":'" +  quiz.getQuizName() + "'");
+        for (Quiz quiz : quizzes.values()) {
+            System.out.println(quiz.quizDetailsToString());
         }
     }
 

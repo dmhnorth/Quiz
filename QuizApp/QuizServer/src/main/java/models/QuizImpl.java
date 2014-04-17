@@ -21,7 +21,7 @@ public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz 
         this.quizId = generatedId;
 
         setHighScore(0);
-        setHighScoreHolder("No one yet!");
+        setHighScoreHolder("No one yet, preloaded");
         unlockQuiz();
 
     }
@@ -32,12 +32,12 @@ public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz 
     }
 
     @Override
-    public String getQuizName() throws RemoteException{
+    public String getQuizName() throws RemoteException {
         return quizName;
     }
 
     @Override
-    public int getQuizId() throws RemoteException{
+    public int getQuizId() throws RemoteException {
         return quizId;
     }
 
@@ -47,22 +47,22 @@ public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz 
     }
 
     @Override
-    public int getHighScore() throws RemoteException{
+    public int getHighScore() throws RemoteException {
         return highScore;
     }
 
     @Override
-    public void setHighScoreHolder(String highScoreHolder) throws RemoteException{
+    public void setHighScoreHolder(String highScoreHolder) throws RemoteException {
         this.highScoreHolder = highScoreHolder;
     }
 
     @Override
-    public String getHighScoreHolder() throws RemoteException{
+    public String getHighScoreHolder() throws RemoteException {
         return highScoreHolder;
     }
 
     @Override
-    public String[][] getQuestions() throws RemoteException{
+    public String[][] getQuestions() throws RemoteException {
         return questions;
     }
 
@@ -72,17 +72,17 @@ public class QuizImpl extends UnicastRemoteObject implements Serializable, Quiz 
     }
 
     @Override
-    public void lockQuiz() throws RemoteException{
+    public void lockQuiz() throws RemoteException {
         this.quizLock = true;
     }
 
     @Override
-    public  void unlockQuiz() throws RemoteException{
+    public void unlockQuiz() throws RemoteException {
         this.quizLock = false;
     }
 
     @Override
     public String quizDetailsToString() throws RemoteException {
-        return "Quiz ID: " + getQuizId() + "\nQuiz Name: " + getQuizName() + "\nHigh Score holder: " + getHighScoreHolder() + "\nScore: " + getHighScore();
+        return "Quiz|| ID " + getQuizId() + " | '" + getQuizName() + "' | HIGHSCORE: " + getHighScoreHolder() + " with " + getHighScore() + "\n";
     }
 }

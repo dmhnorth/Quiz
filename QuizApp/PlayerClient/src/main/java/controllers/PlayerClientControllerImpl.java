@@ -79,11 +79,10 @@ public class PlayerClientControllerImpl implements PlayerClientController {
                     break;
             }
         } catch (Exception e) {
-            System.err.println(">>'case' option exception thrown...<<" + e);
+//            System.err.println(">>'case' option exception thrown...<<" + e);
 //            e.printStackTrace();
             view.inputError();
             chooseTask();
-
         }
     }
 
@@ -101,22 +100,20 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         String userInput;
 
 
+        for (int k = 0; k < quiz.getQuestions().length; k++) {
+            int questionNo = 0;
+            questionNo++;
+            System.out.println("Question number: " + questionNo);
+            String[][] currentQn = new String[][]{quiz.getQuestions()[k]};
 
-
-            for (int k = 0; k < quiz.getQuestions().length; k++) {
-                int questionNo = 0;
-                questionNo++;
-                System.out.println("Question number: " + questionNo);
-                String[][] currentQn = new String[][]{quiz.getQuestions()[k]};
-
-                //TODO format this question properly and have it so that quizzes can be more than one question on the player
+            //TODO format this question properly and have it so that quizzes can be more than one question on the player
                 view.printAQuestionAndChoices(currentQn[k]);
 
-                userInput = sc.nextLine();
+            userInput = sc.nextLine();
 
-                if (currentQn[k][4].equals(userInput)) {
-                    score++;
-                }
+            if (currentQn[k][4].equals(userInput)) {
+                score++;
+            }
 
             view.userScore(quiz, score, playerName);
             submitScore(quiz.getQuizId(), score, playerName);
