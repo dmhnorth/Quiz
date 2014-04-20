@@ -1,13 +1,13 @@
 package launchers;
 
 /**
- * This is used connecting a controllers.PlayerClientController
+ * This is used connecting a PlayerClientController
  * to a Quiz Server via RMI
  */
 public interface PlayerClientLauncher {
 
     /**
-     * creates a launcher.launchers.PlayerClientLauncher and launches it
+     * begins and connects a PlayerClientLauncher whilst connecting it to a view and the server
      */
     public void launch();
 }

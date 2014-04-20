@@ -12,7 +12,7 @@ public interface PlayerClientController { //needs to implement QuizServerControl
 
 
     /**
-     * Launches the user interface of the controllers.PlayerClientController
+     * Launches the user interface of the PlayerClientController
      */
     public void start();
 }

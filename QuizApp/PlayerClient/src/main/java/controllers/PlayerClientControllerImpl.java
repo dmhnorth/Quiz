@@ -86,9 +86,6 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         }
     }
 
-    /*
-    Used to play a quiz
-     */
     private void playQuiz(int id) throws RemoteException {
 
         Quiz quiz = quizServerController.getQuizViaId(id);
@@ -105,9 +102,7 @@ public class PlayerClientControllerImpl implements PlayerClientController {
             questionNo++;
             System.out.println("Question number: " + questionNo);
             String[][] currentQn = new String[][]{quiz.getQuestions()[k]};
-
-            //TODO format this question properly and have it so that quizzes can be more than one question on the player
-                view.printAQuestionAndChoices(currentQn[k]);
+            view.printAQuestionAndChoices(currentQn[k]);
 
             userInput = sc.nextLine();
 
@@ -134,10 +129,6 @@ public class PlayerClientControllerImpl implements PlayerClientController {
         return userName;
     }
 
-    /*
-     * For submitting a high score back to the server with a given
-     * quiz id, score, and high score holder
-     */
     private void submitScore(int quizId, int score, String playerName) throws RemoteException {
         System.out.println("Submitting score to server.");
         quizServerController.submitScore(quizId, score, playerName);
