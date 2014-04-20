@@ -3,6 +3,7 @@ Quiz
 
 PiJ 2014 - Coursework Part 3
 
+This project uses a single JAVA 8 Lambda in one class and therefore Java 8 is required to run it.
 
 The structure of this system is a server and two different clients. The files for each individual application can be found in the following folders in the repo.
 
@@ -22,10 +23,10 @@ To run the program, launch the server first by running 'QuizServerLauncherImpl'.
 
 The Setup Client can be used to set up games by running 'SetupClientLauncherImpl'.
 
-Player client can be launched running the 'PlayerClientLauncher'.
+Player client can be launched running the 'PlayerClientLauncherImpl'.
 
 Due to the way the system works, the Setup Client and the Player Client don't interact with each other at all.
-Therefore, both can be run at the same time without issue.
+Therefore, both can be run at the same time without issue. They must be split into their separate modules before running due to the duplicate interfaces used (The QuizServerController interface for example)
 
 Everything implemented works and I have had running perfectly 13/04/2014, once the files have been divided up into the 3 different applications. The project was built as a GRADLE project.
 
