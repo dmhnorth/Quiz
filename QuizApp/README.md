@@ -34,5 +34,5 @@ The only tool I didn't have time to implement was the ability to edit a quiz aft
 However, there are tools throughout the quiz building process to 'edit as you go'.
 Further implementation would allow editing quizzes after upload, taking them 'offline' whilst somebody works on it.
 
-I didn't take the TDD approach. I built this project testing usability as I created it due to the use of RMI. Hence the lack of tests.
+I didn't take the TDD approach. I built this project testing usability as I created elements, due to the use of RMI. Hence the lack of tests.
 I used the RAPID APPLICATION DEVELOPMENT approach, as this will be the system I will be implementing my final project with, prioritising usability.
