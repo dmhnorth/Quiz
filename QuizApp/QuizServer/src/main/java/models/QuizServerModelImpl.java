@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class QuizServerModelImpl implements QuizServerModel, Serializable {
 
-    private static int counter = 0;
+    private int counter = 0;
     private TreeMap<Integer, Quiz> quizzes = new TreeMap<>();
 
     public QuizServerModelImpl() {
