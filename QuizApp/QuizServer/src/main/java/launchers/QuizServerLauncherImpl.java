@@ -44,7 +44,7 @@ public class QuizServerLauncherImpl implements QuizServerLauncher {
 
         } catch (NullPointerException e) {
             System.out.println("Your Quiz Server Data was empty or corrupt. New Data will be created on shutdown.");
-//            dm.deleteCorruptData();
+            dm.deleteCorruptData();
         } catch (Exception e) {
             System.out.println("The Quiz Server failed: " + e);
         }
