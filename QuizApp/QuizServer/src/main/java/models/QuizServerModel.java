@@ -35,5 +35,9 @@ public interface QuizServerModel {
      */
     void checkAndReplaceScore(int quizId, int score, String playerName) throws RemoteException;
 
+    /**
+     * prints out the current details of the persistent data on a server as soon as it has been started up
+     * @throws RemoteException
+     */
     void printContainer() throws RemoteException;
 }

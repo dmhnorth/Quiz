@@ -13,8 +13,6 @@ import java.rmi.registry.Registry;
 public class SetupClientLauncherImpl implements SetupClientLauncher {
 
 
-    final String server = "quizServerController";
-
     public static void main(String[] args) {
 
         SetupClientLauncher launcher = new SetupClientLauncherImpl();
@@ -22,6 +20,7 @@ public class SetupClientLauncherImpl implements SetupClientLauncher {
     }
 
 
+    @Override
     public void launch() {
 
         Registry registry;
